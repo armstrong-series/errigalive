@@ -65,7 +65,7 @@
               </button>
 
               <!-- Register buttons -->
-              <div class="text-center">
+              <!-- <div class="text-center">
                 <p>or sign up with:</p>
                 <button type="button" class="btn btn-link btn-floating mx-1">
                   <i class="fab fa-facebook-f"></i>
@@ -74,11 +74,11 @@
                 <button type="button" class="btn btn-link btn-floating mx-1">
                   <i class="fab fa-google"></i>
                 </button>  
-              </div>
-            </form>
-               <!-- <div class="d-flex justify-content-center mb-4">     
-                <a href="#">Forgot Password</a>
               </div> -->
+            </form>
+               <div class="d-flex justify-content-center mb-4">     
+                <a href="#">Forgot Password</a>
+              </div>
 
               
                 <a href="{{ route('home') }}"><i class="fas fa-house"></i></a>

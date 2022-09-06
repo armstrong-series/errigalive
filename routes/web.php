@@ -18,5 +18,6 @@ Route::get('/logout', [Controller\Auth\LoginController::class, 'logout'])->name(
 Route::get('/reset-password/{token}', [Controller\Auth\ResetPasswordController::class, 'resetPassword'])->name('auth.reset-password');
 Route::post('/reset-password', [Controller\Auth\ResetPasswordController::class,'updatePassword'])->name('auth.update-password');
 Route::get('/admin', [Controller\Admin\AdminController::class, 'dashboard'])->name('admin.dashboard');
+Route::get('/admin/events', [Controller\Event\EventController::class, 'eriggaEvents'])->name('eriggalive.event');
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'errigaLiveHome'])->name('home');

@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>ErrigaLive </title>
+    <title>EriggaLive </title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('erigg.png') }}">
     <link href="{{ asset('dashboard/vendor/jqvmap/css/jqvmap.min.css') }}" rel="stylesheet">
@@ -33,8 +33,8 @@
         <div class="nav-header">
             <a href="{{ route('admin.dashboard') }}" class="brand-logo">
                 <img class="logo-abbr" src="{{ asset('erigg.png')}}" alt="">
-                <img class="logo-compact" src="{{ asset('dashboard/images/logo-text.png') }}" alt="">
-                <img class="brand-title" src="{{ asset('dashboard/images/logo-text.png') }}" alt="">
+                <!-- <img class="logo-compact" src="{{ asset('dashboard/images/logo-text.png') }}" alt="">
+                <img class="brand-title" src="{{ asset('dashboard/images/logo-text.png') }}" alt=""> -->
             </a>
 
             <div class="nav-control">
@@ -613,8 +613,11 @@
 	
 	<!-- Dashboard 1 -->
 	<script src="{{ asset('dashboard/js/dashboard/dashboard-1.js') }}"></script>
-	<script src="{{ asset('libraries/vue.js') }}"></script>
 	<script src="{{ asset('libraries/axios.js') }}"></script>
+	<script src="{{ asset('libraries/vue.js') }}"></script>
+	<script src="https://unpkg.com/vue-toastr/dist/vue-toastr.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+	
 	
 	<script>
 		function carouselReview(){

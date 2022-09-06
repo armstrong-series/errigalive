@@ -17,14 +17,19 @@ class EventController extends Controller
     }
 
 
-    public function errigaEvents(){
-        return view('App.ticket-event');
+    public function eriggaEvents(){
+       $data = [
+        "page" => "events"
+       ];
+       return view('App.ticket-event', $data);
     }
 
 
     public function createErrigaEvent(Request $request){
         try {
-            //code...
+        
+
+
         } catch (Exception $error) {
             Log::info("EventController@createErrigaEvent". $error->getMessage());
         }
