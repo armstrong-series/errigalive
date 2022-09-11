@@ -64,25 +64,15 @@
                 Sign In
               </button>
 
-              <!-- Register buttons -->
-              <!-- <div class="text-center">
-                <p>or sign up with:</p>
-                <button type="button" class="btn btn-link btn-floating mx-1">
-                  <i class="fab fa-facebook-f"></i>
-                </button>
 
-                <button type="button" class="btn btn-link btn-floating mx-1">
-                  <i class="fab fa-google"></i>
-                </button>  
-              </div> -->
             </form>
-               <div class="d-flex justify-content-center mb-4">     
+               <div class="d-flex justify-content-center mb-4">
                 <a href="#">Forgot Password</a>
               </div>
 
-              
-                <a href="{{ route('home') }}"><i class="fas fa-house"></i></a>
-              
+
+                <a href="{{ route('home') }}"><i class="fas fa-home-lg"></i></a>
+
           </div>
         </div>
       </div>
@@ -102,6 +92,7 @@
 
 
 <!-- MDB -->
+<script defer src="https://pro.fontawesome.com/releases/v5.10.0/js/all.js" integrity="sha384-G/ZR3ntz68JZrH4pfPJyRbjW+c0+ojii5f+GYiYwldYU69A+Ejat6yIfLSxljXxD"
+crossorigin="anonymous"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.4.0/mdb.min.js"></script>
-<script defer src="https://pro.fontawesome.com/releases/v5.10.0/js/all.js" integrity="sha384-G/ZR3ntz68JZrH4pfPJyRbjW+c0+ojii5f+GYiYwldYU69A+Ejat6yIfLSxljXxD" 
-  crossorigin="anonymous"></script>
+

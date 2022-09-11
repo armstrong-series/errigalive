@@ -12,18 +12,24 @@ use Exception;
 
 class AdminController extends Controller
 {
-   
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function dashboard(Request $request){
 
+        $events = EventsModel::all()->count();
         $data = [
-            "page" => "dashboard"
+            "page" => "dashboard",
+            "events" => $events
         ];
         return view('App.Admin.admin', $data);
-        
+
     }
 
     public function clubEvent(){
-       
+
         $data = ["page" => "events"];
         return view('App.ticket-event', $data);
     }
@@ -32,9 +38,9 @@ class AdminController extends Controller
 
     public function addClubTruthEvent(Request $request){
         try {
-            
+
         } catch (Exception $error) {
-            //throw $th;
+
         }
     }
 }

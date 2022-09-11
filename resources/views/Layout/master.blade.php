@@ -20,6 +20,14 @@
 </head>
 @yield('title')
 
+@yield('styles')
+<style>
+    [v-cloak]{
+        display: none;
+    }
+</style>
+
+
 <body>
 
     <!--**********************************
@@ -33,8 +41,6 @@
         <div class="nav-header">
             <a href="{{ route('admin.dashboard') }}" class="brand-logo">
                 <img class="logo-abbr" src="{{ asset('erigg.png')}}" alt="">
-                <!-- <img class="logo-compact" src="{{ asset('dashboard/images/logo-text.png') }}" alt="">
-                <img class="brand-title" src="{{ asset('dashboard/images/logo-text.png') }}" alt=""> -->
             </a>
 
             <div class="nav-control">
@@ -46,7 +52,7 @@
         <!--**********************************
             Nav header end
         ***********************************-->
-		
+
 		<!--**********************************
             Chat box start
         ***********************************-->
@@ -273,7 +279,7 @@
 								<div>
 									<h6 class="mb-1">Chat with Khelesh</h6>
 									<p class="mb-0 text-success">Online</p>
-								</div>							
+								</div>
 								<div class="dropdown">
 									<a href="#" data-toggle="dropdown" ><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"/><circle fill="#000000" cx="5" cy="12" r="2"/><circle fill="#000000" cx="12" cy="12" r="2"/><circle fill="#000000" cx="19" cy="12" r="2"/></g></svg></a>
 									<ul class="dropdown-menu dropdown-menu-right">
@@ -548,7 +554,7 @@
 		<!--**********************************
             Chat box End
         ***********************************-->
-		
+
 		<!--**********************************
             Header start
         ***********************************-->
@@ -564,13 +570,13 @@
         <!--**********************************
             Sidebar end
         ***********************************-->
-		
+
 		<!--**********************************
             Content body start
         ***********************************-->
 
         @yield('content')
-        
+
         <!--**********************************
             Content body end
         ***********************************-->
@@ -607,18 +613,20 @@
     <script src="{{ asset('dashboard/js/custom.min.js') }}"></script>
 	<script src="{{ asset('dashboard/js/deznav-init.js') }}"></script>
 	<script src="{{ asset('dashboard/vendor/owl-carousel/owl.carousel.js') }}"></script>
-	
+
 	<!-- Chart piety plugin files -->
     <script src="{{ asset('dashboard/vendor/peity/jquery.peity.min.js') }}"></script>
-	
+
 	<!-- Dashboard 1 -->
 	<script src="{{ asset('dashboard/js/dashboard/dashboard-1.js') }}"></script>
 	<script src="{{ asset('libraries/axios.js') }}"></script>
 	<script src="{{ asset('libraries/vue.js') }}"></script>
 	<script src="https://unpkg.com/vue-toastr/dist/vue-toastr.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
-	
-	
+
+    <script defer src="https://pro.fontawesome.com/releases/v5.10.0/js/all.js" integrity="sha384-G/ZR3ntz68JZrH4pfPJyRbjW+c0+ojii5f+GYiYwldYU69A+Ejat6yIfLSxljXxD"
+    crossorigin="anonymous"></script>
+
 	<script>
 		function carouselReview(){
 			/*  testimonial one function by = owl.carousel.js */
@@ -636,11 +644,11 @@
 					},
 					800:{
 						items:2
-					},	
+					},
 					991:{
 						items:2
-					},			
-					
+					},
+
 					1200:{
 						items:2
 					},
@@ -648,7 +656,7 @@
 						items:2
 					}
 				}
-			})		
+			})
 			jQuery('.testimonial-two').owlCarousel({
 				loop:true,
 				autoplay:true,
@@ -663,11 +671,11 @@
 					},
 					600:{
 						items:2
-					},	
+					},
 					991:{
 						items:3
-					},			
-					
+					},
+
 					1200:{
 						items:3
 					},
@@ -675,12 +683,12 @@
 						items:4
 					}
 				}
-			})					
+			})
 		}
 		jQuery(window).on('load',function(){
 			setTimeout(function(){
 				carouselReview();
-			}, 1000); 
+			}, 1000);
 		});
 	</script>
 

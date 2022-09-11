@@ -17,7 +17,10 @@ class CreateShopTable extends Migration
             $table->id();
             $table->integer('user_id');
             $table->string('item')->nullable();
+            $table->string('product_image')->nullable();
+            $table->string('product_uuid')->nullable();
             $table->float('price')->nullable();
+            $table->enum('category', ["cosmetics", "laundry", "wears", "gadgets", "entertainment"]);
             $table->text('description')->nullable();
             $table->integer('quantity')->nullable();
             $table->timestamps();

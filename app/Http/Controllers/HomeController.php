@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\EventsModel;
+use App\Models\PaymentModel;
 
 class HomeController extends Controller
 {
@@ -11,7 +13,7 @@ class HomeController extends Controller
      *
      * @return void
      */
-    
+
 
     /**
      * Show the application dashboard.
@@ -20,6 +22,27 @@ class HomeController extends Controller
      */
     public function errigaLiveHome()
     {
-        return view('Frontend.index');
+        $events = EventsModel::all();
+
+        $data = [
+            'events' => $events
+        ];
+        return view('Frontend.index', $data);
+    }
+
+    public function eventTicket($eventId){
+        $event = EventsModel::where('id', $eventId)->first();
+        if(!$event){
+            $message = "Unknown Event!";
+            return response()->json(["message" => $message], 404);
+        }
+
+        $data = [
+            "event" => $event
+        ];
+
+        return view('Frontend.event-details', $data);
+
+
     }
 }

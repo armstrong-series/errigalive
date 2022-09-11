@@ -1,0 +1,73 @@
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            @csrf
+            <div class="modal-body">
+                <div class="">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Event</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="basic-form">
+                                <div class="">
+                                    <div class="form-group">
+                                        <h5>Event Name</h5>
+                                        <input type="text" name="event" v-model="event.name" class="form-control input-rounded" placeholder="Enter event name">
+                                    </div>
+                                    <div class="form-group">
+                                        <h5>Event Description</h5>
+                                        <textarea class="form-control" rows="4" id="comment" v-model="event.description" placeholder="Enter Event Description"></textarea>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <h5>Venue</h5>
+                                        <textarea class="form-control" v-model="event.venue"  rows="4" id="comment" placeholder="Enter Venue of Event"></textarea>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <h5>Date</h5>
+                                        <input type="date" name="date" class="form-control" v-model="event.date" >
+
+                                    </div>
+
+                                    <div class="form-group">
+                                        <h5>Event Banner</h5>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">Upload</span>
+                                            </div>
+                                            <div class="custom-file" v-if="imageFile == null || imageFile.length == 0" class="fileUpload px-5 py-2 mt-5 btn-md btn-primary">
+                                                <input type="file" name="event_banner" class="custom-file-input"  @change="showImagePreview($event)" accept="image/*"  class="form-control upload">
+                                                <label class="custom-file-label">Choose file</label>&nbsp;&nbsp;<i v-if="!imageFile"></i>
+                                            </div>
+                                        </div>
+
+                                        <div class="np-image-preview text-center" v-if="imageFile != null && imageFile.length != 0" >
+                                            <img class="np-preview" :src="imageFile" />
+                                        </div>
+                                        <div v-if="imageFile != null && imageFile.length != 0 && !isImageUploading">
+                                          <button class="btn-sm btn-default" v-on:click="clearImage()" title="Remove">
+                                            <i class="fas fa-trash"></i>
+                                           </button>
+                                         </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-rounded btn-secondary btn-sm light" data-dismiss="modal">Skip</button>
+                <button type="button" @click="createEvent()" class="btn btn-rounded btn-info btn-sm">Proceed</button>
+
+                <div v-if="isLoading" class="spinner-border text-success" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
