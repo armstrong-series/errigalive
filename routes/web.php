@@ -26,6 +26,8 @@ Route::delete('/admin/event/delete', [Controller\Event\EventController::class, '
 Route::get('/shop', [Controller\Shop\ShopController::class, 'items'])->name('eriggalive.shop');
 Route::get('/settings/profile', [Controller\Settings\SettingsController::class, 'profileSettings'])->name('settings.profile');
 Route::get('/events/live/{eventId}', [Controller\HomeController::class, 'eventTicket'])->name('event.ticket');
-Route::get('/ticket/event/{eventId}', [Controller\HomeController::class, 'ticket'])->name('ticket');
+Route::get('/ticket/payment', [Controller\HomeController::class, 'ticket'])->name('ticket');
+Route::get('/ticket/payment/initialize', [Controller\Payments\PayementController::class, 'initializePaystackPayment'])->name('ticket.payment');
+Route::get('/payment/callback', [Controller\Payments\PayementController::class, 'paystackCallbackURL'])->name('ticket.callback');
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'errigaLiveHome'])->name('home');

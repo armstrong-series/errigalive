@@ -48,39 +48,11 @@ class HomeController extends Controller
 
     }
 
-    public function ticket($eventId){
-        $event = EventsModel::where('id', $eventId)->first();
-        if(!$event){
-            $message = "Unknown Event!";
-            return response()->json(["message" => $message], 404);
-        }
-        $data = [
-            "event" => $event
-        ];
+    public function ticket(){
 
-        return view('Frontend.ticket', $data);
+        return view('Frontend.ticket');
     }
 
 
-    public function ticketPayement(Request $request, $eventId){
 
-        $event = EventsModel::where('id', $eventId)->first();
-        if(!$event){
-            $message = "Unknown Event!";
-            return response()->json(["message" => $message], 404);
-        }
-
-        $ticketNumber = random_int(100, 9999895);
-        $ticket = new TicketModel();
-        $ticket->id = $request->id;
-        $ticket->ticket_name = $event->name;
-        $ticket->qty = $request->qty;
-        $ticket->price = $event->price;
-        $ticket->ticket_number ="errigalive-".$ticketNumber;
-        dd($ticket);
-        $ticket->save();
-        $url = route("ticket");
-        return response()->json([ "url" => $url]);
-
-    }
 }

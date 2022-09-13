@@ -43,8 +43,7 @@
                     <div class="tzHeaderContainer">
                         <h3 class="pull-left tz_logo">
                             <a title="Home" href="#">
-                                <img src="{{ asset('erilive.png') }}" alt="Erriga" class="img-responsive" width="75"
-                                    height="70">
+                                <img src="{{ asset('erigga/LOGO.png') }}" alt="Erriga" class="img-responsive">
                             </a>
                         </h3>
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
@@ -72,21 +71,59 @@
             <div id="home" class="tz_home_slider_meetup vc_row">
                 <div class="tz_home_slider_meetup_setting">
                     <ul class="bxslider">
+
+                        {{-- <div class="tzTwitter-slider owl-carousel owl-theme">
+                            <div class="tzTwitter-item">
+                                <div class="tzTwitter-icon">
+                                    <i class="fa fa-twitter"></i>
+                                </div>
+                                <span class="tweet_text">
+                                    At the end of 2014 the total paid out to Envato's global community reached $224 million! <a
+                                        href="#">http://buff.ly/1AWD4Dx</a>
+                                </span>
+                                <span class="tz_tweet_meetup_name">&#64;templaza</span>
+                                <span class="tweet_time">about 2 hours ago</span>
+                            </div>
+                            <div class="tzTwitter-item">
+                                <div class="tzTwitter-icon">
+                                    <i class="fa fa-twitter"></i>
+                                </div>
+                                <span class="tweet_text">
+                                    At the end of 2014 the total paid out to Envato's global community reached $224 million! <a
+                                        href="#">http://buff.ly/1AWD4Dx</a>
+                                </span>
+                                <span class="tz_tweet_meetup_name">&#64;templaza</span>
+                                <span class="tweet_time">about 2 hours ago</span>
+                            </div>
+                            <div class="tzTwitter-item">
+                                <div class="tzTwitter-icon">
+                                    <i class="fa fa-twitter"></i>
+                                </div>
+                                <span class="tweet_text">
+                                    At the end of 2014 the total paid out to Envato's global community reached $224 million! <a
+                                        href="#">http://buff.ly/1AWD4Dx</a>
+                                </span>
+                                <span class="tz_tweet_meetup_name">&#64;templaza</span>
+                                <span class="tweet_time">about 2 hours ago</span>
+                            </div>
+                        </div> --}}
                         <li>
                             <div class="meetup_bl_slider_home"></div>
-                            <img src="{{ asset('frontend/images/slider-1.jpg') }}" alt="slider-home" />
+
+                            <img src="{{ asset('erigga/slider1.jpg') }}" alt="slider-home" />
+
                         </li>
                         <li>
                             <div class="meetup_bl_slider_home"></div>
-                            <img src="{{ asset('frontend/images/slider-2.jpg') }}" alt="slider-home" />
+                            <img src="{{ asset('erigga/slider2.jpg') }}" alt="slider-home" />
                         </li>
                         <li>
                             <div class="meetup_bl_slider_home"></div>
-                            <img src="{{ asset('frontend/images/slider-3.jpg') }}" alt="slider-home" />
+                            <img src="{{ asset('erigga/slider3.png') }}" alt="slider-home" />
                         </li>
                     </ul>
                 </div>
-                <div class="tz_content_slider_meetup">
+                {{-- <div class="tz_content_slider_meetup">
                     <div class="ds-table">
                         <div class="ds-table-cell">
                             <div class="tz_meetup_social">
@@ -123,7 +160,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
             <!-- Slider end -->
             <!-- Event Start -->
@@ -166,26 +203,6 @@
 
                                 </div>
                             </div>
-                            {{-- <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 custom_col_pading">
-                                <div class="tz_maniva_about_meetup">
-                                    <div class="tz_meetup_thumbnail">
-                                        <a href="javascript:void(0);">
-                                            <img src="{{ asset('new-genesis.jpg') }}" alt="Genesis" />
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 custom_col_pading">
-                                <div class="tz_maniva_about_meetup">
-                                    <div class="tz_meetup_thumbnail">
-                                        <a href="index.html">
-                                            <img src="{{ asset('lostb.jpg') }}" alt="about" />
-                                        </a>
-                                    </div>
-
-
-                                </div>
-                            </div> --}}
                         </div>
                     </div>
 
@@ -267,7 +284,7 @@
             <!-- Gallery  start -->
             <section id="gallery">
                 <div class="tz_maniva_meetup_title text-center">
-                    <h3 class="tz_meetup_title_raleway tz_title_meetup_medium"> OUR GALLERY </h3>
+                    <h3 class="tz_meetup_title_raleway tz_title_meetup_medium"> EriggaLive</h3>
                     <div class="tz_image_title_meetup">
                         <img src="{{ asset('frontend/images/line-white-red.png') }}" alt="line_red">
                     </div>

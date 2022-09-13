@@ -67,26 +67,16 @@
                                                         </thead>
                                                         <tbody>
                                                           <tr>
-                                                            <th scope="row">@{{ details.name }}</th>
-                                                            <td>₦ @{{ details.price }}</td>
+                                                            <th scope="row">@{{ ticket.name }}</th>
+                                                            <td>₦ @{{ ticket.price }}</td>
                                                             <td>
-                                                                <select class="custom-select form-control">
-                                                                    <option selected value="0">0</option>
-                                                                    <option value="1">1</option>
-                                                                    <option value="2">2</option>
-                                                                    <option value="3">3</option>
-                                                                    <option value="3">4</option>
-                                                                    <option value="3">5</option>
-                                                                    <option value="3">6</option>
-                                                                    <option value="3">7</option>
-                                                                </select>
+                                                               @{{ ticket.qty }}
                                                             </td>
                                                           </tr>
-
                                                         </tbody>
                                                       </table>
                                                 </div>
-                                                <a href="#" class="btn btn-lg btn-default" style="background: #FF5733; color:aliceblue;" type="button">Make Payment</a>
+                                                <a href="{{ route('ticket.payment') }}" class="btn btn-lg btn-default" style="background: #FF5733; color:aliceblue;" type="button">Make Payment</a>
                                             </div>
                                         </div>
                                     </div>
@@ -118,7 +108,7 @@
             </footer>
         </div>
 
-        <textarea name="" style="display:none;" id="ticket" cols="30" rows="10">{{ json_encode($event) }}</textarea>
+
 
     </div>
 

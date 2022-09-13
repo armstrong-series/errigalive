@@ -37,74 +37,7 @@
                 <div class="tz_meetup_header_option">
                     <div class="container">
                         <div class="row">
-                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                                <div class="tz_meetup_header_option_phone">
-                                    <span>
-                                        <img alt="phone" src="{{ asset('frontend/images/phone.png') }}">
-                                        +44 40 8873432
-                                    </span>
-                                    <span>
-                                        <img alt="email" src="{{ asset('frontend/images/email_meetup.png') }}">
-                                        <a href="mailto:"> info@eriggalive.com</a>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-                                <div class="tz-headerRight text-right">
-                                    <ul>
-                                        <li>
-                                            <a href="javascript:void(0);">
-                                                <i class="fa fa-facebook"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0);">
-                                                <i class="fa fa-twitter"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fa fa-flickr"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fa fa-behance"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fa fa-instagram"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fa fa-digg"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fa fa-dribbble"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fa fa-dropbox"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fa fa-linkedin"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="http://www.youtube.com/channel/UCykS6SX6L2GOI-n3IOPfTVQ">
-                                                <i class="fa fa-youtube"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -215,13 +148,13 @@
                                                                     <option value="1">1</option>
                                                                     <option value="2">2</option>
                                                                     <option value="3">3</option>
-                                                                    <option value="3">4</option>
-                                                                    <option value="3">5</option>
-                                                                    <option value="3">6</option>
-                                                                    <option value="3">7</option>
-                                                                    <option value="3">8</option>
-                                                                    <option value="3">9</option>
-                                                                    <option value="3">10</option>
+                                                                    <option value="4">4</option>
+                                                                    <option value="5">5</option>
+                                                                    <option value="6">6</option>
+                                                                    <option value="7">7</option>
+                                                                    <option value="8">8</option>
+                                                                    <option value="9">9</option>
+                                                                    <option value="10">10</option>
                                                                 </select>
                                                             </td>
                                                           </tr>
@@ -229,7 +162,7 @@
                                                         </tbody>
                                                       </table>
                                                 </div>
-                                                <a href="#" class="btn btn-lg btn-default" @click="saveTicket()" style="background: #FF5733; color:aliceblue;" type="button">Buy Ticket</a>
+                                                <a href="/ticket/payment" class="btn btn-lg btn-default" @click="buyTicket()" style="background: #FF5733; color:aliceblue;" type="button">Buy Ticket</a>
                                             </div>
                                         </div>
                                     </div>
@@ -278,6 +211,9 @@
     <script src="{{ asset('frontend/js/library/jquery.prettyPhoto.js') }}"></script>
 
     <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script>
+        let newJQuery = $.noConflict(true);
+    </script>
 
     <!-- Include custom js -->
     <script src="{{ asset('frontend/js/custom.js') }}"></script>

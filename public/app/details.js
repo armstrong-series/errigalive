@@ -20,43 +20,27 @@ if (window.Vue) {
 
 
         mounted() {
-            this.details = JSON.parse($('#event-details').val());
-            this.ticket_create = JSON.parse($('#event-details').val());
-            console.log('events..', this.details)
+            this.details = JSON.parse(newJQuery('#event-details').val());
+            this.ticket_create = JSON.parse(newJQuery('#event-details').val());
+
 
         },
 
 
         methods: {
 
-            saveTicket() {
-
+            buyTicket() {
+                let new_price = this.details.price * this.ticket.qty
                 const ticket = {
                     name: this.details.name,
-                    price: this.details.price,
+                    price: new_price,
                     qty: this.ticket.qty,
 
                 }
-                axios.post(this.route.ticket_create, ticket).then((response) => {
-                   let url = response.data.url;
-                   window.location = url;
+                console.log('new ticket',ticket)
+                window.localStorage.setItem('new_ticket', JSON.stringify(ticket));
 
 
-                }).catch((error) => {
-                    this.isLoading = false
-                    this.$toastr.Add({
-                        msg: error.response.data.message,
-                        clickClose: false,
-                        timeout: 2000,
-                        position: "toast-top-right",
-                        type: "error",
-                        preventDuplicates: true,
-                        progressbar: false,
-                        style: { backgroundColor: "red" }
-                    });
-
-
-                })
 
             },
 
