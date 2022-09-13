@@ -21,7 +21,7 @@
 								</span>
 								<div class="media-body text-right">
 									<p class="fs-18 text-white mb-2">Tickets Sold</p>
-									<span class="fs-48 text-white font-w600">86</span>
+									<span class="fs-48 text-white font-w600">{{ $tickets }}</span>
 								</div>
 							</div>
 						</div>

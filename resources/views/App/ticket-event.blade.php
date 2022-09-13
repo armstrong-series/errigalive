@@ -55,8 +55,8 @@
             <header>
                 <div class="text-right">
                     <button type="button" class="btn btn-sm btn-rounded btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">
-                        <span
-                        class="btn-icon-left text-info"><i class="fa fa-plus color-info"></i>
+                        <span class="btn-icon-left text-info">
+                         <i class="fa fa-plus color-info"></i>
                     </span>Add Event</button>
                 </div>
             </header>
@@ -64,24 +64,39 @@
             <div class="row">
                 <div class="col-md-4" v-for="(event, index) in events">
                     <div class="card mb-3">
-                        <img class="card-img-top img-fluid" :src="event.event_banner" alt="Card image cap">
+                        <img class="card-img-top img-fluid" :src="'/storage/events/banner/'+event.event_banner" alt="Card image cap">
+
                         <div class="card-header">
                             <h5 v-cloak class="card-title">@{{ event.name }}</h5>
                         </div>
+
                         <div class="card-body">
-                            <p class="card-text">@{{ event.description }}
-                            </p>
+                            <p class="card-text">@{{ event.description }}</p>
+
+                            <div class="text-right">
+                                <p><i class="fas fa-calendar-day"></i>&nbsp;&nbsp;@{{ event.date}}</p>
+                            </div>
                         </div>
                         <div class="card-footer">
-                            <p class="card-text d-inline">Card footer</p>
-                            <a href="javascript:void()" class="card-link float-right">Card link</a>
+                            <div class="dropdown custom-dropdown">
+                                <button type="button" class="btn btn-sm btn-outline-info " data-toggle="dropdown">
+                                    <i class="fal fa-layer-group"></i>
+                                    <i class="fa fa-angle-down ml-3"></i>
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a class="dropdown-item" href="javascript:void(0);" class="btn btn-primary mb-2" data-toggle="modal" @click="selectEvent(index)" data-target="#exampleModalCenter"><small>Edit Event&nbsp;&nbsp;<i class="fas fa-pen-fancy"></i></small></a>
+                                    <a class="dropdown-item"  data-toggle="modal" href="#"><small>Change Thumbnail&nbsp;&nbsp;<i class="fas fa-image"></i></small></a>
+                                    <a class="dropdown-item text-danger" href="javascript:void(0);" @click="deleteEvent(index)"><small>Delete&nbsp;&nbsp;<i class="fas fa-trash"></i></small></a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
 
-
                 <textarea name="" id="createEvent" style="display:none" cols="30" rows="10">{{ route('event.create') }}</textarea>
+                <textarea name="" id="updateEvent" style="display:none" cols="30" rows="10">{{ route('event.update') }}</textarea>
+                <textarea name="" id="deleteEvent" style="display:none" cols="30" rows="10">{{ route('event.delete') }}</textarea>
                 <textarea name="" id="events" style="display:none" cols="30" rows="10">{{ json_encode($events) }}</textarea>
             </div>
 

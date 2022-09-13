@@ -17,7 +17,8 @@ if (window.Vue) {
 
 
         mounted() {
-
+            this.events = JSON.parse(newJQuery('#events').val());
+            console.log('events..', this.events)
 
         },
 

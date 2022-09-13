@@ -29,638 +29,244 @@
 </head>
 
 <body id="bd">
-    <div id="tzwrapper">
+    <div id="details">
+        <div id="tzwrapper" id="details">
 
-        <!-- Header start -->
-        <header class="tz-headerHome tz-homeType2 tz-homeTypeRelative">
-            <div class="tz_meetup_header_option">
+            <!-- Header start -->
+            <header class="tz-headerHome tz-homeType2 tz-homeTypeRelative">
+                <div class="tz_meetup_header_option">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                                <div class="tz_meetup_header_option_phone">
+                                    <span>
+                                        <img alt="phone" src="{{ asset('frontend/images/phone.png') }}">
+                                        +44 40 8873432
+                                    </span>
+                                    <span>
+                                        <img alt="email" src="{{ asset('frontend/images/email_meetup.png') }}">
+                                        <a href="mailto:"> info@eriggalive.com</a>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                                <div class="tz-headerRight text-right">
+                                    <ul>
+                                        <li>
+                                            <a href="javascript:void(0);">
+                                                <i class="fa fa-facebook"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0);">
+                                                <i class="fa fa-twitter"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-flickr"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-behance"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-instagram"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-digg"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-dribbble"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-dropbox"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-linkedin"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="http://www.youtube.com/channel/UCykS6SX6L2GOI-n3IOPfTVQ">
+                                                <i class="fa fa-youtube"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tz-header-content">
+                    <div class="container">
+                        <div class="tzHeaderContainer">
+
+
+                            <!-- Menu start -->
+                            <nav class="nav-collapse pull-right tz-menu">
+                                <ul id="tz-navbar-collapse" class="nav navbar-nav collapse navbar-collapse tz-nav">
+                                    <li class="menu-item-has-children">
+                                        <a href="{{ route('home') }}">Home</a>
+
+                                    </li>
+
+                                </ul>
+                            </nav>
+                            <!-- Menu end -->
+
+                            <!-- Form search start -->
+                            <div class="tz-form-search">
+                                <div class="container">
+                                    <form class="searchform">
+                                        <input class="field Tzsearchform inputbox search-query Tzsearchform"
+                                            type="text" placeholder="Search..." name="s">
+                                        <i class="fa fa-search tz-icon-form-search"></i>
+                                        <i class="fa fa-times tz-form-close"></i>
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- Form search end -->
+
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!-- Header end -->
+
+            <!-- Breadcrumb start -->
+            <section class="tz-sectionBreadcrumb">
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                            <div class="tz_meetup_header_option_phone">
-                                <span>
-                                    <img alt="phone" src="{{ asset('frontend/images/phone.png') }}">
-                                    +44 40 8873432
-                                </span>
-                                <span>
-                                    <img alt="email" src="images/email_meetup.png">
-                                    <a href="mailto:"> info@eriggalive.com</a>
-                                </span>
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="tz_breadcrumb_single_cat_title">
+                                <h4> Event</h4>
                             </div>
                         </div>
-                        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-                            <div class="tz-headerRight text-right">
-                                <ul>
-                                    <li>
-                                        <a href="https://www.facebook.com/templaza  ">
-                                            <i class="fa fa-facebook"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://twitter.com/templazavn">
-                                            <i class="fa fa-twitter"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-flickr"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-behance"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-instagram"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-digg"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-dribbble"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-dropbox"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-linkedin"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="http://www.youtube.com/channel/UCykS6SX6L2GOI-n3IOPfTVQ">
-                                            <i class="fa fa-youtube"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
-            </div>
-            <div class="tz-header-content">
+            </section>
+            <!-- Breadcrumb end -->
+
+            <!-- Event Start -->
+            <section class="tz-blogDefault">
                 <div class="container">
-                    <div class="tzHeaderContainer">
-                        <h3 class="pull-left tz_logo">
-                            <a title="Home" href="index.html">
-                                <img src="images/logo-2.png" alt="maniva-meetup">
-                            </a>
-                        </h3>
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                            data-target="#tz-navbar-collapse">
-                            <i class="fa fa-bars"></i>
-                        </button>
+                    <div class="row">
+                        <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                            <div class="tz-blogContainer">
+                                <div class="tz-blogItem">
+                                    <div class="tz-blogContent">
+                                        <div class="tz-blogBox ">
+                                            <div class="tz-BlogImage">
 
-                        <button class="pull-right tz-search">
-                            <i class="fa fa-search"></i>
-                        </button>
+                                                <img :src="'/storage/events/banner/'+details.event_banner" alt=Cevent" />
+                                                <div class="tz-ImageOverlay"></div>
+                                                <a class="tz-ViewImage" data-rel="prettyPhoto[worksGallery]"
+                                                    :href="'/storage/events/banner/'+details.event_banner">
+                                                    <i class="fa fa fa-search"></i>
+                                                </a>
+                                                <a class="tz-ViewDetail" href="#">
+                                                    <i class="fa fa-link"></i>
+                                                </a>
+                                            </div>
+                                            <div class="tz_blog_box_content">
+                                                <h4 class="title">
+                                                    <a href="javascript:void(0);">@{{ details.name }}</a>
+                                                </h4>
+                                                <span class="tzinfomation">
+                                                    <small class="tzinfomation_time"> @{{ details.date }} </small>
+                                                    <a href="#">
+                                                        <i>|</i>
+                                                        @{{ details.venue }}
+                                                    </a>
 
-                        <!-- Menu start -->
-                        <nav class="nav-collapse pull-right tz-menu">
-                            <ul id="tz-navbar-collapse" class="nav navbar-nav collapse navbar-collapse tz-nav">
-                                <li class="menu-item-has-children">
-                                    <a href="#">Home</a>
-                                    <ul class="sub-menu non_mega_menu">
-                                        <li class="menu-item">
-                                            <a href="home-header.html">Home header</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li><a href="speakers.html">Speakers</a></li>
-                                <li class="menu-item-has-children">
-                                    <a href="blog.html">Blog</a>
-                                    <ul class="sub-menu non_mega_menu">
-                                        <li class="menu-item">
-                                            <a href="blog-full-width.html">Blog fullwidth</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="blog-masory.html">Blog masory</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="menu-item-has-children">
-                                    <a href="#">Features</a>
-                                    <ul class="sub-menu non_mega_menu">
-                                        <li class="menu-item">
-                                            <a href="detail-blog.html">Standard Post</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="slider-blog.html">Slider Post</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="video-blog.html">Video Post</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="audio-blog.html">Audio Post</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li><a href="contact.html">Contact</a></li>
-                                <li><a href="typography.html">Typography</a></li>
-                            </ul>
-                        </nav>
-                        <!-- Menu end -->
 
-                        <!-- Form search start -->
-                        <div class="tz-form-search">
-                            <div class="container">
-                                <form class="searchform">
-                                    <input class="field Tzsearchform inputbox search-query Tzsearchform"
-                                        type="text" placeholder="Search..." name="s">
-                                    <i class="fa fa-search tz-icon-form-search"></i>
-                                    <i class="fa fa-times tz-form-close"></i>
-                                </form>
+                                                </span>
+                                                <p>@{{ details.description }}</p>
+
+                                                <div class="">
+                                                    @csrf
+                                                    <table class="table">
+                                                        <thead>
+                                                          <tr>
+                                                            <th scope="col">Ticket</th>
+                                                            <th scope="col">Price</th>
+                                                            <th scope="col">Quantity</th>
+                                                          </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                          <tr>
+                                                            <th scope="row">@{{ details.name }}</th>
+                                                            <td>₦ @{{ details.price }}</td>
+                                                            <td>
+                                                                <select class="custom-select form-control" v-model="ticket.qty">
+                                                                    <option selected value="0">0</option>
+                                                                    <option value="1">1</option>
+                                                                    <option value="2">2</option>
+                                                                    <option value="3">3</option>
+                                                                    <option value="3">4</option>
+                                                                    <option value="3">5</option>
+                                                                    <option value="3">6</option>
+                                                                    <option value="3">7</option>
+                                                                    <option value="3">8</option>
+                                                                    <option value="3">9</option>
+                                                                    <option value="3">10</option>
+                                                                </select>
+                                                            </td>
+                                                          </tr>
+
+                                                        </tbody>
+                                                      </table>
+                                                </div>
+                                                <a href="#" class="btn btn-lg btn-default" @click="saveTicket()" style="background: #FF5733; color:aliceblue;" type="button">Buy Ticket</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
+
                         </div>
-                        <!-- Form search end -->
 
                     </div>
                 </div>
-            </div>
-        </header>
-        <!-- Header end -->
+            </section>
+            <!-- Event  end -->
 
-        <!-- Breadcrumb start -->
-        <section class="tz-sectionBreadcrumb">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                        <div class="tz_breadcrumb_single_cat_title">
-                            <h4> Blog </h4>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                        <div class="tz-breadcrumb">
-                            <h4>
-                                <span>
-                                    <a class="home" href="index.html">Home / </a>
-                                </span>
-                                <span>
-                                    Blog
-                                </span>
-                            </h4>
-                        </div>
-                    </div>
+            <!-- footer start -->
+            <footer class="tz-footer tz-footer-type1">
+                <div class="tz-backtotop">
+                    <img src="{{ asset('frontend/images/back_top_meetup.png') }}" alt="back_top">
                 </div>
-            </div>
-        </section>
-        <!-- Breadcrumb end -->
 
-        <!-- Event Start -->
-        <section class="tz-blogDefault">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
-                        <div class="tz-blogContainer">
-                            <div class="tz-blogItem">
-                                <div class="tz-blogContent">
-                                    <div class="tz-blogBox ">
-                                        <div class="tz-BlogImage">
-                                            <img src="{{ asset('frontend/images/blog-quote.jpg') }}" alt="blog-quote">
-                                            <div class="tz-ImageOverlay"></div>
-                                            <a class="tz-ViewImage" data-rel="prettyPhoto[worksGallery]"
-                                                href="{{ asset('frontend/images/blog-quote.jpg') }}">
-                                                <i class="fa fa fa-search"></i>
-                                            </a>
-                                            <a class="tz-ViewDetail" href="#">
-                                                <i class="fa fa-link"></i>
-                                            </a>
-                                        </div>
-                                        <div class="tz_blog_box_content">
-                                            <h4 class="title">
-                                                <a href="detail-blog.html">Formal Text In The Conference</a>
-                                            </h4>
-                                            <span class="tzinfomation">
-                                                <small class="tzinfomation_time"> October 12, 2015 </small>
-                                                <a href="#">
-                                                    <i>|</i>
-                                                    by Mary Doe
-                                                </a>
-                                                <small>
-                                                    <i>|</i>
-                                                    <a href="#">0 Comments</a>
-                                                </small>
-                                                <span class="tzcategory">
-                                                    <i>|</i>
-                                                    <a href="#">Blog</a>
-                                                </span>
-                                            </span>
-                                            <p>Etiam non porta velit. Vivamus eget ultricies nisl. Ut massa arcu,
-                                                gravida ornare arcu sed, rutrum dapibus turpis. Nullam pharetra, ex at
-                                                congue porta, libero libero feugiat ligula, ac ullamcorper sapien felis
-                                                nec eros.</p>
-                                            <a class="tzreadmore" href="#">
-                                                <span>
-                                                    KEEP READING
-                                                    <i class="fa fa-long-arrow-right"></i>
-                                                </span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tz-blogItem">
-                                <div class="tz-blogContent">
-                                    <div class="tz-blogBox ">
-                                        <div class="tz-BlogImage">
-                                            <img src="{{ asset('frontend/images/hands-people-woman-meeting.jpg') }}"
-                                                alt="blog-quote">
-                                            <div class="tz-ImageOverlay"></div>
-                                            <a class="tz-ViewImage" data-rel="prettyPhoto[worksGallery]"
-                                                href="images/hands-people-woman-meeting.jpg">
-                                                <i class="fa fa fa-search"></i>
-                                            </a>
-                                            <a class="tz-ViewDetail" href="#">
-                                                <i class="fa fa-link"></i>
-                                            </a>
-                                        </div>
-                                        <div class="tz_blog_box_content">
-                                            <h4 class="title">
-                                                <a href="audio-blog.html">This is audio you can put your videos</a>
-                                            </h4>
-                                            <span class="tzinfomation">
-                                                <small class="tzinfomation_time"> October 12, 2015 </small>
-                                                <a href="#">
-                                                    <i>|</i>
-                                                    by Mary Doe
-                                                </a>
-                                                <small>
-                                                    <i>|</i>
-                                                    <a href="#">0 Comments</a>
-                                                </small>
-                                                <span class="tzcategory">
-                                                    <i>|</i>
-                                                    <a href="#">Blog</a>
-                                                </span>
-                                            </span>
-                                            <p>A formal writing style is not necessarily “better” than an informal
-                                                style, rather each style serves a different purpose and care should be
-                                                taken in choosing which style to use in each case.</p>
-                                            <p>the formal style, although individual communications can use the informal
-                                                style once you are familiar with the recipient.</p>
-                                            <p>Note that emails tend to lend themselves to a less formal style than
-                                                paper-based communications, but you should still avoid the use of “text
-                                                talk”.</p>
-                                            <p>If in doubt as to how formal your writing should be, it is usually better
-                                                to err on the side of caution and be formal rather than informal.</p>
-                                            <a class="tzreadmore" href="#">
-                                                <span>
-                                                    KEEP READING
-                                                    <i class="fa fa-long-arrow-right"></i>
-                                                </span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tz-blogItem">
-                                <div class="tz-blogContent">
-                                    <div class="tz-blogBox ">
-                                        <div class="tz-BlogImage">
-                                            <img src="{{ asset('frontend/images/blog-5.jpg') }}" alt="blog-quote">
-                                            <div class="tz-ImageOverlay"></div>
-                                            <a class="tz-ViewImage" data-rel="prettyPhoto[worksGallery]"
-                                                href="images/blog-5.jpg">
-                                                <i class="fa fa fa-search"></i>
-                                            </a>
-                                            <a class="tz-ViewDetail" href="#">
-                                                <i class="fa fa-link"></i>
-                                            </a>
-                                        </div>
-                                        <div class="tz_blog_box_content">
-                                            <h4 class="title">
-                                                <a href="video-blog.html">Information Technology & Systems</a>
-                                            </h4>
-                                            <span class="tzinfomation">
-                                                <small class="tzinfomation_time"> October 12, 2015 </small>
-                                                <a href="#">
-                                                    <i>|</i>
-                                                    by Mary Doe
-                                                </a>
-                                                <small>
-                                                    <i>|</i>
-                                                    <a href="#">0 Comments</a>
-                                                </small>
-                                                <span class="tzcategory">
-                                                    <i>|</i>
-                                                    <a href="#">Blog</a>
-                                                </span>
-                                            </span>
-                                            <p>Information technology refers to the collection of tools and technologies
-                                                that make it easy for individuals, businesses and other organizations to
-                                                use, create, manage and exchange information.</p>
-                                            <p>New developments in information technology have fundamentally transformed
-                                                the way in which business is carried out. The increasing power and
-                                                falling costs of computers have made information storage, analysis and
-                                                distribution faster, easier and less expensive than at any time before
-                                                in human history.</p>
-                                            <p>The Internet has removed geographical barriers, making it possible for
-                                                companies to source material from one country, process it in another
-                                                country, package it in yet another country and sell the final product
-                                                globally.</p>
-                                            <a class="tzreadmore" href="#">
-                                                <span>
-                                                    KEEP READING
-                                                    <i class="fa fa-long-arrow-right"></i>
-                                                </span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="wp-pagenavi">
-                            <span class="pages">Page 1 of 2</span>
-                            <span class="current">1</span>
-                            <a class="page larger" href="#">2</a>
-                            <a class="nextpostslink" href="#" rel="next">»</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                        <div class="tz-sidebar">
-                            <aside class="widget_search widget">
-                                <form class="searchform" action="http://wordpress.templaza.net/wp-maniva/meetup/"
-                                    method="get">
-                                    <input class="field Tzsearchform inputbox search-query Tzsearchform"
-                                        type="text" placeholder="Search..." name="s">
-                                    <i class="fa fa-search tz-icon-form-search"></i>
-                                </form>
-                            </aside>
-                            <aside class="widget tzsocial">
-                                <h3 class="module-title">
-                                    <span> Social Media </span>
-                                </h3>
-                                <div class="tzSocial_bg">
-                                    <a class="tzSocial-no tzSocial-no-bk-1" href="https://www.facebook.com/templaza">
-                                        <i class="fa fa-facebook"></i>
-                                    </a>
-                                    <a class="tzSocial-no tzSocial-no-bk-2" href="http://dribbble.com/templaza">
-                                        <i class="fa fa fa-dribbble"></i>
-                                    </a>
-                                    <a class="tzSocial-no tzSocial-no-bk-3" href="https://twitter.com/templazavn">
-                                        <i class="fa fa fa-twitter"></i>
-                                    </a>
-                                    <a class="tzSocial-no tzSocial-no-bk-4" href="https://plus.google.com/+Templaza/">
-                                        <i class="fa fa-google-plus"></i>
-                                    </a>
-                                    <a class="tzSocial-no tzSocial-no-bk-5" href="#">
-                                        <i class="fa fa-camera-retro"></i>
-                                    </a>
-                                    <a class="tzSocial-no tzSocial-no-bk-6" href="#">
-                                        <i class="fa fa-pinterest-p"></i>
-                                    </a>
-                                    <a class="tzSocial-no tzSocial-no-bk-7" href="#">
-                                        <i class="fa fa-skype"></i>
-                                    </a>
-                                    <a class="tzSocial-no tzSocial-no-bk-8" href="#">
-                                        <i class="fa fa-youtube-play"></i>
-                                    </a>
-                                    <a class="tzSocial-no tzSocial-no-bk-9" href="#">
-                                        <i class="fa fa-rss"></i>
-                                    </a>
-                                    <a class="tzSocial-no tzSocial-no-bk-10" href="#">
-                                        <i class="fa fa-behance"></i>
-                                    </a>
-                                    <a class="tzSocial-no tzSocial-no-bk-11" href="#">
-                                        <i class="fa fa-github-alt"></i>
-                                    </a>
-                                    <a class="tzSocial-no tzSocial-no-bk-12" href="#">
-                                        <i class="fa fa-linkedin"></i>
-                                    </a>
-                                    <a class="tzSocial-no tzSocial-no-bk-13" href="#">
-                                        <i class="fa fa-tumblr"></i>
-                                    </a>
-                                    <a class="tzSocial-no tzSocial-no-bk-14" href="#">
-                                        <i class="fa fa-flickr"></i>
-                                    </a>
-                                    <a class="tzSocial-no tzSocial-no-bk-15" href="#">
-                                        <i class="fa fa-whatsapp"></i>
-                                    </a>
-                                    <a class="tzSocial-no tzSocial-no-bk-16" href="#">
-                                        <i class="fa fa-codepen"></i>
-                                    </a>
-                                </div>
-                            </aside>
-                            <aside class="widget widget_categories widget">
-                                <h3 class="module-title">
-                                    <span> Categories </span>
-                                </h3>
-                                <ul>
-                                    <li class="cat-item cat-item-4 current-cat">
-                                        <a href="blog.html">Blog</a>
-                                    </li>
-                                    <li class="cat-item cat-item-3">
-                                        <a href="blog.html">Meetup</a>
-                                        <ul class="children">
-                                            <li class="cat-item cat-item-12">
-                                                <a href="blog.html">Business</a>
-                                            </li>
-                                            <li class="cat-item cat-item-13">
-                                                <a href="blog.html">Html Fundamentals</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="cat-item cat-item-1">
-                                        <a href="blog.html">Uncategorized</a>
-                                    </li>
-                                </ul>
-                            </aside>
-                            <aside class="widget_tag_cloud widget">
-                                <h3 class="module-title">
-                                    <span> Related Tags </span>
-                                </h3>
-                                <div class="tagcloud">
-                                    <a href="#">business</a>
-                                    <a href="#">Customer</a>
-                                    <a href="#">Skills</a>
-                                    <a href="#">Wordpress</a>
-                                </div>
-                            </aside>
-                            <aside class="widget_archive widget">
-                                <h3 class="module-title">
-                                    <span>Archives</span>
-                                </h3>
-                                <ul>
-                                    <li>
-                                        <a href="#">October 2015</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">September 2015</a>
-                                    </li>
-                                </ul>
-                            </aside>
-                            <aside class="widget_flickr widget">
-                                <h3 class="module-title">
-                                    <span>Flickr Photos</span>
-                                </h3>
-                                <div class="tz-flickr">
-                                    <ul class="flickr pretty_flickr">
-                                        <li>
-                                            <a title="beach"
-                                                href="http://farm2.staticflickr.com/1585/24934603150_bb9da58b85.jpg"
-                                                data-rel="prettyPhoto_flickr[worksGallery]">
-                                                <img alt="beach"
-                                                    src="http://farm2.staticflickr.com/1585/24934603150_bb9da58b85_s.jpg">
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a title="outdoor"
-                                                href="http://farm2.staticflickr.com/1690/24158336521_35364e4bd4.jpg"
-                                                data-rel="prettyPhoto_flickr[worksGallery]">
-                                                <img alt="outdoor"
-                                                    src="http://farm2.staticflickr.com/1690/24158336521_35364e4bd4_s.jpg">
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a title="landscape"
-                                                href="http://farm2.staticflickr.com/1549/23313968663_2080190e0d.jpg"
-                                                data-rel="prettyPhoto_flickr[worksGallery]">
-                                                <img alt="landscape"
-                                                    src="http://farm2.staticflickr.com/1549/23313968663_2080190e0d_s.jpg">
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a title="outdoor"
-                                                href="http://farm6.staticflickr.com/5629/23535115489_c7d22cbb57.jpg"
-                                                data-rel="prettyPhoto_flickr[worksGallery]">
-                                                <img alt="outdoor"
-                                                    src="http://farm6.staticflickr.com/5629/23535115489_c7d22cbb57_s.jpg">
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a title="outdoor"
-                                                href="http://farm1.staticflickr.com/733/23470095999_74e1a4fe71.jpg"
-                                                data-rel="prettyPhoto_flickr[worksGallery]">
-                                                <img alt="outdoor"
-                                                    src="http://farm1.staticflickr.com/733/23470095999_74e1a4fe71_s.jpg">
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a title="outdoor"
-                                                href="http://farm6.staticflickr.com/5693/23251917722_610ba16322.jpg"
-                                                data-rel="prettyPhoto_flickr[worksGallery]">
-                                                <img alt="outdoor"
-                                                    src="http://farm6.staticflickr.com/5693/23251917722_610ba16322_s.jpg">
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a title="outdoor"
-                                                href="http://farm6.staticflickr.com/5788/22672290890_26cf41cd24.jpg"
-                                                data-rel="prettyPhoto_flickr[worksGallery]">
-                                                <img alt="outdoor"
-                                                    src="http://farm6.staticflickr.com/5788/22672290890_26cf41cd24_s.jpg">
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a title="outdoor"
-                                                href="http://farm1.staticflickr.com/602/22734205855_83535bc9d3.jpg"
-                                                data-rel="prettyPhoto_flickr[worksGallery]">
-                                                <img alt="outdoor"
-                                                    src="http://farm1.staticflickr.com/602/22734205855_83535bc9d3_s.jpg">
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a title="outdoor"
-                                                href="http://farm6.staticflickr.com/5724/22659646605_70ac2d29ae.jpg"
-                                                data-rel="prettyPhoto_flickr[worksGallery]">
-                                                <img alt="outdoor"
-                                                    src="http://farm6.staticflickr.com/5724/22659646605_70ac2d29ae_s.jpg">
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </aside>
-                            <aside id="dw_twitter-2" class="dw_twitter latest-twitter widget">
-                                <h3 class="module-title">
-                                    <span>Twitter Widget</span>
-                                </h3>
-                                <div class="dw-twitter-inner">
-                                    <div class="tweet-item user_timeline">
-                                        <div class="tweet-content">
-                                            TZ Plus Gallery Design - InteriArt Theme by
-                                            <a target="_blank" title=""
-                                                href="https://twitter.com/#!/templazavn">@templazavn</a>
-                                            for
-                                            <a target="_blank" title=""
-                                                href="https://twitter.com/#!/templazavn">@templazavn</a>
-                                            :
-                                            <a target="_blank" title=""
-                                                href="https://t.co/LGtKJQIEhl">https://t.co/LGtKJQIEhl</a>
-                                            <span class="time">
-                                                <a href="http://twitter.com/377991392/status/710759253984694273"
-                                                    title="" target="_blank"> about 3 days ago</a>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="tweet-item user_timeline">
-                                        <div class="tweet-content">
-                                            Shoot - Multi-Purpose Joomla Template release with 22 home versions
-                                            <a target="_blank" title=""
-                                                href="https://t.co/aUsiaINmdJ">https://t.co/aUsiaINmdJ</a>
-                                            <a target="_blank" title=""
-                                                href="https://twitter.com/search?q=%23templaza&amp;src=hash">#templaza</a>
-                                            <a target="_blank" title=""
-                                                href="https://twitter.com/search?q=%23joomla&amp;src=hash">#joomla</a>
-                                            <a target="_blank" title=""
-                                                href="https://twitter.com/search?q=%23template&amp;src=hash">#template</a>
-                                            Supports
-                                            <a target="_blank" title=""
-                                                href="https://twitter.com/#!/hikashop">@hikashop</a>
-                                            <span class="time">
-                                                <a href="http://twitter.com/377991392/status/710068921026502656"
-                                                    title="" target="_blank"> about 5 days ago</a>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="tweet-item user_timeline">
-                                        <div class="tweet-content">
-                                            Check out new work on my
-                                            <a target="_blank" title=""
-                                                href="https://twitter.com/#!/Behance">@Behance</a>
-                                            portfolio: "InteriArt - WP Theme - Creative Version"
-                                            <a target="_blank" title=""
-                                                href="https://t.co/kVqHT3JG7M">https://t.co/kVqHT3JG7M</a>
-                                            <span class="time">
-                                                <a href="http://twitter.com/377991392/status/707871722867789824"
-                                                    title="" target="_blank"> about 2 weeks ago</a>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </aside>
-                        </div>
-                    </div>
+
+                <div class="tzcopyright">
+                    <p>
+                        Copyright &copy; <?php echo date('Y'); ?>
+                        <a target="_blank" href="#">EriggaLive</a>
+
+                    </p>
                 </div>
-            </div>
-        </section>
-        <!-- Event  end -->
+            </footer>
+        </div>
 
-        <!-- footer start -->
-        <footer class="tz-footer tz-footer-type1">
-            <div class="tz-backtotop">
-                <img src="{{ asset('frontend/images/back_top_meetup.png') }}" alt="back_top">
-            </div>
+        <textarea name="" style="display:none;" id="event-details" cols="30" rows="10">{{ json_encode($event) }}</textarea>
 
-
-            <div class="tzcopyright">
-                <p>
-                    Copyright &copy; <?php echo date('Y'); ?>
-                    <a target="_blank" href="#">EriggaLive</a>
-
-                </p>
-            </div>
-        </footer>
     </div>
 
+    <script src="{{ asset('libraries/axios.js') }}"></script>
+    <script src="{{ asset('libraries/vue.js') }}"></script>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="{{ asset('frontend/js/library/jquery.min.js') }}"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -671,8 +277,13 @@
     <!-- Include bxslider -->
     <script src="{{ asset('frontend/js/library/jquery.prettyPhoto.js') }}"></script>
 
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+
     <!-- Include custom js -->
     <script src="{{ asset('frontend/js/custom.js') }}"></script>
+    <script src="{{ asset('app/details.js') }}"></script>
+
+</body>
 
 </body>
 

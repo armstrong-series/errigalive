@@ -30,6 +30,10 @@
                                         <input type="date" name="date" class="form-control" v-model="event.date" >
 
                                     </div>
+                                    <div class="form-group">
+                                        <h5>Price</h5>
+                                        <input type="number" name="date" class="form-control" placeholder="Enter price in Naira" v-model="event.price" >
+                                    </div>
 
                                     <div class="form-group">
                                         <h5>Event Banner</h5>
@@ -71,3 +75,66 @@
         </div>
     </div>
 </div>
+
+
+
+{{-- Edit --}}
+
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            @csrf
+            <div class="modal-body">
+                <div class="">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Event</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="basic-form">
+                                <div class="">
+                                    <div class="form-group">
+                                        <h5>Event Name</h5>
+                                        <input type="text" name="event" v-model="eventEdit.name" class="form-control input-rounded" placeholder="Enter event name">
+                                    </div>
+                                    <div class="form-group">
+                                        <h5>Event Description</h5>
+                                        <textarea class="form-control" rows="4" id="comment" v-model="eventEdit.description" placeholder="Enter Event Description"></textarea>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <h5>Venue</h5>
+                                        <textarea class="form-control" v-model="eventEdit.venue"  rows="4" id="comment" placeholder="Enter Venue of Event"></textarea>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <h5>Date</h5>
+                                        <input type="date" name="date" class="form-control" v-model="eventEdit.date" >
+
+                                    </div>
+                                    <div class="form-group">
+                                        <h5>Price</h5>
+                                        <input type="number" name="date" class="form-control" placeholder="Enter price in Naira" v-model="eventEdit.price" >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-rounded btn-secondary btn-sm light" data-dismiss="modal">Skip</button>
+                <button type="button" @click="updateEvent()" class="btn btn-rounded btn-info btn-sm">Save Changes</button>
+
+                <div v-if="isLoading" class="spinner-border text-success" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+{{-- End Edit --}}
