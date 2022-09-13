@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 use App\Models\EventsModel;
+use App\Models\TicketModel;
 
 use Exception;
 
@@ -20,9 +21,11 @@ class AdminController extends Controller
     public function dashboard(Request $request){
 
         $events = EventsModel::all()->count();
+        $tickets = TicketModel::all()->count();
         $data = [
             "page" => "dashboard",
-            "events" => $events
+            "events" => $events,
+            "tickets" => $tickets
         ];
         return view('App.Admin.admin', $data);
 

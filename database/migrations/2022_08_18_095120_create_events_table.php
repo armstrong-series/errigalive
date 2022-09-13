@@ -20,6 +20,8 @@ class CreateEventsTable extends Migration
             $table->string('venue')->nullable();
             $table->string('date')->nullable();
             $table->string('age')->nullable();
+            $table->integer('price')->nullable();
+            $table->integer('quantity')->nullable();
             $table->string('event_banner')->nullable();
             $table->timestamps();
         });

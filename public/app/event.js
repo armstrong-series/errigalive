@@ -10,7 +10,19 @@ if (window.Vue) {
                 venue: "",
                 date: "",
                 description: "",
+                price: ""
             },
+
+            eventEdit: {
+                name: "",
+                venue: "",
+                date: "",
+                description: "",
+                price: ""
+            },
+
+
+
 
 
             banner: "",
@@ -22,7 +34,8 @@ if (window.Vue) {
 
             route: {
                 createEvent: "",
-                updateEvent: ""
+                updateEvent: "",
+                deleteEvent
             },
 
             events: []
@@ -33,13 +46,19 @@ if (window.Vue) {
         mounted() {
 
             this.route.createEvent = $("#createEvent").val();
+            this.route.updateEvent = $("#updateEvent").val();
+            this.route.deleteEvent = $("#deleteEvent").val();
             this.events = JSON.parse($('#events').val());
-            console.log('events..', this.events)
+
 
         },
 
 
         methods: {
+
+            selectEvent(index){
+                this.eventEdit = Object.assign({}, this.events[index]);
+            },
 
             createEvent() {
                 this.isLoading = true;
@@ -48,9 +67,9 @@ if (window.Vue) {
                     let value = this.event[key]
                     formData.append(key, value);
                 }
+                console.log('file',this.originalFile)
                 formData.append('event_banner', this.originalFile);
                 formData.append('_token', $('input[name=_token]').val());
-
                 axios.post(this.route.createEvent, formData, {
                     headers: {
                         'Content-Type': 'multipart/form-data'
@@ -67,8 +86,11 @@ if (window.Vue) {
                         progressbar: false,
                         style: { backgroundColor: "#1BBCE8" }
                     });
+
+
                     this.isLoading = false;
-                    window.location = "/admin/events";
+                    this.events.push(Object.assign({}, response.data.event, {}));
+
                 }).catch((error) => {
                     this.isLoading = false
                     this.$toastr.Add({
@@ -88,13 +110,61 @@ if (window.Vue) {
             },
 
 
-            deleteEvents(index) {
+            updateEvent() {
+                this.isLoading = true;
+                let formData = new FormData();
+                for (let key in this.eventEdit) {
+                    let value = this.eventEdit[key]
+                    formData.append(key, value);
+                }
+                formData.append('_token', $('input[name=_token]').val());
+                axios.post(this.route.createEvent, formData, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    },
+                }).then((response) => {
+                    $('.edit_event_modal').modal('hide');
+                    this.$toastr.Add({
+                        msg: response.data.message,
+                        clickClose: false,
+                        timeout: 2000,
+                        position: "toast-top-right",
+                        type: "success",
+                        preventDuplicates: true,
+                        progressbar: false,
+                        style: { backgroundColor: "#1BBCE8" }
+                    });
+
+
+                    this.isLoading = false;
+                    this.events.push(Object.assign({}, response.data.event, {}));
+
+                }).catch((error) => {
+                    this.isLoading = false
+                    this.$toastr.Add({
+                        msg: error.response.data.message,
+                        clickClose: false,
+                        timeout: 2000,
+                        position: "toast-top-right",
+                        type: "error",
+                        preventDuplicates: true,
+                        progressbar: false,
+                        style: { backgroundColor: "red" }
+                    });
+
+
+                })
+
+            },
+
+
+            deleteEvent(index) {
                 let event = Object.assign({}, this.events[index]);
                 event._token = $('input[name=_token]').val();
 
                 const customAlert = swal({
                     title: 'Warning',
-                    text: `Are you sure you want to delete this Template? This action cannot be undone.`,
+                    text: `This action can't be undone. Are you sure?`,
                     icon: 'warning',
                     closeOnClickOutside: false,
                     buttons: {
@@ -116,10 +186,10 @@ if (window.Vue) {
                 customAlert.then(value => {
                     if (value == 'delete') {
                         this.isLoading = true;
-                        axios.delete(this.url.deleteTemplate, { data: template })
+                        axios.delete(this.route.deleteEvent, { data: event })
                             .then(response => {
                                 this.isLoading = false;
-                                this.all_templates.splice(index, 1);
+                                this.events.splice(index, 1);
                                 this.$notify({
                                     title: 'Success',
                                     message: response.data.message,
@@ -152,7 +222,7 @@ if (window.Vue) {
                     let reader = new FileReader();
                     reader.onload = (e) => {
                         this.imageFile = e.target.result;
-                        console.log(this.imageFile)
+                        // console.log(this.imageFile)
                     };
 
                     reader.readAsDataURL(this.input.files[0]);

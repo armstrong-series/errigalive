@@ -20,9 +20,14 @@ Route::post('/reset-password', [Controller\Auth\ResetPasswordController::class,'
 Route::get('/admin', [Controller\Admin\AdminController::class, 'dashboard'])->name('admin.dashboard');
 Route::get('/admin/events', [Controller\Event\EventController::class, 'eriggaEvents'])->name('eriggalive.event');
 Route::post('/admin/event/create', [Controller\Event\EventController::class, 'createErrigaEvent'])->name('event.create');
+Route::post('/admin/event/update', [Controller\Event\EventController::class, 'updateEvent'])->name('event.update');
+Route::delete('/admin/event/delete', [Controller\Event\EventController::class, 'deleteEvent'])->name('event.delete');
 
 Route::get('/shop', [Controller\Shop\ShopController::class, 'items'])->name('eriggalive.shop');
 Route::get('/settings/profile', [Controller\Settings\SettingsController::class, 'profileSettings'])->name('settings.profile');
-Route::get('/events/{eventId}', [Controller\HomeController::class, 'eventTicket'])->name('event.ticket');
+Route::get('/events/live/{eventId}', [Controller\HomeController::class, 'eventTicket'])->name('event.ticket');
+Route::get('/ticket/payment', [Controller\HomeController::class, 'ticket'])->name('ticket');
+Route::get('/ticket/payment/initialize', [Controller\Payments\PayementController::class, 'initializePaystackPayment'])->name('ticket.payment');
+Route::get('/payment/callback', [Controller\Payments\PayementController::class, 'paystackCallbackURL'])->name('ticket.callback');
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'errigaLiveHome'])->name('home');

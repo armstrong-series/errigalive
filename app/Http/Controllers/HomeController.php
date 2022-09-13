@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\EventsModel;
-use App\Models\PaymentModel;
-
+use App\Models\TicketModel;
+use \GuzzleHttp\Client;
+use App\ErrigaLive\ErrigaLive;
+use Illuminate\Support\Facades\Redirect;
 class HomeController extends Controller
 {
     /**
@@ -45,4 +47,12 @@ class HomeController extends Controller
 
 
     }
+
+    public function ticket(){
+
+        return view('Frontend.ticket');
+    }
+
+
+
 }

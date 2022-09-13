@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>ErrigaLive</title>
+    <title>EriggaLive</title>
 
     <!-- Bootstrap -->
     <link href="{{ asset('frontend/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -43,8 +43,7 @@
                     <div class="tzHeaderContainer">
                         <h3 class="pull-left tz_logo">
                             <a title="Home" href="#">
-                                <img src="{{ asset('erilive.png') }}" alt="Erriga" class="img-responsive" width="75"
-                                    height="70">
+                                <img src="{{ asset('erigga/LOGO.png') }}" alt="Erriga" class="img-responsive">
                             </a>
                         </h3>
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
@@ -56,9 +55,8 @@
                         <nav class="nav-collapse pull-right tz-menu">
                             <ul id="tz-navbar-collapse" class="nav navbar-nav collapse navbar-collapse tz-nav">
                                 <li><a href="#home">Home</a></li>
-                                <li><a href="#about">Events</a></li>
-                                <li><a href="#register">Buy Tickets</a></li>
-                                <li><a href="#">Shop</a></li>
+                                <li><a href="#event">Events</a></li>
+                                {{-- <li><a href="#">Shop</a></li> --}}
                                 <li><a href="{{ route('login') }}">Login</a></li>
                             </ul>
                         </nav>
@@ -73,51 +71,108 @@
             <div id="home" class="tz_home_slider_meetup vc_row">
                 <div class="tz_home_slider_meetup_setting">
                     <ul class="bxslider">
+
+                        {{-- <div class="tzTwitter-slider owl-carousel owl-theme">
+                            <div class="tzTwitter-item">
+                                <div class="tzTwitter-icon">
+                                    <i class="fa fa-twitter"></i>
+                                </div>
+                                <span class="tweet_text">
+                                    At the end of 2014 the total paid out to Envato's global community reached $224 million! <a
+                                        href="#">http://buff.ly/1AWD4Dx</a>
+                                </span>
+                                <span class="tz_tweet_meetup_name">&#64;templaza</span>
+                                <span class="tweet_time">about 2 hours ago</span>
+                            </div>
+                            <div class="tzTwitter-item">
+                                <div class="tzTwitter-icon">
+                                    <i class="fa fa-twitter"></i>
+                                </div>
+                                <span class="tweet_text">
+                                    At the end of 2014 the total paid out to Envato's global community reached $224 million! <a
+                                        href="#">http://buff.ly/1AWD4Dx</a>
+                                </span>
+                                <span class="tz_tweet_meetup_name">&#64;templaza</span>
+                                <span class="tweet_time">about 2 hours ago</span>
+                            </div>
+                            <div class="tzTwitter-item">
+                                <div class="tzTwitter-icon">
+                                    <i class="fa fa-twitter"></i>
+                                </div>
+                                <span class="tweet_text">
+                                    At the end of 2014 the total paid out to Envato's global community reached $224 million! <a
+                                        href="#">http://buff.ly/1AWD4Dx</a>
+                                </span>
+                                <span class="tz_tweet_meetup_name">&#64;templaza</span>
+                                <span class="tweet_time">about 2 hours ago</span>
+                            </div>
+                        </div> --}}
                         <li>
                             <div class="meetup_bl_slider_home"></div>
-                            <img src="{{ asset('lostb.jpg') }}" alt="slider-home" />
+
+                            <img src="{{ asset('erigga/slider1.jpg') }}" alt="slider-home" />
 
                         </li>
                         <li>
                             <div class="meetup_bl_slider_home"></div>
-                            <img src="{{ asset('new-genesis.jpg') }}" alt="area-world" />
-
+                            <img src="{{ asset('erigga/slider2.jpg') }}" alt="slider-home" />
                         </li>
                         <li>
                             <div class="meetup_bl_slider_home"></div>
-                            <img src="{{ asset('club_truth.jpg') }}" alt="slider-home" />
-                            <h5> <i class="fa fa-calendar"></i></h5>
+                            <img src="{{ asset('erigga/slider3.png') }}" alt="slider-home" />
                         </li>
                     </ul>
                 </div>
-                <div class="tz_content_slider_meetup">
+                {{-- <div class="tz_content_slider_meetup">
                     <div class="ds-table">
                         <div class="ds-table-cell">
-
-                            <div class="tz_meetup_slider_home_text">
-
-                                <h4>
-                                    <strong>ERIGGA</strong> LIVE
-                                </h4>
-
+                            <div class="tz_meetup_social">
+                                <span class="meetup_line_left"></span>
+                                <a href="https://www.facebook.com/templaza" target="_blank"><i class="fa fa-facebook"></i></a>
+                                <a href="https://twitter.com/templazavn" target="_blank"><i class="fa fa-twitter"></i></a>
+                                <a href="#" target="_blank"><i class="fa fa-camera-retro"></i></a>
+                                <a href="https://plus.google.com/+Templaza/" target="_blank"><i class="fa fa-google-plus"></i></a>
+                                <a href="#" target="_blank"><i class="fa fa-instagram"></i></a>
+                                <span class="meetup_line_right"></span>
                             </div>
-
+                            <div class="tz_meetup_slider_home_text">
+                                <p>8.MDA CONFERENCE AT LONDON ON 22-26 JUNE 2015</p>
+                                <h4>
+                                    <strong>MDA</strong> CONFERENCE
+                                </h4>
+                            </div>
+                            <div class="tz_meetup_countdown">
+                                <div id="clock"></div>
+                            </div>
+                            <div class="tz_slider_meetup_btn">
+                                <ul class="tz_slider_home_btn_click">
+                                    <li>
+                                        <a class="tz_slider_meetup_btn_1" href="#">
+                                            LEARN MORE
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="tz_slider_meetup_btn_1 tz_slider_meetup_btn_2" href="#register">
+                                            REGISTER ME
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
             <!-- Slider end -->
-
-
             <!-- Event Start -->
-            <section id="about" class="vc_row">
-                <div class="container">
-                    <div class="row">
-                        <div class="tz_maniva_meetup_title text-center">
-                            <h3 class="tz_meetup_title_raleway tz_title_meetup_normal"> EVENT </h3>
+            <section id="event" class="vc_row">
+                <div class="tz_maniva_meetup_title text-center">
+                    <h3 class="tz_maniva_meetup_title_custom">
+                        <em>Event</em>
 
-                        </div>
-                    </div>
+                    </h3>
+                    <div class="tz_image_title_meetup">
+                      <img src="{{ asset('frontend/images/line-black-red.png') }}" alt="line-black">
+                   </div>
                 </div>
             </section>
             <!-- Event end -->
@@ -125,45 +180,37 @@
             <!-- About meetup start -->
             <section id="about_meetup" class="vc_row">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 custom_col_pading">
-                            <div class="tz_maniva_about_meetup">
-                                <div class="tz_meetup_thumbnail">
-                                    <a href="javascript:void(0);">
-                                        <img src="{{ asset('club_truth.jpg') }}" alt=Club-Truth" />
-                                    </a>
-                                    <div class="tz_meetup_about_content">
-                                        <a class="tz_btn_video_meetup tz_meetup_btn_dark" href="#">Buy Ticket</a>
+                    <div v-if="events < 1">
+                        <div class="tz_maniva_meetup_title text-center">
+                            <h3 class="text-secondary"> No Available  Event</h3>
+                        </div>
+                    </div>
+                     <div>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 custom_col_pading" v-for="(event, index) in events">
+                                <div class="tz_maniva_about_meetup">
+                                    <div class="tz_meetup_thumbnail">
+                                        <a href="javascript:void(0);">
+                                            <img :src="'/storage/events/banner/'+event.event_banner" alt=Club-Truth" />
+                                        </a>
+                                        <div class="tz_meetup_about_content">
+
+                                            <a class="tz_btn_video_meetup tz_meetup_btn_dark" :href="`/events/live/${event.id}`">Buy Ticket</a>
+
+                                        </div>
                                     </div>
+
+
                                 </div>
-
-
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 custom_col_pading">
-                            <div class="tz_maniva_about_meetup">
-                                <div class="tz_meetup_thumbnail">
-                                    <a href="javascript:void(0);">
-                                        <img src="{{ asset('new-genesis.jpg') }}" alt="Genesis" />
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 custom_col_pading">
-                            <div class="tz_maniva_about_meetup">
-                                <div class="tz_meetup_thumbnail">
-                                    <a href="index.html">
-                                        <img src="{{ asset('lostb.jpg') }}" alt="about" />
-                                    </a>
-                                </div>
-
-
                             </div>
                         </div>
                     </div>
+
                 </div>
             </section>
             <!-- About meetup end -->
+
+            <textarea name="" id="events" style="display:none" cols="30" rows="10">{{ json_encode($events) }}</textarea>
 
 
             <!-- Slider Meetup start -->
@@ -237,7 +284,7 @@
             <!-- Gallery  start -->
             <section id="gallery">
                 <div class="tz_maniva_meetup_title text-center">
-                    <h3 class="tz_meetup_title_raleway tz_title_meetup_medium"> OUR GALLERY </h3>
+                    <h3 class="tz_meetup_title_raleway tz_title_meetup_medium"> EriggaLive</h3>
                     <div class="tz_image_title_meetup">
                         <img src="{{ asset('frontend/images/line-white-red.png') }}" alt="line_red">
                     </div>
@@ -327,6 +374,8 @@
         jQuery.noConflict();
     </script>
 
+
+
     <script src="{{ asset('libraries/axios.js') }}"></script>
     <script src="{{ asset('libraries/vue.js') }}"></script>
     <!-- Include bxslider -->
@@ -347,7 +396,12 @@
     <script src="{{ asset('frontend/js/library/jquery.prettyPhoto.js') }}"></script>
     <script src="{{ asset('frontend/js/gallery.js') }}"></script>
 
-    <!-- Include custom js -->
+
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script>
+        let newJQuery = $.noConflict(true);
+    </script>
+
     <script src="{{ asset('frontend/js/custom.js') }}"></script>
     <script src="{{ asset('app/index.js') }}"></script>
 </body>
