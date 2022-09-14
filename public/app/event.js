@@ -118,7 +118,7 @@ if (window.Vue) {
                     formData.append(key, value);
                 }
                 formData.append('_token', $('input[name=_token]').val());
-                axios.post(this.route.createEvent, formData, {
+                axios.post(this.route.updateEvent, formData, {
                     headers: {
                         'Content-Type': 'multipart/form-data'
                     },
@@ -137,7 +137,14 @@ if (window.Vue) {
 
 
                     this.isLoading = false;
-                    this.events.push(Object.assign({}, response.data.event, {}));
+                    let eventEdit = response.data.event;
+                    this.events = this.events.map((event) =>{
+                        if(event.id === eventEdit.id){
+                            event = Object.assign({},eventEdit)
+                        }
+                        return event;
+                    })
+
 
                 }).catch((error) => {
                     this.isLoading = false

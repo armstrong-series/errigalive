@@ -37,7 +37,7 @@ class EventController extends Controller
     public function createErrigaEvent(Request $request)
     {
         try {
-            // dd($request->all());
+
             $validator = $this->validateEvent($request->all());
             if ($validator->fails()) {
                 $message = $validator->errors()->all();
@@ -45,7 +45,6 @@ class EventController extends Controller
                     return response()->json(['message' => $messages], 400);
                 }
             }
-            // dd($request->hasFile('event_banner'));
 
             if ($request->hasFile('event_banner')) {
                 $imagePath = storage_path('app/' . Paths::EVENT_BANNER_PATH);
@@ -55,14 +54,13 @@ class EventController extends Controller
                     $request->file('event_banner')->move($imagePath, $fileName);
 
                     $event = new EventsModel();
-                    $event->id = $request->id;
+                    $event->id = Auth::id();
                     $event->name = $request->name;
                     $event->venue = $request->venue;
                     $event->date = $request->date;
                     $event->price = $request->price;
                     $event->description = $request->description;
                     $event->event_banner = $fileName;
-                    // dd($event);
                     $event->save();
                     $message = "New Record added to event";
 
@@ -79,6 +77,9 @@ class EventController extends Controller
             }
         } catch (Exception $error) {
             Log::info("EventController@createErrigaEvent". $error->getMessage());
+            $message = "Unable to process data";
+            return response()->json(['message' => $message], 500);
+
         }
     }
 
@@ -106,6 +107,8 @@ class EventController extends Controller
             return response()->json(["message" => $message],200);
         } catch (Exception $error) {
             Log::info("EventController@updateEvent". $error->getMessage());
+            $message = "Unable to process data";
+            return response()->json(['message' => $message], 500);
         }
     }
 
@@ -125,6 +128,8 @@ class EventController extends Controller
 
         } catch (Exception $error) {
             Log::info("EventController@updateEvent". $error->getMessage());
+            $message = "Unable to delete data. Please, Try again";
+            return response()->json(['message' => $message], 500);
         }
     }
 

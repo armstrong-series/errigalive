@@ -42,7 +42,7 @@
                 <div class="container">
                     <div class="tzHeaderContainer">
                         <h3 class="pull-left tz_logo">
-                            <a title="Home" href="#">
+                            <a title="Home" href="javascript:void(0);">
                                 <img src="{{ asset('erigga/LOGO.png') }}" alt="Erriga" class="img-responsive">
                             </a>
                         </h3>
@@ -56,7 +56,7 @@
                             <ul id="tz-navbar-collapse" class="nav navbar-nav collapse navbar-collapse tz-nav">
                                 <li><a href="#home">Home</a></li>
                                 <li><a href="#event">Events</a></li>
-                                {{-- <li><a href="#">Shop</a></li> --}}
+                                <li><a href="#">Shop</a></li>
                                 <li><a href="{{ route('login') }}">Login</a></li>
                             </ul>
                         </nav>
@@ -72,41 +72,7 @@
                 <div class="tz_home_slider_meetup_setting">
                     <ul class="bxslider">
 
-                        {{-- <div class="tzTwitter-slider owl-carousel owl-theme">
-                            <div class="tzTwitter-item">
-                                <div class="tzTwitter-icon">
-                                    <i class="fa fa-twitter"></i>
-                                </div>
-                                <span class="tweet_text">
-                                    At the end of 2014 the total paid out to Envato's global community reached $224 million! <a
-                                        href="#">http://buff.ly/1AWD4Dx</a>
-                                </span>
-                                <span class="tz_tweet_meetup_name">&#64;templaza</span>
-                                <span class="tweet_time">about 2 hours ago</span>
-                            </div>
-                            <div class="tzTwitter-item">
-                                <div class="tzTwitter-icon">
-                                    <i class="fa fa-twitter"></i>
-                                </div>
-                                <span class="tweet_text">
-                                    At the end of 2014 the total paid out to Envato's global community reached $224 million! <a
-                                        href="#">http://buff.ly/1AWD4Dx</a>
-                                </span>
-                                <span class="tz_tweet_meetup_name">&#64;templaza</span>
-                                <span class="tweet_time">about 2 hours ago</span>
-                            </div>
-                            <div class="tzTwitter-item">
-                                <div class="tzTwitter-icon">
-                                    <i class="fa fa-twitter"></i>
-                                </div>
-                                <span class="tweet_text">
-                                    At the end of 2014 the total paid out to Envato's global community reached $224 million! <a
-                                        href="#">http://buff.ly/1AWD4Dx</a>
-                                </span>
-                                <span class="tz_tweet_meetup_name">&#64;templaza</span>
-                                <span class="tweet_time">about 2 hours ago</span>
-                            </div>
-                        </div> --}}
+
                         <li>
                             <div class="meetup_bl_slider_home"></div>
 
@@ -123,44 +89,7 @@
                         </li>
                     </ul>
                 </div>
-                {{-- <div class="tz_content_slider_meetup">
-                    <div class="ds-table">
-                        <div class="ds-table-cell">
-                            <div class="tz_meetup_social">
-                                <span class="meetup_line_left"></span>
-                                <a href="https://www.facebook.com/templaza" target="_blank"><i class="fa fa-facebook"></i></a>
-                                <a href="https://twitter.com/templazavn" target="_blank"><i class="fa fa-twitter"></i></a>
-                                <a href="#" target="_blank"><i class="fa fa-camera-retro"></i></a>
-                                <a href="https://plus.google.com/+Templaza/" target="_blank"><i class="fa fa-google-plus"></i></a>
-                                <a href="#" target="_blank"><i class="fa fa-instagram"></i></a>
-                                <span class="meetup_line_right"></span>
-                            </div>
-                            <div class="tz_meetup_slider_home_text">
-                                <p>8.MDA CONFERENCE AT LONDON ON 22-26 JUNE 2015</p>
-                                <h4>
-                                    <strong>MDA</strong> CONFERENCE
-                                </h4>
-                            </div>
-                            <div class="tz_meetup_countdown">
-                                <div id="clock"></div>
-                            </div>
-                            <div class="tz_slider_meetup_btn">
-                                <ul class="tz_slider_home_btn_click">
-                                    <li>
-                                        <a class="tz_slider_meetup_btn_1" href="#">
-                                            LEARN MORE
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="tz_slider_meetup_btn_1 tz_slider_meetup_btn_2" href="#register">
-                                            REGISTER ME
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div> --}}
+
             </div>
             <!-- Slider end -->
             <!-- Event Start -->
@@ -195,7 +124,7 @@
                                         </a>
                                         <div class="tz_meetup_about_content">
 
-                                            <a class="tz_btn_video_meetup tz_meetup_btn_dark" :href="`/events/live/${event.id}`">Buy Ticket</a>
+                                            <a class="tz_btn_video_meetup tz_meetup_btn_dark" :href="`/events/ticket/view/${event.id}`">Buy Ticket</a>
 
                                         </div>
                                     </div>
@@ -290,14 +219,14 @@
                     </div>
                     <div class="tz_meetup_title_content">
                         <p>
-                            <span>The Muscular Dystrophy Association and University of Florida Child Health Research
-                                Institute invite</span>
+                            <span>Riding on the phenomenally successful and record breaking Erigga Live Concerts held In 2018, 2019 & 2021 in Warri, Erigga is set to re-write history yet again, this time with the 4th Edition slated to hold on the 26th of December 2022 at shop rite delta mall warri
+                                The concert will feature
+                                Live performances by top rated artistes & A List Comedians. Also, A Skill Acquisition Workshop is also planned for Friday, 23rd & Saturday 24th December 2022. This will give an opportunity to Thousands of Unemployed Youths & Women, to avail themselves of the free courses to aquire skills that will be beneficial to them in fending for themselves & their families.
+                                </span>
                         </p>
                         <p>
-                            <span>you to attend the Becker Muscular Dystrophy Conference. Check our</span>
-                            <span>
-                                <a target="_blank" href="https://www.facebook.com/templaza">Fanpage.</a>
-                            </span>
+                            <span>Also, on the evening of the 24th of December, We plan to organize a free medical outreach which will hold simultaneously in three different neighbourhoods in Warri & Ughelli. At least 10 doctors & over 30 Nurses drawn from institutions will cater for at least 1,000 people. Drugs will also be given out free of charge</span>
+
                         </p>
                     </div>
                 </div>
