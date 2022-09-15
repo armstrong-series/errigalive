@@ -169,46 +169,7 @@
 
 
             <!-- Twitter start -->
-            <section id="tz_twitter" class="parallax parallax-bk2">
-                <div class="tzTwitter-slider-box">
-                    <div class="tzTwitter-slider owl-carousel owl-theme">
-                        <div class="tzTwitter-item">
-                            <div class="tzTwitter-icon">
-                                <i class="fa fa-twitter"></i>
-                            </div>
-                            <span class="tweet_text">
-                                At the end of 2014 the total paid out to Envato's global community reached $224 million! <a
-                                    href="#">http://buff.ly/1AWD4Dx</a>
-                            </span>
-                            <span class="tz_tweet_meetup_name">&#64;templaza</span>
-                            <span class="tweet_time">about 2 hours ago</span>
-                        </div>
-                        <div class="tzTwitter-item">
-                            <div class="tzTwitter-icon">
-                                <i class="fa fa-twitter"></i>
-                            </div>
-                            <span class="tweet_text">
-                                At the end of 2014 the total paid out to Envato's global community reached $224 million! <a
-                                    href="#">http://buff.ly/1AWD4Dx</a>
-                            </span>
-                            <span class="tz_tweet_meetup_name">&#64;templaza</span>
-                            <span class="tweet_time">about 2 hours ago</span>
-                        </div>
-                        <div class="tzTwitter-item">
-                            <div class="tzTwitter-icon">
-                                <i class="fa fa-twitter"></i>
-                            </div>
-                            <span class="tweet_text">
-                                At the end of 2014 the total paid out to Envato's global community reached $224 million! <a
-                                    href="#">http://buff.ly/1AWD4Dx</a>
-                            </span>
-                            <span class="tz_tweet_meetup_name">&#64;templaza</span>
-                            <span class="tweet_time">about 2 hours ago</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- Twitter end -->
+
 
             <!-- Gallery  start -->
             <section id="gallery">

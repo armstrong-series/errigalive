@@ -104,7 +104,7 @@ class EventController extends Controller
             $event->description = $request->description;
             $event->save();
             $message = "Record upated successfuly";
-            return response()->json(["message" => $message],200);
+            return response()->json(["message" => $message, "event" => $event],200);
         } catch (Exception $error) {
             Log::info("EventController@updateEvent". $error->getMessage());
             $message = "Unable to process data";

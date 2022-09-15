@@ -118,11 +118,7 @@ if (window.Vue) {
                     formData.append(key, value);
                 }
                 formData.append('_token', $('input[name=_token]').val());
-                axios.post(this.route.updateEvent, formData, {
-                    headers: {
-                        'Content-Type': 'multipart/form-data'
-                    },
-                }).then((response) => {
+                axios.post(this.route.updateEvent, formData).then((response) => {
                     $('.edit_event_modal').modal('hide');
                     this.$toastr.Add({
                         msg: response.data.message,

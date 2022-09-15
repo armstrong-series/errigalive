@@ -34,13 +34,7 @@
 
             <!-- Header start -->
             <header class="tz-headerHome tz-homeType2 tz-homeTypeRelative">
-                <div class="tz_meetup_header_option">
-                    <div class="container">
-                        <div class="row">
 
-                        </div>
-                    </div>
-                </div>
                 <div class="tz-header-content">
                     <div class="container">
                         <div class="tzHeaderContainer">
@@ -135,6 +129,7 @@
                                                           <tr>
                                                             <th scope="col">Ticket</th>
                                                             <th scope="col">Price</th>
+                                                            <th scope="col">Table</th>
                                                             <th scope="col">Quantity</th>
                                                           </tr>
                                                         </thead>
@@ -142,6 +137,15 @@
                                                           <tr>
                                                             <th scope="row">@{{ details.name }}</th>
                                                             <td>₦ @{{ details.price }}</td>
+                                                            <td>
+                                                                <select class="custom-select form-control" v-model="ticket.table">
+                                                                <option selected>Choose Table</option>
+                                                                <option value="regular">Regular</option>
+                                                                <option value="vip">VIP</option>
+                                                                <option value="rplatinium">Platinium</option>
+
+                                                            </select>
+                                                            </td>
                                                             <td>
                                                                 <select class="custom-select form-control" v-model="ticket.qty">
                                                                     <option selected value="0">0</option>
