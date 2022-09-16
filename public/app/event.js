@@ -10,7 +10,9 @@ if (window.Vue) {
                 venue: "",
                 date: "",
                 description: "",
-                price: ""
+                price: "",
+                event_type: "",
+                category: ""
             },
 
             eventEdit: {
@@ -35,7 +37,7 @@ if (window.Vue) {
             route: {
                 createEvent: "",
                 updateEvent: "",
-                deleteEvent
+                deleteEvent: ""
             },
 
             events: []
@@ -189,29 +191,34 @@ if (window.Vue) {
                 customAlert.then(value => {
                     if (value == 'delete') {
                         this.isLoading = true;
-                        axios.delete(this.route.deleteEvent, { data: event })
+                        axios.post(this.route.deleteEvent,{id: event.id})
                             .then(response => {
                                 this.isLoading = false;
                                 this.events.splice(index, 1);
-                                this.$notify({
-                                    title: 'Success',
-                                    message: response.data.message,
-                                    type: 'success'
+                                this.$toastr.Add({
+                                    msg: response.data.message,
+                                    clickClose: false,
+                                    timeout: 2000,
+                                    position: "toast-top-right",
+                                    type: "success",
+                                    preventDuplicates: true,
+                                    progressbar: false,
+                                    style: { backgroundColor: "#1BBCE8" }
                                 });
 
-                            }).catch(error => {
-                                if (error.response) {
-                                    this.isLoading = false;
-                                    this.$notify.error({
-                                        title: 'Error',
-                                        message: error.response.data.message
-                                    });
-                                } else {
-                                    this.$notify.error({
-                                        title: 'Error',
-                                        message: 'oops! Unable to complete request.'
-                                    });
-                                }
+
+                            }).catch((error) => {
+                                this.isLoading = false
+                                this.$toastr.Add({
+                                    msg: error.response.data.message,
+                                    clickClose: false,
+                                    timeout: 2000,
+                                    position: "toast-top-right",
+                                    type: "error",
+                                    preventDuplicates: true,
+                                    progressbar: false,
+                                    style: { backgroundColor: "red" }
+                                });
                             });
 
                     }

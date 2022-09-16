@@ -21,7 +21,7 @@ Route::get('/admin', [Controller\Admin\AdminController::class, 'dashboard'])->na
 Route::get('/admin/events', [Controller\Event\EventController::class, 'eriggaEvents'])->name('eriggalive.event');
 Route::post('/admin/event/create', [Controller\Event\EventController::class, 'createErrigaEvent'])->name('event.create');
 Route::post('/admin/event/update', [Controller\Event\EventController::class, 'updateEvent'])->name('event.update');
-Route::delete('/admin/event/delete', [Controller\Event\EventController::class, 'deleteEvent'])->name('event.delete');
+Route::post('/admin/event/delete', [Controller\Event\EventController::class, 'deleteEvent'])->name('event.delete');
 
 Route::get('/shop', [Controller\Shop\ShopController::class, 'items'])->name('eriggalive.shop');
 Route::get('/settings/profile', [Controller\Settings\SettingsController::class, 'profileSettings'])->name('settings.profile');

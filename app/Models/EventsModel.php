@@ -14,6 +14,7 @@ class EventsModel extends Model
 
     protected $table = "events";
 
+
     protected $appends = [
         'updated_date',
         'created_date'

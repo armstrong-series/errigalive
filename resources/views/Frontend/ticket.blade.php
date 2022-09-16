@@ -41,6 +41,17 @@
                             </div>
                         </div>
 
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="tz-breadcrumb">
+                                <h4>
+                                    <span>
+                                        <a class="home" href="{{ url()->previous() }}">Return Back</a>
+                                    </span>
+
+                                </h4>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </section>
@@ -62,6 +73,7 @@
                                                           <tr>
                                                             <th scope="col">Ticket</th>
                                                             <th scope="col">Price</th>
+                                                            <th scope="col">Category</th>
                                                             <th scope="col">Quantity</th>
                                                           </tr>
                                                         </thead>
@@ -69,6 +81,7 @@
                                                           <tr>
                                                             <th scope="row">@{{ ticket.name }}</th>
                                                             <td>₦ @{{ ticket.price }}</td>
+                                                            <td>@{{ ticket.category }}</td>
                                                             <td>
                                                                @{{ ticket.qty }}
                                                             </td>

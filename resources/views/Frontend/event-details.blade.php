@@ -128,22 +128,23 @@
                                                         <thead>
                                                           <tr>
                                                             <th scope="col">Ticket</th>
-                                                            <th scope="col">Price</th>
-                                                            <th scope="col">Table</th>
+                                                            <th scope="col">Category</th>
                                                             <th scope="col">Quantity</th>
                                                           </tr>
                                                         </thead>
                                                         <tbody>
                                                           <tr>
                                                             <th scope="row">@{{ details.name }}</th>
-                                                            <td>₦ @{{ details.price }}</td>
                                                             <td>
-                                                                <select class="custom-select form-control" v-model="ticket.table">
-                                                                <option selected>Choose Table</option>
-                                                                <option value="regular">Regular</option>
-                                                                <option value="vip">VIP</option>
-                                                                <option value="rplatinium">Platinium</option>
-
+                                                                <select class="custom-select form-control" v-model="ticket.category">
+                                                                    <option selected>Choose Category</option>
+                                                                    <option v-if="details.event_type === 'lostboy'" value="regular">Regular-5000</option>
+                                                                    <option v-if="details.event_type === 'lostboy'" value="vip">VIP-25000</option>
+                                                                    <option v-if="details.event_type === 'lostboy'" value="gold">Gold-500000</option>
+                                                                    <option v-if="details.event_type === 'lostboy'" value="platinium">Platinium-10000000</option>
+                                                                    <option v-if="details.event_type === 'genesis'" value="early_bird">Early Bird-2000</option>
+                                                                    <option v-if="details.event_type === 'genesis'" value="gate">Gate-3000</option>
+                                                                    <option v-if="details.event_type === 'genesis'" value="front_row">Front Row-5000</option>
                                                             </select>
                                                             </td>
                                                             <td>

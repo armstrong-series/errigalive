@@ -124,7 +124,7 @@
                                         </a>
                                         <div class="tz_meetup_about_content">
 
-                                            <a class="tz_btn_video_meetup tz_meetup_btn_dark" :href="`/events/ticket/view/${event.id}`">Buy Ticket</a>
+                                            <a class="tz_btn_video_meetup tz_meetup_btn_dark" :href="`/events/ticket/view/${event.id}`">View Event</a>
 
                                         </div>
                                     </div>

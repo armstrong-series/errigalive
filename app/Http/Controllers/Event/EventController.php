@@ -37,7 +37,7 @@ class EventController extends Controller
     public function createErrigaEvent(Request $request)
     {
         try {
-
+            // dd($request->all());
             $validator = $this->validateEvent($request->all());
             if ($validator->fails()) {
                 $message = $validator->errors()->all();
@@ -54,13 +54,16 @@ class EventController extends Controller
                     $request->file('event_banner')->move($imagePath, $fileName);
 
                     $event = new EventsModel();
-                    $event->id = Auth::id();
+                    $event->user_id = Auth::id();
                     $event->name = $request->name;
                     $event->venue = $request->venue;
+                    $event->category = $request->category;
+                    $event->event_type = $request->event_type;
                     $event->date = $request->date;
                     $event->price = $request->price;
                     $event->description = $request->description;
                     $event->event_banner = $fileName;
+                    // dd($event);
                     $event->save();
                     $message = "New Record added to event";
 
@@ -101,6 +104,8 @@ class EventController extends Controller
             $event->venue = $request->venue;
             $event->date = $request->date;
             $event->price = $request->price;
+            $event->category = $request->category;
+            $event->event_type = $request->event_type;
             $event->description = $request->description;
             $event->save();
             $message = "Record upated successfuly";
@@ -116,6 +121,7 @@ class EventController extends Controller
     public function deleteEvent(Request $request){
         try {
             $event = EventsModel::where('id', $request->id)->first();
+            // dd($event);
             if(!$event){
                 $message = "Event not found!";
                 return response()->json(["message" => $message],404);
@@ -141,8 +147,10 @@ class EventController extends Controller
             'venue' => 'required|string',
             'date' => 'required|date',
             'description' => 'required|string',
-            'price' => 'required'
-
+            'price' => 'required',
+            'event_type' => 'required',
+            'category' => 'required',
+            'event_banner' => 'required'
             ]
         );
     }
