@@ -40,7 +40,7 @@ if (window.Vue) {
                     this.details.price = 500000
                 }else if(this.ticket.category ==='platinium'){
                     this.details.price = 1000000
-                }else if(this.ticket.category =='early_bird'){
+                }else if(this.ticket.category ==='early_bird'){
                     this.details.price = 2000
                 }else if(this.ticket.category ==='gate'){
                     this.details.price = 3000
