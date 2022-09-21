@@ -37,7 +37,6 @@ class EventController extends Controller
     public function createErrigaEvent(Request $request)
     {
         try {
-            // dd($request->all());
             $validator = $this->validateEvent($request->all());
             if ($validator->fails()) {
                 $message = $validator->errors()->all();
@@ -49,7 +48,7 @@ class EventController extends Controller
             if ($request->hasFile('event_banner')) {
                 $imagePath = storage_path('app/' . Paths::EVENT_BANNER_PATH);
                 $extension = $request->file('event_banner')->getClientOriginalExtension();
-                if (in_array(strtolower($extension), ["jpg", "png", "jpeg"])) {
+                if (in_array(strtolower($extension), ["png"])) {
                     $fileName = "erigga-".time() . '.' . $extension;
                     $request->file('event_banner')->move($imagePath, $fileName);
 
@@ -63,7 +62,6 @@ class EventController extends Controller
                     $event->price = $request->price;
                     $event->description = $request->description;
                     $event->event_banner = $fileName;
-                    // dd($event);
                     $event->save();
                     $message = "New Record added to event";
 
@@ -121,7 +119,6 @@ class EventController extends Controller
     public function deleteEvent(Request $request){
         try {
             $event = EventsModel::where('id', $request->id)->first();
-            // dd($event);
             if(!$event){
                 $message = "Event not found!";
                 return response()->json(["message" => $message],404);
@@ -136,6 +133,51 @@ class EventController extends Controller
             Log::info("EventController@updateEvent". $error->getMessage());
             $message = "Unable to delete data. Please, Try again";
             return response()->json(['message' => $message], 500);
+        }
+    }
+
+
+    public function changeThumbnail(Request $request)
+    {
+        try {
+
+            $event = EventsModel::where('id', $request->id)->first();
+            if (!$event) {
+                $message = "Template not found!";
+                return response()->json(['message' => $message], 404);
+            }
+
+            if (!$request->hasFile('event_banner')) {
+                $message = "An Image is required to complete request!";
+                return response()->json(['message' => $message], 400);
+            }
+
+            $imageUrl = Paths::EVENT_BANNER_PATH . $event->event_banner;
+            if (Storage::has($imageUrl)) {
+                Storage::delete($imageUrl);
+            }
+
+            $imagePath = storage_path('app/' . Paths::EVENT_BANNER_PATH);
+            $extension = $request->file('event_banner')->getClientOriginalExtension();
+            if (!in_array(strtolower($extension), ["png"])) {
+                $message = "only PNG file is allowed!";
+                return response()->json(['message' => $message], 400);
+            }
+
+            $fileName = time() . '.' . $extension;
+            $request->file('event_banner')->move($imagePath, $fileName);
+            $event->event_banner = $fileName;
+            $event->save();
+            $message = "Thumbnail updated successfully!";
+            return response()->json(["message" => $message], 200);
+
+        } catch (Exception $error) {
+            Log::info('Event\EventController@changeThumbail error message: ' . $error->getMessage());
+            $message = 'Unable to process data. Please try again';
+            return response()->json([
+                'error' => true,
+                "message" => $message,
+            ], 500);
         }
     }
 

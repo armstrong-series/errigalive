@@ -84,8 +84,8 @@
                                     <i class="fa fa-angle-down ml-3"></i>
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-right">
-                                    <a class="dropdown-item" href="javascript:void(0);" class="btn btn-primary mb-2" data-toggle="modal" @click="selectEvent(index)" data-target="#exampleModalCenter"><small>Edit Event&nbsp;&nbsp;<i class="fas fa-pen-fancy"></i></small></a>
-                                    <a class="dropdown-item"  data-toggle="modal" href="#"><small>Change Thumbnail&nbsp;&nbsp;<i class="fas fa-image"></i></small></a>
+                                    <a class="dropdown-item" href="javascript:void(0);" class="btn btn-primary mb-2" data-toggle="modal" @click="selectEvent(index)" data-target="#exampleModalCenter"><small> Event&nbsp;&nbsp;<i class="fas fa-pen-fancy"></i></small></a>
+                                    <a class="dropdown-item" data-toggle="modal" href="javascript:void(0);" data-target="#changeThumbnail" @click="editEvent(event)"><small>Thumbnail&nbsp;&nbsp;<i class="fas fa-pen-fancy"></i></small></a>
                                     <a class="dropdown-item text-danger" href="javascript:void(0);" @click="deleteEvent(index)"><small>Delete&nbsp;&nbsp;<i class="fas fa-trash"></i></small></a>
                                 </div>
                             </div>
@@ -97,6 +97,7 @@
                 <textarea name="" id="createEvent" style="display:none" cols="30" rows="10">{{ route('event.create') }}</textarea>
                 <textarea name="" id="updateEvent" style="display:none" cols="30" rows="10">{{ route('event.update') }}</textarea>
                 <textarea name="" id="deleteEvent" style="display:none" cols="30" rows="10">{{ route('event.delete') }}</textarea>
+                <textarea style="display:none" id="thumbnailChange" cols="30" rows="10">{{ route('event.thumbnail.change') }}</textarea>
                 <textarea name="" id="events" style="display:none" cols="30" rows="10">{{ json_encode($events) }}</textarea>
             </div>
 

@@ -32,9 +32,10 @@ class HomeController extends Controller
         return view('Frontend.index', $data);
     }
 
-    public function eventTicket($eventId){
+    public function eventTicket($eventId)
+    {
         $event = EventsModel::where('id', $eventId)->first();
-        if(!$event){
+        if(!$event) {
             $message = "Unknown Event!";
             return response()->json(["message" => $message], 404);
         }
@@ -48,7 +49,18 @@ class HomeController extends Controller
 
     }
 
-    public function ticket(){
+    public function tickets()
+    {
+        $events = EventsModel::all();
+        $data = [
+            'events' => $events
+        ];
+
+        return view('Frontend.event-tickets', $data);
+    }
+
+    public function ticket()
+    {
 
         return view('Frontend.ticket');
     }

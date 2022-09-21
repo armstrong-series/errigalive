@@ -16,9 +16,9 @@
 @if(count($errors)>0)
     <!-- <div class="alert alert-danger"> -->
           <p class="bg-danger text-default">
-            <ul style="list-style-type:none;"class="bg-danger text-default">
+            <ul style="list-style-type:none;"class="bg-danger p-2">
                 @foreach($errors->all() as $error)
-                <li>{{$error}}</li>
+                <li style="color: white">{{$error}}</li>
                 @endforeach
             </ul>
           </p>

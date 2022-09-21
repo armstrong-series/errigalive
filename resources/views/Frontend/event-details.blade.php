@@ -16,6 +16,11 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Lato:400,400italic' rel='stylesheet' type='text/css'>
     <link href="{{ asset('frontend/css/prettyPhoto.min.css') }}" rel="stylesheet">
+    <style>
+        [v-cloak]{
+            display: none;
+        }
+    </style>
 
     <!-- Style css -->
     <link href="{{ asset('frontend/style.css') }}" rel="stylesheet" />
@@ -41,7 +46,7 @@
 
 
                             <!-- Menu start -->
-                            <nav class="nav-collapse pull-right tz-menu">
+                            {{-- <nav class="nav-collapse pull-right tz-menu">
                                 <ul id="tz-navbar-collapse" class="nav navbar-nav collapse navbar-collapse tz-nav">
                                     <li class="menu-item-has-children">
                                         <a href="{{ route('home') }}">Home</a>
@@ -49,7 +54,7 @@
                                     </li>
 
                                 </ul>
-                            </nav>
+                            </nav> --}}
                             <!-- Menu end -->
 
                             <!-- Form search start -->
@@ -77,14 +82,40 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                             <div class="tz_breadcrumb_single_cat_title">
-                                <h4> Event</h4>
+
                             </div>
                         </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="tz-breadcrumb">
+                                <h4>
+                                    <span>
+                                        <a class="home" href="{{ route('home') }}">Home </a>
+                                    </span>
+
+                                </h4>
+                            </div>
+                        </div>
+
+
 
                     </div>
                 </div>
             </section>
             <!-- Breadcrumb end -->
+
+            <section id="event" class="vc_row">
+                <div class="tz_maniva_meetup_title text-center">
+                    <h3 class="tz_maniva_meetup_title_custom">
+                        <em>Event</em>
+
+                    </h3>
+                    <div class="tz_image_title_meetup">
+                      <img src="{{ asset('frontend/images/line-black-red.png') }}" alt="line-black">
+                   </div>
+                </div>
+            </section>
+            <!-- Event end -->
 
             <!-- Event Start -->
             <section class="tz-blogDefault">
@@ -97,7 +128,7 @@
                                         <div class="tz-blogBox ">
                                             <div class="tz-BlogImage">
 
-                                                <img :src="'/storage/events/banner/'+details.event_banner" alt=Cevent" />
+                                                <img v-cloak :src="'/storage/events/banner/'+details.event_banner" alt=Cevent" />
                                                 <div class="tz-ImageOverlay"></div>
                                                 <a class="tz-ViewImage" data-rel="prettyPhoto[worksGallery]"
                                                     :href="'/storage/events/banner/'+details.event_banner">
@@ -109,18 +140,16 @@
                                             </div>
                                             <div class="tz_blog_box_content">
                                                 <h4 class="title">
-                                                    <a href="javascript:void(0);">@{{ details.name }}</a>
+                                                    <a v-cloak href="javascript:void(0);">@{{ details.name }}</a>
                                                 </h4>
                                                 <span class="tzinfomation">
-                                                    <small class="tzinfomation_time"> @{{ details.date }} </small>
-                                                    <a href="#">
+                                                    <small v-cloak class="tzinfomation_time"> @{{ details.date }} </small>
+                                                    <a v-cloak href="#">
                                                         <i>|</i>
                                                         @{{ details.venue }}
                                                     </a>
-
-
                                                 </span>
-                                                <p>@{{ details.description }}</p>
+                                                <p v-cloak>@{{ details.description }}</p>
 
                                                 <div class="">
                                                     @csrf
@@ -138,13 +167,13 @@
                                                             <td>
                                                                 <select class="custom-select form-control" v-model="ticket.category">
                                                                     <option selected>Choose Category</option>
-                                                                    <option v-if="details.event_type === 'lostboy'" value="regular">Regular-5000</option>
-                                                                    <option v-if="details.event_type === 'lostboy'" value="vip">VIP-25000</option>
-                                                                    <option v-if="details.event_type === 'lostboy'" value="gold">Gold-500000</option>
-                                                                    <option v-if="details.event_type === 'lostboy'" value="platinium">Platinium-10000000</option>
-                                                                    <option v-if="details.event_type === 'genesis'" value="early_bird">Early Bird-2000</option>
-                                                                    <option v-if="details.event_type === 'genesis'" value="gate">Gate-3000</option>
-                                                                    <option v-if="details.event_type === 'genesis'" value="front_row">Front Row-5000</option>
+                                                                    <option v-if="details.event_type === 'lostboy'" value="regular">Regular-5,000</option>
+                                                                    <option v-if="details.event_type === 'lostboy'" value="vip">VIP-25,000</option>
+                                                                    <option v-if="details.event_type === 'lostboy'" value="gold">Gold-50,0000</option>
+                                                                    <option v-if="details.event_type === 'lostboy'" value="platinium">Platinum-1,000000</option>
+                                                                    <option v-if="details.event_type === 'genesis'" value="early_bird">Early Bird-2,000</option>
+                                                                    <option v-if="details.event_type === 'genesis'" value="gate">Gate-3,000</option>
+                                                                    <option v-if="details.event_type === 'genesis'" value="front_row">Front Row-5,000</option>
                                                             </select>
                                                             </td>
                                                             <td>
@@ -183,20 +212,7 @@
             <!-- Event  end -->
 
             <!-- footer start -->
-            <footer class="tz-footer tz-footer-type1">
-                <div class="tz-backtotop">
-                    <img src="{{ asset('frontend/images/back_top_meetup.png') }}" alt="back_top">
-                </div>
-
-
-                <div class="tzcopyright">
-                    <p>
-                        Copyright &copy; <?php echo date('Y'); ?>
-                        <a target="_blank" href="#">EriggaLive</a>
-
-                    </p>
-                </div>
-            </footer>
+            @include('Frontend.Includes.footer');
         </div>
 
         <textarea name="" style="display:none;" id="event-details" cols="30" rows="10">{{ json_encode($event) }}</textarea>

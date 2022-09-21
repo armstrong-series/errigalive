@@ -19,8 +19,6 @@ if (window.Vue) {
 
         mounted() {
             this.ticket = JSON.parse(window.localStorage.getItem('new_ticket'));
-            console.log(this.ticket)
-            this.payment.checkout =
             this.payment.checkout = $("#createEvent").val();
         },
 

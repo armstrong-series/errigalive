@@ -25,7 +25,6 @@ if (window.Vue) {
             console.log('details...', this.details)
             this.ticket_create = JSON.parse(newJQuery('#event-details').val());
 
-
         },
 
 

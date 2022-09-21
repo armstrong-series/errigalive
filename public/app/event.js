@@ -18,6 +18,7 @@ if (window.Vue) {
             eventEdit: {
                 name: "",
                 venue: "",
+                id: "",
                 date: "",
                 description: "",
                 price: ""
@@ -37,7 +38,8 @@ if (window.Vue) {
             route: {
                 createEvent: "",
                 updateEvent: "",
-                deleteEvent: ""
+                deleteEvent: "",
+                updateThumbnail: ""
             },
 
             events: []
@@ -50,6 +52,7 @@ if (window.Vue) {
             this.route.createEvent = $("#createEvent").val();
             this.route.updateEvent = $("#updateEvent").val();
             this.route.deleteEvent = $("#deleteEvent").val();
+            this.route.updateThumbnail = $("#thumbnailChange").val();
             this.events = JSON.parse($('#events').val());
 
 
@@ -60,6 +63,11 @@ if (window.Vue) {
 
             selectEvent(index){
                 this.eventEdit = Object.assign({}, this.events[index]);
+            },
+
+            editEvent(event) {
+                this.eventEdit = event;
+                this.imageFile = '/storage/events/banner/'+this.eventEdit.event_banner;
             },
 
             createEvent() {
@@ -103,7 +111,7 @@ if (window.Vue) {
                         type: "error",
                         preventDuplicates: true,
                         progressbar: false,
-                        style: { backgroundColor: "red" }
+                        style: { backgroundColor: "#CC5BB8" }
                     });
 
 
@@ -154,12 +162,51 @@ if (window.Vue) {
                         type: "error",
                         preventDuplicates: true,
                         progressbar: false,
-                        style: { backgroundColor: "red" }
+                        style: { backgroundColor: "#CC5BB8" }
                     });
 
 
                 })
 
+            },
+
+
+            changeThumbnail() {
+                this.isLoading = true;
+                let formData = new FormData();
+                formData.append('id', this.eventEdit.id);
+                formData.append('event_banner', this.originalFile);
+                formData.append('_token', $('input[name=_token]').val());
+
+                axios.post(this.route.updateThumbnail, formData)
+                    .then((response) => {
+                        this.isLoading = false;
+                        $('#changeThumbnail').modal('hide');
+                        this.eventEdit.image_path = this.imageFile;
+                        this.$toastr.Add({
+                            msg: response.data.message,
+                            clickClose: false,
+                            timeout: 2000,
+                            position: "toast-top-right",
+                            type: "success",
+                            preventDuplicates: true,
+                            progressbar: false,
+                            style: { backgroundColor: "#1BBCE8" }
+                        });
+                    }).catch((error) => {
+
+                        this.isLoading = false
+                        this.$toastr.Add({
+                            msg: error.response.data.message,
+                            clickClose: false,
+                            timeout: 2000,
+                            position: "toast-top-right",
+                            type: "error",
+                            preventDuplicates: true,
+                            progressbar: false,
+                            style: { backgroundColor: "#CC5BB8" }
+                        });
+                    })
             },
 
 
@@ -232,7 +279,6 @@ if (window.Vue) {
                     let reader = new FileReader();
                     reader.onload = (e) => {
                         this.imageFile = e.target.result;
-                        // console.log(this.imageFile)
                     };
 
                     reader.readAsDataURL(this.input.files[0]);

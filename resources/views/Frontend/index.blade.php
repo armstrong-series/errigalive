@@ -55,13 +55,17 @@
                         <nav class="nav-collapse pull-right tz-menu">
                             <ul id="tz-navbar-collapse" class="nav navbar-nav collapse navbar-collapse tz-nav">
                                 <li><a href="#home">Home</a></li>
-                                <li><a href="#event">Events</a></li>
-                                <li><a href="#">Shop</a></li>
+                                <li class="menu-item-has-children">
+                                    <a href="#event">Events</a>
+                                    <ul class="sub-menu non_mega_menu">
+                                        <li class="menu-item">
+                                            <a href="{{ route('event.tickets') }}">Buy Ticket</a>
+                                        </li>
+                                    </ul>
+                                </li>
                                 <li><a href="{{ route('login') }}">Login</a></li>
                             </ul>
                         </nav>
-                        <!-- Menu end -->
-
                     </div>
                 </div>
             </header>
@@ -122,10 +126,8 @@
                                         <a href="javascript:void(0);">
                                             <img :src="'/storage/events/banner/'+event.event_banner" alt=Club-Truth" />
                                         </a>
-                                        <div class="tz_meetup_about_content">
-
+                                        <div class="tz_meetup_about_content" style="padding: 20px;">
                                             <a class="tz_btn_video_meetup tz_meetup_btn_dark" :href="`/events/ticket/view/${event.id}`">View Event</a>
-
                                         </div>
                                     </div>
 
@@ -173,20 +175,20 @@
 
             <!-- Gallery  start -->
             <section id="gallery">
-                <div class="tz_maniva_meetup_title text-center">
-                    <h3 class="tz_meetup_title_raleway tz_title_meetup_medium"> EriggaLive</h3>
+                <div class="tz_maniva_meetup_title text-center p-2">
+                    <h3 class="tz_meetup_title_raleway tz_title_meetup_medium"> About &nbsp; EriggaLive</h3>
                     <div class="tz_image_title_meetup">
                         <img src="{{ asset('frontend/images/line-white-red.png') }}" alt="line_red">
                     </div>
-                    <div class="tz_meetup_title_content">
-                        <p>
-                            <span>Riding on the phenomenally successful and record breaking Erigga Live Concerts held In 2018, 2019 & 2021 in Warri, Erigga is set to re-write history yet again, this time with the 4th Edition slated to hold on the 26th of December 2022 at shop rite delta mall warri
-                                The concert will feature
-                                Live performances by top rated artistes & A List Comedians. Also, A Skill Acquisition Workshop is also planned for Friday, 23rd & Saturday 24th December 2022. This will give an opportunity to Thousands of Unemployed Youths & Women, to avail themselves of the free courses to aquire skills that will be beneficial to them in fending for themselves & their families.
-                                </span>
-                        </p>
-                        <p>
-                            <span>Also, on the evening of the 24th of December, We plan to organize a free medical outreach which will hold simultaneously in three different neighbourhoods in Warri & Ughelli. At least 10 doctors & over 30 Nurses drawn from institutions will cater for at least 1,000 people. Drugs will also be given out free of charge</span>
+                    <div class="tz_meetup_title_content" style="padding: 8px;">
+                        <p style="text-align:center">
+                                <span>
+                                    Riding on the phenomenally successful and record breaking Erigga Live Concerts held In 2018, 2019 & 2021 in Warri, Erigga is set to re-write history yet again, this time with the 4th Edition slated to hold on the 26th of December 2022 at shop rite delta mall warri
+                                    The concert will feature
+                                    Live performances by top rated artistes & A List Comedians. Also, A Skill Acquisition Workshop is also planned for Friday, 23rd & Saturday 24th December 2022. This will give an opportunity to Thousands of Unemployed Youths & Women, to avail themselves of the free courses to aquire skills that will be beneficial to them in fending for themselves & their families.
+                                 </span>
+                                <br>
+                                <span>Also, on the evening of the 24th of December, We plan to organize a free medical outreach which will hold simultaneously in three different neighbourhoods in Warri & Ughelli. At least 10 doctors & over 30 Nurses drawn from institutions will cater for at least 1,000 people. Drugs will also be given out free of charge</span>
 
                         </p>
                     </div>
@@ -201,48 +203,10 @@
             </section>
             <!-- Gallery  end -->
 
-            <!-- Contact start -->
-            <section id="contact" class="vc_row parallax parallax-bk2">
-                <div class="row vc_row-flex">
-                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 custom_col_pading_right vc_column_container">
-                        <div class="vc_column-inner">
-                            <div class="tzContact">
-                                <div class="text-center">
-                                    <ul class="TzContactInfo">
-                                        <li class="tzContactAbout">
-                                            Club Truth. Plot 3B/4B
-                                            <br>
-                                            Godwin Abbey Way Limit Way GRA, Benin City, Edo State
-                                        </li>
 
-
-
-                                        <li class="tzContactPhone"> +2348066592913, +2349157231147</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </section>
-            <!-- Contact end -->
 
             <!-- footer start -->
-            <footer class="tz-footer tz-footer-type1">
-                <div class="tz-backtotop">
-                    <img src="{{ asset('frontend/images/back_top_meetup.png') }}" alt="back_top">
-                </div>
-
-
-                <div class="tzcopyright">
-                    <p>
-                        Copyright &copy; <?php echo date('Y'); ?>
-                        <a target="_blank" href="#">EriggaLive</a>
-
-                    </p>
-                </div>
-            </footer>
+            @include('Frontend.Includes.footer');
             <!-- footer end -->
 
         </div>
@@ -256,43 +220,7 @@
     </div>
 
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="{{ asset('frontend/js/library/jquery.min.js') }}"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="{{ asset('frontend/js/library/bootstrap.min.js') }}"></script>
-    <script>
-        jQuery.noConflict();
-    </script>
-
-
-
-    <script src="{{ asset('libraries/axios.js') }}"></script>
-    <script src="{{ asset('libraries/vue.js') }}"></script>
-    <!-- Include bxslider -->
-    <script src="{{ asset('frontend/js/library/nav.js') }}"></script>
-    <script src="{{ asset('frontend/js/one_page.js') }}"></script>
-    <script src="{{ asset('frontend/js/library/jquery.bxslider.min.js') }}"></script>
-    <script src="{{ asset('frontend/js/library/resize.js') }}"></script>
-    <script src="{{ asset('frontend/js/library/jquery.countdown.min.js') }}"></script>
-    <script src="{{ asset('frontend/js/library/jquery.fitvids.min.js') }}"></script>
-    <script src="{{ asset('frontend/js/library/jquery.easy-opener.min.js') }}"></script>
-    <script src="{{ asset('frontend/js/library/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('frontend/js/library/classie.js') }}"></script>
-    <script src="{{ asset('frontend/js/library/modalEffects.js') }}"></script>
-    <script src="{{ asset('frontend/js/library/parallax.min.js') }}"></script>
-    <script src="{{ asset('frontend/js/library/masonry.min.js') }}"></script>
-    <script src="{{ asset('frontend/js/library/imagesloaded.pkgd.js') }}"></script>
-    <script src="{{ asset('frontend/js/library/plusgallery_simple.js') }}"></script>
-    <script src="{{ asset('frontend/js/library/jquery.prettyPhoto.js') }}"></script>
-    <script src="{{ asset('frontend/js/gallery.js') }}"></script>
-
-
-    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
-    <script>
-        let newJQuery = $.noConflict(true);
-    </script>
-
-    <script src="{{ asset('frontend/js/custom.js') }}"></script>
+    @include('Frontend.Includes.script');
     <script src="{{ asset('app/index.js') }}"></script>
 </body>
 

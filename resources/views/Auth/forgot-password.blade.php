@@ -41,46 +41,24 @@
               <!-- Email input -->
               @include('Includes.messages')
               <div class="form-outline mb-4">
-                <input type="email" id="form3Example3" name="email"  class="form-control" />
+                <input type="email" id="form3Example3" name="email"  placeholder="Enter email Address" class="form-control" />
                 <label class="form-label" for="form3Example3">Email address</label>
               </div>
-
-              <!-- Password input -->
-              <div class="form-outline mb-4">
-                <input type="password" name="password" id="form3Example4" class="form-control" />
-                <label class="form-label" for="form3Example4">Password</label>
-              </div>
-
-              <!-- Checkbox -->
-              <div class="form-check d-flex justify-content-center mb-4">
-                <input class="form-check-input me-2" type="checkbox" value="" id="form2Example33" checked />
-                <label class="form-check-label" for="form2Example33">
-                  Remember Me
-                </label>
-              </div>
-
               <!-- Submit button -->
               <button type="submit" class="btn btn-primary btn-block mb-4">
                 Sign In
               </button>
-
-
             </form>
                <div class="d-flex justify-content-center mb-4">
-                <a href="#">Forgot Password</a>
+                <a href="{{ route('login') }}">Remember ?</a>
               </div>
 
-
-                <a href="{{ route('home') }}"><i class="fas fa-house"></i></a>
 
           </div>
         </div>
       </div>
 
-      <div class="col-lg-6 mb-5 mb-lg-0">
-        <img src="{{ asset('lostb.jpg') }}" class="w-100 rounded-4 shadow-4"
-          alt="" />
-      </div>
+
     </div>
   </div>
   <!-- Jumbotron -->

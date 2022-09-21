@@ -12,82 +12,64 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.4.0/mdb.min.css"  rel="stylesheet"/>
 
 
-<!-- Section: Design Block -->
-<section class="text-center text-lg-start">
-  <style>
-    .cascading-right {
-      margin-right: -50px;
-    }
 
-    @media (max-width: 991.98px) {
-      .cascading-right {
-        margin-right: 0;
-      }
-    }
-  </style>
 
-  <!-- Jumbotron -->
-  <div class="container py-4">
-    <div class="row g-0 align-items-center">
-      <div class="col-lg-6 mb-5 mb-lg-0">
-        <div class="card cascading-right" style="
-            background: hsla(0, 0%, 100%, 0.55);
-            backdrop-filter: blur(30px);
-            ">
-          <div class="card-body p-5 shadow-5 text-center">
-            <!-- <h2 class="fw-bold mb-5">Sign up now</h2> -->
-            <form method="post" action="{{ route('auth.login.account') }}">
-              @csrf
-              <!-- Email input -->
-              @include('Includes.messages')
-              <div class="form-outline mb-4">
-                <input type="email" id="form3Example3" name="email"  class="form-control" />
-                <label class="form-label" for="form3Example3">Email address</label>
-              </div>
 
-              <!-- Password input -->
-              <div class="form-outline mb-4">
-                <input type="password" name="password" id="form3Example4" class="form-control" />
-                <label class="form-label" for="form3Example4">Password</label>
-              </div>
+<section class="vh-100">
+    <div class="container py-5 h-100">
+      <div class="row d-flex align-items-center justify-content-center h-100">
+        <div class="col-md-8 col-lg-7 col-xl-6">
+          <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
+            class="img-fluid" alt="Phone image">
+        </div>
+        <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+          <form  action="{{ route('auth.login.account') }}" method="POST">
+            @include('Includes.messages')
+            @csrf
+            <div class="form-outline mb-4">
+              <input type="email" id="form1Example13" name="email" class="form-control form-control-lg" />
+              <label class="form-label" for="form1Example13">Email address</label>
+            </div>
 
+            <!-- Password input -->
+            <div class="form-outline mb-4">
+              <input type="password" name="password" id="form1Example23" class="form-control form-control-lg" />
+              <label class="form-label" for="form1Example23">Password</label>
+            </div>
+
+            <div class="d-flex justify-content-around align-items-center mb-4">
               <!-- Checkbox -->
-              <div class="form-check d-flex justify-content-center mb-4">
-                <input class="form-check-input me-2" type="checkbox" value="" id="form2Example33" checked />
-                <label class="form-check-label" for="form2Example33">
-                  Remember Me
-                </label>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="form1Example3" checked />
+                <label class="form-check-label" for="form1Example3"> Remember me </label>
+              </div>
+              <a href="{{ route('auth.forgot-password') }}">Forgot password?</a>
+            </div>
+
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
+
+
+             <div class="d-flex justify-content-around align-items-center mb-4">
+                <a href="{{ route('auth.signup') }}">Create  an account ?</a>
+              </div>
+              <div class="divider d-flex align-items-center my-4">
+                <p class="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
               </div>
 
-              <!-- Submit button -->
-              <button type="submit" class="btn btn-primary btn-block mb-4">
-                Sign In
-              </button>
+            <a class="btn btn-primary btn-lg btn-block" style="background-color: #3b5998" href="#!"
+              role="button">
+              <i class="fab fa-facebook-f me-2"></i>Continue with Facebook
+            </a>
+            <a class="btn btn-primary btn-lg btn-block" style="background-color: #B2280B" href="#!"
+              role="button">
+              <i class="fab fa-google me-2"></i>Continue with Google</a>
 
-
-            </form>
-               <div class="d-flex justify-content-center mb-4">
-                <a href="#">Forgot Password</a>
-              </div>
-
-
-                <a href="{{ route('home') }}"><i class="fas fa-home-lg"></i></a>
-
-          </div>
+          </form>
         </div>
       </div>
-
-      <div class="col-lg-6 mb-5 mb-lg-0">
-        <img src="{{ asset('lostb.jpg') }}" class="w-100 rounded-4 shadow-4"
-          alt="" />
-      </div>
     </div>
-  </div>
-  <!-- Jumbotron -->
 </section>
-<!-- Section: Design Block -->
-
-
 
 
 

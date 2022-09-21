@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\PasswordRecoveryMail;
 use Illuminate\Support\Facades\Session;
 use Validator;
+use Exception;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 
 class ForgotPasswordController extends Controller
@@ -60,13 +61,13 @@ class ForgotPasswordController extends Controller
                 Session::put('errorMessage', $message);
                 return redirect()->back();
             }
-        } catch (\Exception $error) {
+        } catch (Exception $error) {
             Log::info('error message: ' . $error->getMessage());
             $message = 'Encountered an error please try again';
             Session::put('message', $message);
             return redirect()->back();
         }
-        
+
     }
 
     protected function validator(array $data)

@@ -1,32 +1,23 @@
 <div class="deznav">
             <div class="deznav-scroll">
 				<ul class="metismenu" id="menu">
+                    @if(Auth::user()->user_type === 'admin' || Auth::user()->user_type === 'admin')
                     <li class="{{ $page == 'dashboard' ? 'active' : '' }}">
                         <a href="{{ route('admin.dashboard') }}" aria-expanded="false">
-							<i class="flaticon-381-networking"></i>
-							<span class="nav-text">Dashboard</span>
+							<i class="fas fa-user-secret"></i>
+							<span class="nav-text">Administrator</span>
 						</a>
-
                     </li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-							<i class="flaticon-381-television"></i>
-							<span class="nav-text">Apps</span>
+                    @endif
+
+                    <li class="{ $page == 'account' ? 'active' : '' }}">
+                        <a class="" href="{{ route('account.secure') }}" aria-expanded="false">
+                            <i class="fas fa-user"></i>
+							<span class="nav-text">Account</span>
 						</a>
-                        <ul aria-expanded="false">
-                            <li><a href="app-profile.html">Profile</a></li>
-                            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Email</a>
-                                <ul aria-expanded="false">
-                                    <li><a href="email-compose.html">Compose</a></li>
-                                    <li><a href="email-inbox.html">Inbox</a></li>
-                                    <li><a href="email-read.html">Read</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="app-calender.html">Calendar</a></li>
-							<li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Shop</a>
-
-                            </li>
-                        </ul>
                     </li>
+
+                    @if(Auth::user()->user_type === 'admin' || Auth::user()->user_type === 'admin')
                     <li class="{ $page == 'events' ? 'active' : '' }}">
                         <a class="" href="{{ route('eriggalive.event') }}" aria-expanded="false">
 
@@ -37,15 +28,18 @@
 
 							<span class="nav-text">Events</span>
 						</a>
+                    </li>
+                    @endif
+                    @if(Auth::user()->user_type === 'admin' || Auth::user()->user_type === 'admin')
+                        <li class="{ $page == 'shop' ? 'active' : '' }}">
+                            <a href="{{ route('eriggalive.shop') }}" aria-expanded="false">
+                            <i class="fa fa-shopping-cart"></i>
+                            <span class="nav-text">Shop</span>
+                            </a>
+                        </li>
+                    @endif
 
 
-                    </li>
-                    <li class="{ $page == 'shop' ? 'active' : '' }}">
-                        <a href="{{ route('eriggalive.shop') }}" aria-expanded="false">
-                         <i class="fa fa-shopping-cart"></i>
-                         <span class="nav-text">Shop</span>
-                         </a>
-                    </li>
                     <li class="{ $page == 'settings' ? 'active' : '' }}">
                         <a href="{{ route('settings.profile') }}" aria-expanded="false">
                            <i class="flaticon-381-settings-2"></i>
