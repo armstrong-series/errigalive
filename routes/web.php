@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers as Controller;
-// use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,4 +38,5 @@ Route::get('/payment/callback', [Controller\Payments\PayementController::class, 
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'errigaLiveHome'])->name('home');
 
-// Auth::routes(['verify' => true]);
+// Auth::routes(['verify' => true ]);
+

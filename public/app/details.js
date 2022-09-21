@@ -22,7 +22,6 @@ if (window.Vue) {
 
         mounted() {
             this.details = JSON.parse(newJQuery('#event-details').val());
-            console.log('details...', this.details)
             this.ticket_create = JSON.parse(newJQuery('#event-details').val());
 
         },
@@ -56,7 +55,7 @@ if (window.Vue) {
                     category: this.ticket.category
 
                 }
-                window.localStorage.setItem('new_ticket', JSON.stringify(ticket));
+                window.localStorage.setItem('ticket', JSON.stringify(ticket));
 
 
             },

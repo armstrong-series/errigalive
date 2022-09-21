@@ -49,6 +49,8 @@ class HomeController extends Controller
 
     }
 
+
+
     public function tickets()
     {
         $events = EventsModel::all();

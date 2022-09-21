@@ -55,13 +55,17 @@
                         <nav class="nav-collapse pull-right tz-menu">
                             <ul id="tz-navbar-collapse" class="nav navbar-nav collapse navbar-collapse tz-nav">
                                 <li><a href="#home">Home</a></li>
-                                <li class="menu-item-has-children">
+                                {{-- <li class="menu-item-has-children">
                                     <a href="#event">Events</a>
                                     <ul class="sub-menu non_mega_menu">
                                         <li class="menu-item">
                                             <a href="{{ route('event.tickets') }}">Buy Ticket</a>
                                         </li>
                                     </ul>
+                                </li> --}}
+                                <li>
+                                    <a href="#event">Events</a>
+
                                 </li>
                                 <li><a href="{{ route('login') }}">Login</a></li>
                             </ul>
@@ -180,7 +184,7 @@
                     <div class="tz_image_title_meetup">
                         <img src="{{ asset('frontend/images/line-white-red.png') }}" alt="line_red">
                     </div>
-                    <div class="tz_meetup_title_content" style="padding: 8px;">
+                    <div class="tz_meetup_title_content" style="padding:15px;">
                         <p style="text-align:center">
                                 <span>
                                     Riding on the phenomenally successful and record breaking Erigga Live Concerts held In 2018, 2019 & 2021 in Warri, Erigga is set to re-write history yet again, this time with the 4th Edition slated to hold on the 26th of December 2022 at shop rite delta mall warri

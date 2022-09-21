@@ -143,12 +143,12 @@ class EventController extends Controller
 
             $event = EventsModel::where('id', $request->id)->first();
             if (!$event) {
-                $message = "Template not found!";
+                $message = "Unknown event!";
                 return response()->json(['message' => $message], 404);
             }
 
             if (!$request->hasFile('event_banner')) {
-                $message = "An Image is required to complete request!";
+                $message = "An image is required!";
                 return response()->json(['message' => $message], 400);
             }
 

@@ -76,7 +76,7 @@ class RegisterController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function signupAccount(RegisterRequest $request){
+    public function signupAccount(Request $request){
         try {
 
             $validator = $this->validator($request->all());
@@ -95,7 +95,7 @@ class RegisterController extends Controller
             $user->password = Hash::make($request->password);
             $user->uuid = (string) Str::uuid();
             $user->save();
-            event(new Registered($user));
+
             $message = "Account Created!";
             return response()->json(['message' => $message], 200);
 

@@ -16,13 +16,6 @@
 
 <body>
 
-
-
-
-
-
-
-
     <div class="container py-5 h-100">
         <div class="row d-flex align-items-center justify-content-center h-100">
             <div class="col-md-8 col-lg-7 col-xl-6">
@@ -65,11 +58,11 @@
                         <p class="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
                     </div>
 
-                    <a class="btn btn-primary btn-lg btn-block" style="background-color: #3b5998" href="#!"
+                    <a class="btn btn-primary btn-lg btn-block" style="background-color: #3b5998" href="#"
                         role="button">
                         <i class="fab fa-facebook-f me-2"></i>Continue with Facebook
                     </a>
-                    <a class="btn btn-primary btn-lg btn-block" style="background-color: #B2280B" href="#!"
+                    <a class="btn btn-primary btn-lg btn-block" style="background-color: #B2280B" href="#"
                         role="button">
                         <i class="fab fa-google me-2"></i>Continue with Google</a>
 

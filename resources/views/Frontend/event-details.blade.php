@@ -169,8 +169,8 @@
                                                                     <option selected>Choose Category</option>
                                                                     <option v-if="details.event_type === 'lostboy'" value="regular">Regular-5,000</option>
                                                                     <option v-if="details.event_type === 'lostboy'" value="vip">VIP-25,000</option>
-                                                                    <option v-if="details.event_type === 'lostboy'" value="gold">Gold-50,0000</option>
-                                                                    <option v-if="details.event_type === 'lostboy'" value="platinium">Platinum-1,000000</option>
+                                                                    <option v-if="details.event_type === 'lostboy'" value="gold">Gold-500,000</option>
+                                                                    <option v-if="details.event_type === 'lostboy'" value="platinium">Platinum-1,000,000</option>
                                                                     <option v-if="details.event_type === 'genesis'" value="early_bird">Early Bird-2,000</option>
                                                                     <option v-if="details.event_type === 'genesis'" value="gate">Gate-3,000</option>
                                                                     <option v-if="details.event_type === 'genesis'" value="front_row">Front Row-5,000</option>

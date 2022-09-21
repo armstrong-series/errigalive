@@ -77,7 +77,6 @@ if (window.Vue) {
                     let value = this.event[key]
                     formData.append(key, value);
                 }
-                console.log('file',this.originalFile)
                 formData.append('event_banner', this.originalFile);
                 formData.append('_token', $('input[name=_token]').val());
                 axios.post(this.route.createEvent, formData, {
@@ -173,6 +172,7 @@ if (window.Vue) {
 
             changeThumbnail() {
                 this.isLoading = true;
+
                 let formData = new FormData();
                 formData.append('id', this.eventEdit.id);
                 formData.append('event_banner', this.originalFile);

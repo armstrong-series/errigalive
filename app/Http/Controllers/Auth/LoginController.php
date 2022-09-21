@@ -55,22 +55,6 @@ class LoginController extends Controller
     }
 
 
-    // protected function login(Request $request)
-    // {
-    //     $credentials = $request->only('email', 'password');
-    //     if (!Auth::attempt($credentials)) {
-    //         Session::put('errorMessage', 'Opps! You have entered invalid credentials');
-    //         return redirect()->route('auth.login.account');
-    //     }
-    //     $user = Auth::user();
-
-    //     if ($user->user_type === "admin" ||  $user->user_type === "support") {
-    //         return response()->redirectToRoute('admin.dashboard');
-    //     }
-    //     return response()->redirectToRoute('user.dashboard');
-    // }
-
-
     protected function authenticated(Request $request)
     {
         $user = Auth::user();
