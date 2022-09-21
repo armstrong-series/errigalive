@@ -3,15 +3,18 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Request;
+use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Auth\Events\Registered;
 use Exception;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
+
+
 class RegisterController extends Controller
 {
     /*
@@ -44,6 +47,7 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+
     /**
      * Get a validator for an incoming registration request.
      *
@@ -64,7 +68,15 @@ class RegisterController extends Controller
         return view('Auth.register');
     }
 
-    public function signupAccount(Request $request){
+      /**
+     * Handle account registration request
+     *
+     * @param RegisterRequest $request
+     *
+     * @return \Illuminate\Http\Response
+     */
+
+    public function signupAccount(RegisterRequest $request){
         try {
 
             $validator = $this->validator($request->all());
@@ -83,13 +95,14 @@ class RegisterController extends Controller
             $user->password = Hash::make($request->password);
             $user->uuid = (string) Str::uuid();
             $user->save();
+            event(new Registered($user));
             $message = "Account Created!";
             return response()->json(['message' => $message], 200);
 
         } catch (Exception $error) {
             Log::info("RegisterController::class, 'createAccount'" . $error->getMessage());
             $message = 'Unable to get information. Please try checking your network';
-            return response()->json(['message' => $message], 500)
+            return response()->json(['message' => $message], 500);
         }
     }
 }

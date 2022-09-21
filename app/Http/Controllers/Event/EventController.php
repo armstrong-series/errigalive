@@ -169,7 +169,7 @@ class EventController extends Controller
             $event->event_banner = $fileName;
             $event->save();
             $message = "Thumbnail updated successfully!";
-            return response()->json(["message" => $message], 200);
+            return response()->json(["message" => $message, "event" => $event], 200);
 
         } catch (Exception $error) {
             Log::info('Event\EventController@changeThumbail error message: ' . $error->getMessage());

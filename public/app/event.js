@@ -193,6 +193,14 @@ if (window.Vue) {
                             progressbar: false,
                             style: { backgroundColor: "#1BBCE8" }
                         });
+                        this.isLoading = false;
+                        let thumbnailEdit = response.data.event;
+                        this.events = this.events.map((event) =>{
+                            if(event.id === thumbnailEdit.id){
+                                event = Object.assign({},thumbnailEdit)
+                            }
+                            return event;
+                        })
                     }).catch((error) => {
 
                         this.isLoading = false

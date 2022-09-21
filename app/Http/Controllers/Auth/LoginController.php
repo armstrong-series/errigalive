@@ -71,7 +71,7 @@ class LoginController extends Controller
     // }
 
 
-    protected function login(Request $request)
+    protected function authenticated(Request $request)
     {
         $user = Auth::user();
         if ($user->user_type === "admin" || $user->user_type === "support") {

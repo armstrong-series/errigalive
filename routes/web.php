@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers as Controller;
-use Illuminate\Support\Facades\Auth;
+// use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,7 +14,6 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 Route::get('/login', [Controller\Auth\LoginController::class, 'loginView'])->name('login');
-Route::post('/login', [Controller\Auth\LoginController::class, 'login'])->name('auth.login.account');
 Route::post('/login', [Controller\Auth\LoginController::class, 'login'])->name('auth.login.account');
 Route::get('/logout', [Controller\Auth\LoginController::class, 'logout'])->name('auth.logout');
 Route::get('/secure/account', [Controller\AccountController::class, 'secureAccount'])->name('account.secure');
@@ -39,4 +38,4 @@ Route::get('/payment/callback', [Controller\Payments\PayementController::class, 
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'errigaLiveHome'])->name('home');
 
-Auth::routes(['verify' => true]);
+// Auth::routes(['verify' => true]);
