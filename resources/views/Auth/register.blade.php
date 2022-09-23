@@ -4,8 +4,9 @@
   rel="stylesheet"
 />
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
- integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+
+
 <!-- Google Fonts -->
 <link
   href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
@@ -23,14 +24,10 @@
             <div>
                 @csrf
                 <div class="form-outline mb-4">
-                <input type="text" id="form1Example13" v-model="account.firstname" name="firstname" class="form-control form-control-lg" />
-                <label class="form-label" for="form1Example13">First Name</label>
+                    <input type="text" id="form1Example13" v-model="account.name" name="firstname" class="form-control form-control-lg" />
+                    <label class="form-label" for="form1Example13">Name</label>
                 </div>
 
-                <div class="form-outline mb-4">
-                    <input type="text" id="form1Example13" v-model="account.lastname" name="lastname" class="form-control form-control-lg" />
-                    <label class="form-label" for="form1Example13">Last Name</label>
-                </div>
                 <div class="form-outline mb-4">
                     <input type="email" id="form1Example13" v-model="account.email" name="email" class="form-control form-control-lg" />
                     <label class="form-label" for="form1Example13">Email address</label>
@@ -46,10 +43,20 @@
                     <label class="form-label" for="form1Example23">Confirm Password</label>
                 </div>
 
+                {{-- <div class="form-outline mb-4">
+                    <select class="form-control" v-model="account.nationality">
+                        <option selected>Choose Nationality</option>
+                        <option value="ghana">Ghana</option>
+                        <option value="nigeria">Nigeria</option>
+                        <option value="rwanda">Rwanda</option>
+                        <option value="south-africa">SouthAfrica</option>
+                        <option value="uganda">Uganda</option>
+                    </select>
 
+                </div> --}}
 
                 <!-- Submit button -->
-                <button type="button" @click="signupAccount()" class="btn btn-primary btn-lg btn-block">Sign up</button>
+                <button type="button" @click="signup()" class="btn btn-primary btn-lg btn-block">Sign up</button>
 
 
                 <div class="d-flex justify-content-around align-items-center mb-4">
@@ -59,7 +66,7 @@
             </div>
         </div>
 
-        <textarea name="" id="createAccount" style="display: none;" cols="30" rows="10">{{ route('auth.account.signup') }}</textarea>
+        <textarea name="" id="signup" style="display: none;" cols="30" rows="10">{{ route('auth.account.signup') }}</textarea>
         </div>
     </section>
 </div>
@@ -73,8 +80,6 @@ crossorigin="anonymous"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.4.0/mdb.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
 
-<script ype="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"></script>
-<script ype="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
-
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript" src="{{ asset('app/account-signup.js') }}"></script>

@@ -11,51 +11,56 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use App\Models\TicketModel;
+use Unicodeveloper\Paystack\Paystack;
+use App\Models\User;
+use App\Mail\PaymentVerificationMail;
+use Illuminate\Support\Facades\Mail;
 use Exception;
 
 class PayementController extends Controller
 {
 
 
-    public function initializePaystackPayment(Http $httpClient, Request $request){
+    public function initializePaystackPayment(Request $request){
         try {
-            $url = ErrigaLive::PAYSTACK_INITIALIZE_URL;
-            $secretKey = ErrigaLive::PAYSTACK_SECRET_KEY;
-             $params = [
-                'email' => 'test@gmail.com',
-                'amount' => '40000',
-                'callback_url' => route('ticket.callback')
-             ];
-
-            $response = $httpClient::withHeaders([
-                "accept" => "*/*",
-                'authorization' => 'Bearer ' . $secretKey,
-                'content-Type'  => 'application/json'  ,
-                'cache-Control' => 'no-cache',
-            ])->post($url, $params);
-            $response = json_decode($response->getBody());
-            // dd($response);
-            return Redirect::to($url);
-
-            // $ticketNumber = random_int(100, 9999895);
-            // $payment = new TicketModel();
-
-            // $payment->qty = $request->qty;
-            // $payment->price = $request->price;
-            // $payment->config = $response;
-            // $payment->ticket_number = "errigalive-".$ticketNumber;
-            // $payment->save();
-            // return Redirect::to($url);
+            return Paystack::getAuthorizationUrl()->redirectNow();
 
         } catch (Exception $error) {
-            Log::info("Payments\PaymentController@initializePayment". $error->getMessage());
+            Log::info("Payments\PaymentController@initializePaystackPayment". $error->getMessage());
+            $message = "Unable to process payment";
+            return response()->json(["message" => $message], 500);
         }
     }
 
 
     protected function paystackCallbackURL() {
         try {
+
+        $user = User::where('id', Auth::id())->first();
+        if(!$user){
+            $message = "No user found!";
+            return response()->json(["message" => $message], 400);
+        }
+
+        $paymentDetails = Paystack::getPaymentData();
+        $invoice_id = $paymentDetails['data']['metadata']['invoiceId'];
+        $status = $paymentDetails['data']['status'];
+        $amount = $paymentDetails['data']['amount'];
+        $number  = rand(1111111111,9999999999);
+        $number = 'eriggalive-'.$number;
+
+        if($status == "success"){
+            $ticket = new TicketModel();
+            $ticket->user_id = Auth::id();
+            $ticket->email = $user->email;
+            $ticket->price = $amount;
+            $ticket->ticket_number = $number;
+            $ticket->invoice_id = $invoice_id;
+            $ticket->save();
+            Mail::to($user->email)->send(new PaymentVerificationMail($user));
             return view('Frontend.index');
+        }
+
         } catch (Exception $error) {
             Log::info("Payments\PaymentController@paystackCallbackURL". $error->getMessage());
         }

@@ -1,5 +1,7 @@
 <?php
+
 namespace App\Helpers;
+
 use DateTime;
 
 class Common
@@ -37,5 +39,23 @@ class Common
 
         return $string ? implode(', ', $string) . ' ago' : 'just now';
     }
+
+
+    public static function dailyHourlyWelcome()
+    {
+        if (date("H") < 12) {
+            return "Good morning";
+        } elseif (date("H") > 11 && date("H") < 18) {
+            return "Good afternoon";
+
+        } elseif (date("H") > 17) {
+
+            return "Good evening";
+        }
+    }
+
+
+
+
 
 }

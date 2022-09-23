@@ -4,23 +4,17 @@ if (window.Vue) {
         data: {
             isLoading: false,
 
-            authenticate: {
-                email: "",
-                password: ""
-            },
-
             account: {
-                firstname: '',
-                lastname: '',
+                name: '',
                 email: '',
+                nationality: '',
                 password: '',
                 confirm_password: ""
 
             },
 
-            url: {
-
-                accountCreate: ""
+            route: {
+                 accountCreate: ""
             }
 
 
@@ -29,15 +23,14 @@ if (window.Vue) {
 
 
         mounted() {
+            this.route.accountCreate = $("#signup").val();
 
-            this.url.authenticate = $("#authenticate").val();
-            this.url.accountCreate = $("createAccount").val();
         },
 
         methods: {
 
 
-            signupAccount() {
+            signup() {
                 this.isloading = false;
 
                 let formData = new FormData();
@@ -46,7 +39,7 @@ if (window.Vue) {
                     formData.append(key, value);
                 }
                 formData.append('_token', $('input[name=_token]').val());
-                axios.post(this.url.accountCreate, formData).then((response) => {
+                axios.post(this.route.accountCreate, formData).then((response) => {
                     this.$toastr.Add({
                         msg: response.data.message,
                         clickClose: false,
@@ -57,7 +50,9 @@ if (window.Vue) {
                         progressbar: false,
                         style: { backgroundColor: "#1BBCE8" }
                     });
+
                     this.isLoading = false;
+                    console.log(response.data.message)
                     setTimeout(() => {
                         window.open('/login');
                     }, 3000);
@@ -65,16 +60,30 @@ if (window.Vue) {
 
                 }).catch((error) => {
                     this.isLoading = false
-                    this.$toastr.Add({
-                        msg: error.response.data.message,
-                        clickClose: false,
-                        timeout: 2000,
-                        position: "toast-top-right",
-                        type: "error",
-                        preventDuplicates: true,
-                        progressbar: false,
-                        style: { backgroundColor: "#CC5BB8" }
-                    });
+                    if (error.response) {
+                        this.$toastr.Add({
+                            msg: error.response.data.message,
+                            clickClose: false,
+                            timeout: 2000,
+                            position: "toast-top-right",
+                            type: "error",
+                            preventDuplicates: true,
+                            progressbar: false,
+                            style: { backgroundColor: "#CC5BB8" }
+                        });
+                    } else {
+                        this.$toastr.Add({
+                            msg: "Oops! Unable to continue",
+                            clickClose: false,
+                            timeout: 2000,
+                            position: "toast-top-right",
+                            type: "error",
+                            preventDuplicates: true,
+                            progressbar: false,
+                            style: { backgroundColor: "#CC5BB8" }
+                        });
+                    }
+
 
 
                 })

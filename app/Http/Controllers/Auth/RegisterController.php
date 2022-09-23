@@ -56,8 +56,7 @@ class RegisterController extends Controller
      */
     protected function validator(array $data) {
         return Validator::make($data, [
-            'first_name' => 'required|string',
-            'last_name' => 'required|string',
+            'name' => 'required|string',
             'email' => 'required|regex:/(.+)@(.+)\.(.+)/i|unique:users',
             'password' => 'required|between:6,255',
             'confirm_password' => 'required|same:password',
@@ -88,12 +87,12 @@ class RegisterController extends Controller
 
             }
             $user = new User;
-            $user->first_name = $request->firstname;
-            $user->last_name = $request->firstname;
+            $user->name = $request->name;
             $user->email = $request->email;
             $user->user_type = 'regular';
             $user->password = Hash::make($request->password);
             $user->uuid = (string) Str::uuid();
+            // dd($user);
             $user->save();
 
             $message = "Account Created!";

@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes(['verify' => true ]);
+
+
 Route::get('/login', [Controller\Auth\LoginController::class, 'loginView'])->name('login');
 Route::post('/login', [Controller\Auth\LoginController::class, 'login'])->name('auth.login.account');
 Route::get('/logout', [Controller\Auth\LoginController::class, 'logout'])->name('auth.logout');
@@ -23,6 +26,7 @@ Route::get('/reset-password/{token}', [Controller\Auth\ResetPasswordController::
 Route::get('/forgot-password', [Controller\Auth\ForgotPasswordController::class, 'forgotPassword'])->name('auth.forgot-password');
 Route::post('/reset-password', [Controller\Auth\ResetPasswordController::class,'updatePassword'])->name('auth.update-password');
 Route::get('/admin', [Controller\Admin\AdminController::class, 'dashboard'])->name('admin.dashboard');
+Route::get('/user-management', [Controller\Admin\AdminController::class, 'userManagement'])->name('usermanagement');
 Route::get('/admin/events', [Controller\Event\EventController::class, 'eriggaEvents'])->name('eriggalive.event');
 Route::post('/admin/event/create', [Controller\Event\EventController::class, 'createErrigaEvent'])->name('event.create');
 Route::post('/admin/event/update', [Controller\Event\EventController::class, 'updateEvent'])->name('event.update');
@@ -33,10 +37,10 @@ Route::get('/settings/profile', [Controller\Settings\SettingsController::class, 
 Route::get('/events/ticket/view/{eventId}', [Controller\HomeController::class, 'eventTicket'])->name('event.ticket');
 Route::get('/events/tickets', [Controller\HomeController::class, 'tickets'])->name('event.tickets');
 Route::get('/ticket/payment', [Controller\HomeController::class, 'ticket'])->name('ticket');
-Route::get('/ticket/payment/initialize', [Controller\Payments\PayementController::class, 'initializePaystackPayment'])->name('ticket.payment');
-Route::get('/payment/callback', [Controller\Payments\PayementController::class, 'paystackCallbackURL'])->name('ticket.callback');
+Route::post('/ticket/payment/initialize', [Controller\Payments\PayementController::class, 'initializePaystackPayment'])->name('payment.initialize');
+Route::get('/payment/callback', [Controller\Payments\PayementController::class, 'paystackCallbackURL'])->name('payment.callback');
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'errigaLiveHome'])->name('home');
 
-// Auth::routes(['verify' => true ]);
+
 

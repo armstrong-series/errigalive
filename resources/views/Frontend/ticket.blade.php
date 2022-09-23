@@ -89,7 +89,7 @@
                                                         </tbody>
                                                       </table>
                                                 </div>
-                                                <a href="{{ route('ticket.payment') }}" class="btn btn-lg btn-default" style="background: #FF5733; color:aliceblue;" type="button">Make Payment</a>
+                                                <a href="#" class="btn btn-lg btn-default" style="background: #FF5733; color:aliceblue;" type="button">Make Payment</a>
                                             </div>
                                         </div>
                                     </div>
