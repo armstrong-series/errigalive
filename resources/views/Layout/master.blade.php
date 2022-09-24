@@ -17,6 +17,8 @@
     <link href="{{ asset('dashboard/css/style.css') }}" rel="stylesheet">
 	<link href="https://cdn.lineicons.com/2.0/LineIcons.css') }}" rel="stylesheet">
 	<link href="{{ asset('dashboard/vendor/owl-carousel/owl.carousel.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
+
 </head>
 @yield('title')
 

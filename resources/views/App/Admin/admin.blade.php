@@ -14,7 +14,7 @@
 
                         </div>
                         <div class="card-body">
-                            <h4>{{ $welcome }} {{ Auth::user()->name }}, it's good to have you back!</h4>
+                            <h5 class="card-title" style="font-family: "Trirong", serif;">{{ $welcome }}, {{ Auth::user()->name }}</h5>
                         </div>
                         <hr>
                         <div class="card-footer border-0 pt-0">
@@ -73,7 +73,7 @@
 
 								</span>
 								<div class="media-body text-right">
-									<p class="fs-18 text-white mb-2">Users</p>
+									<p class="fs-18 text-white mb-2"><a style="color:white;" href="{{ route('usermanagement') }}">Users</a></p>
 									<span class="fs-48 text-white font-w600">{{ $users }}</span>
 								</div>
 							</div>

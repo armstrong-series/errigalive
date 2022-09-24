@@ -37,38 +37,28 @@
                                         <input type="number" name="date" class="form-control"
                                             placeholder="Enter price in Naira" v-model="event.price">
                                     </div>
+
                                     <div class="form-group">
                                         <h5>Event Type</h5>
-                                        <div class="form-row align-items-center">
-                                            <div class="col-auto my-1">
-
-                                                <select class="mr-sm-2" id="inlineFormCustomSelect"
-                                                    v-model="event.event_type">
-                                                    <option selected>Choose...</option>
-                                                    <option value="lostboy">Lost Boy</option>
-                                                    <option value="genesis">Genesis</option>
-                                                </select>
-                                            </div>
-                                        </div>
+                                        <select class="form-control form-control-sm"  v-model="event.event_type">
+                                            <option selected>Select Event</option>
+                                            <option value="lostboy">Lost Boy</option>
+                                            <option value="genesis">Genesis</option>
+                                        </select>
                                     </div>
+
                                     <div class="form-group">
                                         <h5>Category</h5>
-                                        <div class="form-row align-items-center">
-                                            <div class="col-auto my-1">
-
-                                                <select class="mr-sm-2" id="inlineFormCustomSelect"
-                                                    v-model="event.category">
-                                                    <option selected>Select Category</option>
-                                                    <option value="regular">Regular</option>
-                                                    <option value="vip">Vip</option>
-                                                    <option value="gold">Gold</option>
-                                                    <option value="platinium">Platinium</option>
-                                                    <option value="early_bird">Early Bird</option>
-                                                    <option value="gate">Gate</option>
-                                                    <option value="front_row">Front Row</option>
-                                                </select>
-                                            </div>
-                                        </div>
+                                        <select class="form-control form-control-sm" v-model="event.category">
+                                            <option selected>Select Category</option>
+                                            <option value="regular">Regular</option>
+                                            <option value="vip">Vip</option>
+                                            <option value="gold">Gold</option>
+                                            <option value="platinium">Platinium</option>
+                                            <option value="early_bird">Early Bird</option>
+                                            <option value="gate">Gate</option>
+                                            <option value="front_row">Front Row</option>
+                                        </select>
                                     </div>
 
                                     <div class="form-group">

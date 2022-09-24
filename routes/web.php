@@ -15,7 +15,6 @@ use Illuminate\Support\Facades\Auth;
 */
 Auth::routes(['verify' => true ]);
 
-
 Route::get('/login', [Controller\Auth\LoginController::class, 'loginView'])->name('login');
 Route::post('/login', [Controller\Auth\LoginController::class, 'login'])->name('auth.login.account');
 Route::get('/logout', [Controller\Auth\LoginController::class, 'logout'])->name('auth.logout');
@@ -27,6 +26,9 @@ Route::get('/forgot-password', [Controller\Auth\ForgotPasswordController::class,
 Route::post('/reset-password', [Controller\Auth\ResetPasswordController::class,'updatePassword'])->name('auth.update-password');
 Route::get('/admin', [Controller\Admin\AdminController::class, 'dashboard'])->name('admin.dashboard');
 Route::get('/user-management', [Controller\Admin\AdminController::class, 'userManagement'])->name('usermanagement');
+Route::post('/admin/user/create', [Controller\Admin\AdminController::class, 'createUser'])->name('admin.user.create');
+Route::post('/admin/user/update', [Controller\Admin\AdminController::class, 'updateUser'])->name('admin.user.update');
+Route::post('/admin/user/delete', [Controller\Admin\AdminController::class, 'deleteUser'])->name('admin.user.delete');
 Route::get('/admin/events', [Controller\Event\EventController::class, 'eriggaEvents'])->name('eriggalive.event');
 Route::post('/admin/event/create', [Controller\Event\EventController::class, 'createErrigaEvent'])->name('event.create');
 Route::post('/admin/event/update', [Controller\Event\EventController::class, 'updateEvent'])->name('event.update');

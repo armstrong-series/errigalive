@@ -4,22 +4,24 @@ if (window.Vue) {
 
         data: {
 
+            isLoading: false,
             details: {
 
             },
 
             ticket: {},
 
-           payment: {
-             checkout: ""
+           route: {
+             payment: ""
            }
         },
 
 
 
         mounted() {
-            this.ticket = JSON.parse(window.localStorage.getItem('new_ticket'));
-            this.payment.checkout = $("#createEvent").val();
+            this.ticket = JSON.parse(window.localStorage.getItem('ticket'));
+            console.log(this.ticket)
+            this.route.payment = $("#paymentTicket").val();
         },
 
 
@@ -27,12 +29,12 @@ if (window.Vue) {
 
 
             makePayment() {
-                axios.post(this.route.createEvent, formData, {
-                    headers: {
-                        'Content-Type': 'multipart/form-data'
-                    },
-                }).then((response) => {
-                    $('.edit_event_modal').modal('hide');
+                this.isLoading = true;
+                const ticket = {
+                   price: this.ticket.price,
+                  _token: $('input[name=_token]').val()
+                }
+                axios.post(this.route.payment, ticket).then((response) => {
                     this.$toastr.Add({
                         msg: response.data.message,
                         clickClose: false,
@@ -44,9 +46,7 @@ if (window.Vue) {
                         style: { backgroundColor: "#1BBCE8" }
                     });
 
-
                     this.isLoading = false;
-                    this.events.push(Object.assign({}, response.data.event, {}));
 
                 }).catch((error) => {
                     this.isLoading = false

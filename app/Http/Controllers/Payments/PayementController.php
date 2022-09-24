@@ -5,11 +5,7 @@ namespace App\Http\Controllers\Payments;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
-use \GuzzleHttp\Client;
-use App\ErrigaLive\ErrigaLive;
-use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Redirect;
 use App\Models\TicketModel;
 use Unicodeveloper\Paystack\Paystack;
 use App\Models\User;
@@ -38,7 +34,7 @@ class PayementController extends Controller
 
         $user = User::where('id', Auth::id())->first();
         if(!$user){
-            $message = "No user found!";
+            $message = "No User found!";
             return response()->json(["message" => $message], 400);
         }
 

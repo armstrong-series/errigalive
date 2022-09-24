@@ -49,7 +49,7 @@ class AdminController extends Controller
 
 
 
-    public function userManagement(Request $request){
+    public function userManagement(){
         try {
 
             if (Auth::user()->user_type === 'admin' || Auth::user()->user_type === 'support') {
@@ -91,10 +91,9 @@ class AdminController extends Controller
             }
             $user = new User;
             $user->name = $request->name;
-            $user->mobile = $request->mobile;
             $user->user_type = $request->user_type;
             $user->email = $request->email;
-            $user->mobile = $request->mobile;
+            $user->nationality = $request->nationality;
             $user->password = Hash::make($request->password);
             $user->uuid = (string) Str::uuid();
             $user->save();
@@ -113,6 +112,35 @@ class AdminController extends Controller
 
 
 
+    public function updateUser(Request $request)
+    {
+        try {
+
+            $user = User::where('id', $request->id)->first();
+
+            if(!$user){
+                $message = "Unknown User!";
+                return response()->json(['message' =>  $message],404);
+            }
+            $user->name = $request->name;
+            $user->user_type = $request->user_type;
+            $user->email = $request->email;
+            $user->nationality = $request->nationality;
+            $user->password = Hash::make($request->password);
+            $user->uuid = (string) Str::uuid();
+            $user->save();
+            $message = "Record Updated!";
+            return response()->json(["message" => $message, "user" => $user], 200);
+
+        } catch (Exception $error) {
+            Log::info("Admin\AdminController@updateUser error message:" . $error->getMessage());
+            $message = "Unable to update Record. Try again";
+            return response()->json(["message" => $message, "user" => $user], 500);
+        }
+    }
+
+
+
     public function deleteUser(Request $request){
         try {
             $user = User::where('id', $request->id)->first();
@@ -121,8 +149,32 @@ class AdminController extends Controller
                 $message = "Unknown User!";
                 return response()->json(['message' =>  $message],404);
             }
+            // dd($user);
             $user->delete();
             $message = "Delete successful!";
+            return response()->json(["message" => $message, "user" => $user], 200);
+
+        } catch (Exception $error) {
+            Log::info("Admin\AdminController@deleteUser error message:" . $error->getMessage());
+            $response = [
+                'status' =>false,
+                "message" => $error
+            ];
+            return $response;
+        }
+    }
+
+
+    public function deleteAccount(Request $request){
+        try {
+            $user = User::where('id', Auth::user()->id)->first();
+
+            if(!$user){
+                $message = "Unknown User!";
+                return response()->json(['message' =>  $message],404);
+            }
+            $user->delete();
+            $message = "Account Deleted!";
             return response()->json(["message" => $message, "user" => $user], 200);
 
         } catch (Exception $error) {
@@ -139,10 +191,9 @@ class AdminController extends Controller
         return Validator::make($data, [
             'name' => 'required|string',
             'email' => 'required|regex:/(.+)@(.+)\.(.+)/i|unique:users',
-            'mobile' => 'nullable|unique:users|max:20|min:8',
             'password' => 'required|between:6,255',
             'confirm_password' => 'required|same:password',
-            'role' => 'required|string'
+            'user_type' => 'required|string'
         ]);
 	}
 
