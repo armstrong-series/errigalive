@@ -13,40 +13,59 @@ use Laravel\Socialite\Facades\Socialite;
 
 class GoogleAuthController extends Controller
 {
-    protected function connectGoogle(){
+
+
+    public function __construct()
+    {
+
+        $this->middleware('guest')->except('logout');
+    }
+
+
+
+    protected function connectGoogle()
+    {
         try {
-           return  Socialite::driver('google')->redirect();
+            return  Socialite::driver('google')->redirect();
         } catch (Exception $error) {
             Log::info("Error from google auth controller" . $error->getMessage());
+            $message = "Unable to process google auth";
+            return response()->json(["message" => $message], 500);
         }
     }
 
 
-    protected function callbackURL(){
+    public function callbackURL()
+    {
         try {
             $googleUser = Socialite::driver('google')->user();
-            $user = User::where('google_id', $googleUser->id)->first();
-            if(!$user){
-                return redirect()->back();
-            }
-            if($user){
-                Auth::login($user);
-                return response()->redirectToRoute('account.secure');
-            }else{
-                $newUser = new User();
-                $newUser->name = $user->name;
-                $newUser->email = $user->email;
-                $newUser->user_type = "regular";
-                $user->uuid = (string) Str::uuid();
-                $newUser->password = bcrypt('123456');
-                $newUser->save();
-                Auth::login($newUser);
-                return response()->redirectToRoute('account.secure');
-            }
+
+            $this->_registerOrLoginUser($googleUser);
+            return response()->redirectToRoute('account.secure');
+
         } catch (Exception $error) {
             Log::info("Error from google auth controller" . $error->getMessage());
              $message = "Unable to process google auth";
             return response()->json(["message" => $message], 500);
         }
+    }
+
+    protected function _registerOrLoginUser($data)
+    {
+        $user = User::where('email', $data->email)->first();
+        if(!$user) {
+            $user = new User();
+            $user->name = $data->name;
+            $user->email = $data->email;
+            $user->provider_id = $data->id;
+            $user->user_type = "regular";
+            $user->uuid = (string) Str::uuid();
+            $user->password = bcrypt('123456');
+            $user->save();
+
+        }
+        Auth::login($user);
+
+
     }
 }

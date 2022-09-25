@@ -19,6 +19,14 @@ Route::get('/login', [Controller\Auth\LoginController::class, 'loginView'])->nam
 Route::post('/login', [Controller\Auth\LoginController::class, 'login'])->name('auth.login.account');
 Route::get('/logout', [Controller\Auth\LoginController::class, 'logout'])->name('auth.logout');
 Route::get('/secure/account', [Controller\AccountController::class, 'secureAccount'])->name('account.secure');
+
+Route::get('/login/google', [Controller\Auth\SocialAuth\GoogleAuthController::class, 'connectGoogle'])->name('login.google.connect');
+Route::get('/login/google/callback', [Controller\Auth\SocialAuth\GoogleAuthController::class, 'callbackURL'])->name('login.google.callback');
+
+// Facbook
+Route::get('/login/facebook', [Controller\Auth\SocialAuth\FacebookAuthController::class, 'connectFacebook'])->name('login.facebook.connect');
+Route::get('/login/facebook/callback', [Controller\Auth\SocialAuth\FacebookAuthController::class, 'callbackURL'])->name('login.facebook.callback');
+
 Route::get('/account/signup', [Controller\Auth\RegisterController::class, 'account'])->name('auth.signup');
 Route::post('/account/create', [Controller\Auth\RegisterController::class, 'signupAccount'])->name('auth.account.signup');
 Route::get('/reset-password/{token}', [Controller\Auth\ResetPasswordController::class, 'resetPassword'])->name('auth.reset-password');

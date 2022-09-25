@@ -51,10 +51,10 @@
                   <hr class="my-4">
                       <a href="{{ route('auth.forgot-password') }}">Forgot password?</a>
                   <hr class="my-4">
-                  <button class="btn btn-lg btn-block btn-primary" style="background-color: #dd4b39;"
-                    type="submit"><i class="fab fa-google me-2"></i> Sign in with google</button>
-                  <button class="btn btn-lg btn-block btn-primary mb-2" style="background-color: #3b5998;"
-                    type="submit"><i class="fab fa-facebook-f me-2"></i>Sign in with facebook</button>
+                  <a href="{{ route('login.google.connect') }}" class="btn btn-lg btn-block btn-primary" style="background-color: #dd4b39;"
+                    ><i class="fab fa-google me-2"></i> Sign in with google</a>
+                  <a href="#" class="btn btn-lg btn-block btn-primary mb-2" style="background-color: #3b5998;"
+                    ><i class="fab fa-facebook-f me-2"></i>Sign in with facebook</a>
                 </form>
                 </div>
               </div>
