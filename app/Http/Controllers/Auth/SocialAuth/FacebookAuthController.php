@@ -10,6 +10,8 @@ use Exception;
 use App\Models\User;
 use Illuminate\Support\Str;
 use Laravel\Socialite\Facades\Socialite;
+
+
 class FacebookAuthController extends Controller
 {
 

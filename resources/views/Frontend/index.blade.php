@@ -63,10 +63,10 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li>
+                                {{-- <li>
                                     <a href="#event">Events</a>
 
-                                </li>
+                                </li> --}}
                                 <li><a href="{{ route('account.secure') }}">Login</a></li>
                             </ul>
                         </nav>

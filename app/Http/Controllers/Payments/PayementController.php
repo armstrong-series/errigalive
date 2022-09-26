@@ -39,6 +39,7 @@ class PayementController extends Controller
         }
 
         $paymentDetails = Paystack::getPaymentData();
+        dd($paymentDetails);
         $invoice_id = $paymentDetails['data']['metadata']['invoiceId'];
         $status = $paymentDetails['data']['status'];
         $amount = $paymentDetails['data']['amount'];
