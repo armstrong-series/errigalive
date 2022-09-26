@@ -51,8 +51,14 @@
                                             <td>@{{ user.user_type }}</td>
                                             <td>
                                                 <div class="d-flex">
-                                                    <a class="btn text-primary shadow btn-xs sharp mr-1" data-toggle="modal" href="javascript:void(0);" data-target="#editUser" @click="selectUser(index)"><i class="fal fa-pen-fancy"></i></a>
-                                                    <a href="javascript:void(0);" @click="deleteUser(index)" class="btn text-danger shadow btn-xs sharp"><i class="fal fa-trash-alt"></i></a>
+                                                    <div v-if="user.email==='admin@eriggalive.com'">
+                                                        <a class="btn text-primary shadow btn-xs sharp mr-1" data-toggle="modal" href="javascript:void(0);" disabled><i class="fal fa-pen-fancy"></i></a>
+                                                        <a href="javascript:void(0);" class="btn text-danger shadow btn-xs sharp" disabled><i class="fal fa-trash-alt"></i></a>
+                                                    </div>
+                                                    <div v-if="user.email!=='admin@eriggalive.com'">
+                                                        <a class="btn text-primary shadow btn-xs sharp mr-1" data-toggle="modal" href="javascript:void(0);" data-target="#editUser" @click="selectUser(index)"><i class="fal fa-pen-fancy"></i></a>
+                                                        <a href="javascript:void(0);" class="btn text-danger shadow btn-xs sharp" @click="deleteUser(index)" disabled><i class="fal fa-trash-alt"></i></a>
+                                                    </div>
                                                 </div>
                                             </td>
                                         </tr>

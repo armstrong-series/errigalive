@@ -114,8 +114,6 @@ if (window.Vue) {
                         progressbar: false,
                         style: { backgroundColor: "#1BBCE8" }
                     });
-
-
                     this.isLoading = false;
                     let userEdit = response.data.user;
                     this.users= this.events.map((user) =>{
