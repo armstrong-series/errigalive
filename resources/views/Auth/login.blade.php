@@ -53,8 +53,8 @@
                   <hr class="my-4">
                   <a href="{{ route('login.google.connect') }}" class="btn btn-lg btn-block btn-primary" style="background-color: #dd4b39;"
                     ><i class="fab fa-google me-2"></i> Sign in with google</a>
-                  <a href="{{ route('login.facebook.connect')}}" class="btn btn-lg btn-block btn-primary mb-2" style="background-color: #3b5998;"
-                    ><i class="fab fa-facebook-f me-2"></i>Sign in with facebook</a>
+                  {{-- <a href="{{ route('login.facebook.connect')}}" class="btn btn-lg btn-block btn-primary mb-2" style="background-color: #3b5998;"
+                    ><i class="fab fa-facebook-f me-2"></i>Sign in with facebook</a> --}}
                 </form>
                 </div>
               </div>

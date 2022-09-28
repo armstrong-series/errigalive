@@ -55,18 +55,18 @@
                         <nav class="nav-collapse pull-right tz-menu">
                             <ul id="tz-navbar-collapse" class="nav navbar-nav collapse navbar-collapse tz-nav">
                                 <li><a href="#home">Home</a></li>
-                                <li class="menu-item-has-children">
+                                {{-- <li class="menu-item-has-children">
                                     <a href="#event">Events</a>
                                     <ul class="sub-menu non_mega_menu">
                                         <li class="menu-item">
                                             <a href="{{ route('event.tickets') }}">Buy Ticket</a>
                                         </li>
                                     </ul>
-                                </li>
-                                {{-- <li>
+                                </li> --}}
+                                <li>
                                     <a href="#event">Events</a>
 
-                                </li> --}}
+                                </li>
                                 <li><a href="{{ route('account.secure') }}">Login</a></li>
                             </ul>
                         </nav>

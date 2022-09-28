@@ -91,11 +91,12 @@
                                                 </div>
 
                                                 <a href="javascript:void(0);" @click="makePayment()" class="btn btn-lg btn-default" style="background: #FF5733; color:aliceblue;" type="button">Make Payment</a>
+                                                {{-- <a href="javascript:void(0);" @click="makePayment()" class="btn btn-lg btn-default" style="background: #FF5733; color:aliceblue;" type="button">Make Payment</a> --}}
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                    <textarea name="" id="paymentTicket" cols="30" rows="10" style="display: none;"></textarea>
+                                    <textarea name="" id="paymentTicket" cols="30" rows="10" style="display: none;">{{ route('payment.initialize')}}</textarea>
                             </div>
 
                         </div>
@@ -142,6 +143,7 @@
     <!-- Include custom js -->
     <script src="{{ asset('frontend/js/custom.js') }}"></script>
     <script src="{{ asset('app/ticket.js') }}"></script>
+    <script src="https://js.paystack.co/v1/inline.js"></script>
 
 </body>
 

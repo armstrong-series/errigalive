@@ -16,10 +16,24 @@ use Exception;
 class PayementController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     public function initializePaystackPayment(Request $request){
+
+        $price = $request->price;
+        $request->merge([
+            'amount' => $price,
+            'email'=> Auth::user()->email,
+            'currency' => "NGN",
+            // 'callback_url' => route('payment.callback')
+        ]);
+
         try {
-            return Paystack::getAuthorizationUrl()->redirectNow();
+            $url = paystack()->getAuthorizationUrl()->url;
+            return redirect()->away($url);
 
         } catch (Exception $error) {
             Log::info("Payments\PaymentController@initializePaystackPayment". $error->getMessage());
@@ -38,8 +52,7 @@ class PayementController extends Controller
             return response()->json(["message" => $message], 400);
         }
 
-        $paymentDetails = Paystack::getPaymentData();
-        dd($paymentDetails);
+        $paymentDetails = paystack()->getPaymentData();
         $invoice_id = $paymentDetails['data']['metadata']['invoiceId'];
         $status = $paymentDetails['data']['status'];
         $amount = $paymentDetails['data']['amount'];

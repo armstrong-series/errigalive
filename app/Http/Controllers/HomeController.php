@@ -63,6 +63,7 @@ class HomeController extends Controller
 
     public function ticket()
     {
+        // return csrf_token();
 
         return view('Frontend.ticket');
     }

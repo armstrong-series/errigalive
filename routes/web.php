@@ -47,7 +47,7 @@ Route::get('/settings/profile', [Controller\Settings\SettingsController::class, 
 Route::get('/events/ticket/view/{eventId}', [Controller\HomeController::class, 'eventTicket'])->name('event.ticket');
 Route::get('/events/tickets', [Controller\HomeController::class, 'tickets'])->name('event.tickets');
 Route::get('/ticket/payment', [Controller\HomeController::class, 'ticket'])->name('ticket');
-Route::post('/ticket/payment/initialize', [Controller\Payments\PayementController::class, 'initializePaystackPayment'])->name('payment.initialize');
+Route::post('/payment/initialize', [Controller\Payments\PayementController::class, 'initializePaystackPayment'])->name('payment.initialize');
 Route::get('/payment/callback', [Controller\Payments\PayementController::class, 'paystackCallbackURL'])->name('payment.callback');
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'errigaLiveHome'])->name('home');

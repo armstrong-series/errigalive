@@ -188,7 +188,7 @@ class EventController extends Controller
             'name' => 'required|string',
             'venue' => 'required|string',
             'date' => 'required|date',
-            'description' => 'required|string',
+            // 'description' => 'required|string',
             'price' => 'required',
             'event_type' => 'required',
             'category' => 'required',
