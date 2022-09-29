@@ -149,7 +149,7 @@
                                                         @{{ details.venue }}
                                                     </a>
                                                 </span>
-                                                <p v-cloak>@{{ details.description }}</p>
+                                                {{-- <p v-cloak>@{{ details.description }}</p> --}}
 
                                                 <div class="">
                                                     @csrf

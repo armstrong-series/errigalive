@@ -2,7 +2,6 @@
 
 namespace App\Models;
 use Illuminate\Support\Facades\Storage;
-use App\Helpers\Paths;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Log;

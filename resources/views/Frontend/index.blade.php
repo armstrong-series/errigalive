@@ -32,7 +32,11 @@
     <script src="js/library/respond.min.js"></script>
     <![endif]-->
 </head>
-
+<style>
+    [v-cloak]{
+        display: none;
+    }
+</style>
 <body id="bd">
     <div id="index">
         <div id="tzwrapper">
@@ -79,24 +83,53 @@
             <div id="home" class="tz_home_slider_meetup vc_row">
                 <div class="tz_home_slider_meetup_setting">
                     <ul class="bxslider">
-
-
                         <li>
-                            <div class="meetup_bl_slider_home"></div>
-
+                            <div class=""></div>
                             <img src="{{ asset('erigga/slider1.jpg') }}" alt="slider-home" />
+                                <div class="tz_content_slider_meetup">
+                                    <div class="ds-table">
+                                        <div class="ds-table-cell">
+
+                                            <div class="tz_meetup_slider_home_text">
+
+                                                <h4 id="live_text">
+                                                    <strong> ERIGGALIVE</strong> Concert
+                                                </h4>
+                                                <p><i class="fas fa-map-marker-alt"></i>&nbsp; <b>The Lost Boy Experience - CLUB TRUTH</b></p>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
 
                         </li>
                         <li>
-                            <div class="meetup_bl_slider_home"></div>
+                            <div class=""></div>
                             <img src="{{ asset('erigga/slider2.jpg') }}" alt="slider-home" />
+                            <div class="tz_content_slider_meetup">
+                                <div class="ds-table">
+                                    <div class="ds-table-cell">
+                                        <div class="tz_meetup_slider_home_text">
+
+                                            <h4 id="live_text">
+                                                <strong> Genesis IV</strong>
+                                            </h4>
+                                            <p><i class="fas fa-map-marker-alt"></i>&nbsp; <b>Delta Mall Car Park</b></p>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
                         </li>
                         <li>
-                            <div class="meetup_bl_slider_home"></div>
+                            <div class=""></div>
                             <img src="{{ asset('erigga/slider3.png') }}" alt="slider-home" />
                         </li>
                     </ul>
                 </div>
+
 
             </div>
             <!-- Slider end -->
@@ -225,6 +258,9 @@
 
 
     @include('Frontend.Includes.script');
+    <script defer src="https://pro.fontawesome.com/releases/v5.10.0/js/all.js" integrity="sha384-G/ZR3ntz68JZrH4pfPJyRbjW+c0+ojii5f+GYiYwldYU69A+Ejat6yIfLSxljXxD"
+    crossorigin="anonymous"></script>
+
     <script src="{{ asset('app/index.js') }}"></script>
 </body>
 

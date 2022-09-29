@@ -7,6 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use App\Models\User;
+use App\Models\TicketModel;
 
 class PaymentVerificationMail extends Mailable
 {
@@ -17,9 +18,10 @@ class PaymentVerificationMail extends Mailable
      *
      * @return void
      */
-    public function __construct(User $user)
+    public function __construct(User $user, TicketModel $ticket)
     {
         $this->user = $user;
+        $this->ticketModel = $ticket;
     }
 
     /**

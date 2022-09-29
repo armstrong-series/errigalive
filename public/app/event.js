@@ -128,7 +128,7 @@ if (window.Vue) {
                 }
                 formData.append('_token', $('input[name=_token]').val());
                 axios.post(this.route.updateEvent, formData).then((response) => {
-                    $('.edit_event_modal').modal('hide');
+                    $('#exampleModalCenter').modal('hide');
                     this.$toastr.Add({
                         msg: response.data.message,
                         clickClose: false,

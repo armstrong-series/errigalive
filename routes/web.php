@@ -51,6 +51,7 @@ Route::post('/payment/initialize', [Controller\Payments\PayementController::clas
 Route::get('/payment/callback', [Controller\Payments\PayementController::class, 'paystackCallbackURL'])->name('payment.callback');
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'errigaLiveHome'])->name('home');
+Route::get('/ticket/order', [App\Http\Controllers\AccountController::class, 'ticketOrder'])->name('ticket.order');
 
 
 

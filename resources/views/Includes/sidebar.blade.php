@@ -16,6 +16,12 @@
 							<span class="nav-text">Account</span>
 						</a>
                     </li>
+                    <li class="{{ $page == 'transactions' ? 'active' : '' }}">
+                        <a class="" href="{{ route('ticket.order') }}" aria-expanded="false">
+                            <i class="fas fa-credit-card"></i>
+							<span class="nav-text">Transactions</span>
+						</a>
+                    </li>
 
                     @if(Auth::user()->user_type === 'admin' || Auth::user()->user_type === 'support')
                         <li class="{{ $page == 'user-management' ? 'active' : '' }}">

@@ -832,6 +832,7 @@ p.tz_description_event {
  * 3.0 - Slider Home
  * -----------------------------------------------------------------------------
  */
+
 .tz_home_slider_meetup {
     position: relative;
     overflow: hidden;
@@ -839,7 +840,7 @@ p.tz_description_event {
 .meetup_bl_slider_home {
     position: absolute;
     content: '';
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(61, 59, 59, 0.7);
     height: 100%;
     width: 100%;
     z-index: 50;

@@ -104,7 +104,7 @@ class EventController extends Controller
             $event->price = $request->price;
             $event->category = $request->category;
             $event->event_type = $request->event_type;
-            $event->description = $request->description;
+            $event->description = ($request->description) ? $request->description : $event->description;
             $event->save();
             $message = "Record upated successfuly";
             return response()->json(["message" => $message, "event" => $event],200);
