@@ -50,6 +50,7 @@ Route::get('/settings/profile', [Controller\Settings\SettingsController::class, 
 Route::get('/events/ticket/view/{eventId}', [Controller\HomeController::class, 'eventTicket'])->name('event.ticket');
 Route::get('/events/tickets', [Controller\HomeController::class, 'tickets'])->name('event.tickets');
 Route::get('/ticket/payment', [Controller\Payments\PayementController::class, 'ticketPayment'])->name('ticket');
+
 Route::post('/payment/initialize', [Controller\Payments\PayementController::class, 'initializePaystackPayment'])->name('payment.initialize');
 Route::get('/payment/callback', [Controller\Payments\PayementController::class, 'paystackCallbackURL'])->name('payment.callback');
 

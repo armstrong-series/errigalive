@@ -12,7 +12,8 @@ if (window.Vue) {
             ticket: {},
 
            route: {
-             payment: ""
+             payment: "",
+             callback_url: ""
            }
         },
 
@@ -22,49 +23,61 @@ if (window.Vue) {
             this.ticket = JSON.parse(window.localStorage.getItem('ticket'));
             console.log(this.ticket)
             this.route.payment = $("#paymentTicket").val();
+            this.route.callback_url = $("#callbackURL").val();
         },
 
 
         methods: {
 
-            makePayment() {
-                this.isLoading = true;
+            makeNewPayment(){
                 const ticket = {
-                   price: this.ticket.price,
-                   qty:this.ticket.qty,
-                  _token: $('input[name=_token]').val()
-                }
-                axios.post(this.route.payment, ticket).then((response) => {
-                    this.$toastr.Add({
-                        msg: response.data.message,
-                        clickClose: false,
-                        timeout: 2000,
-                        position: "toast-top-right",
-                        type: "success",
-                        preventDuplicates: true,
-                        progressbar: false,
-                        style: { backgroundColor: "#1BBCE8" }
-                    });
-
-                    this.isLoading = false;
-
-                }).catch((error) => {
-                    this.isLoading = false
-                    this.$toastr.Add({
-                        msg: error.response.data.message,
-                        clickClose: false,
-                        timeout: 2000,
-                        position: "toast-top-right",
-                        type: "error",
-                        preventDuplicates: true,
-                        progressbar: false,
-                        style: { backgroundColor: "red" }
-                    });
-
-
-                })
-
+                    price: this.ticket.price,
+                 }
+                 return ticket
             },
+
+            // makePayment() {
+
+            //     const url = "https://api.paystack.co/transaction/initialize";
+            //     const test_key = "sk_test_185e37f2d508f41a85ee621c51fd8d8d56641c32"
+            //     const ticket = {
+            //        amount: this.ticket.price,
+            //        email: "admin@user.com",
+            //        subaccount : "ACCT_xf26a1x8cp84xh8",
+            //        currency : 'NGN',
+            //        channels : ["card"],
+            //        callback_url : this.route.callback_url,
+            //       _token: $('input[name=_token]').val()
+            //     }
+            //     axios.post(url, ticket, {
+            //         headers: {
+            //             'Content-Type' : 'application/json',
+            //             'Authorization' : 'Bearer ' + test_key,
+
+            //         },
+
+
+            //     }).then((response) => {
+            //         console.log('response..',response)
+
+
+            //     }).catch((error) => {
+            //         this.isLoading = false
+            //         this.$toastr.Add({
+            //             msg: error.response.data.message,
+            //             clickClose: false,
+            //             timeout: 2000,
+            //             position: "toast-top-right",
+            //             type: "error",
+            //             preventDuplicates: true,
+            //             progressbar: false,
+            //             style: { backgroundColor: "red" }
+            //         });
+
+
+            //     })
+
+            // },
         }
     });
 }

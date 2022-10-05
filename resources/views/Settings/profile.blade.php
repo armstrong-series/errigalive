@@ -91,7 +91,7 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <button type="button" class="btn btn-rounded btn-primary">Save Changes</button>
+                                    <button type="button" class="btn btn-rounded btn-sm btn-primary">Save Changes</button>
                                 </div>
                             </div>
                         </div>

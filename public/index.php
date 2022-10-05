@@ -5,26 +5,25 @@ use Illuminate\Http\Request;
 
 define('LARAVEL_START', microtime(true));
 
-$allowedOrigins = array(
-    // 'http://eriggalive.lan/api',
-    'http://eriggalive.lan',
-    // 'http://eriggalive.lan/payment/initialize',
-    // 'https://eriggalive.com',
-    // 'https://eriggalive.com/api/payment/initialize'
+// $allowedOrigins = array(
+//     'http://eriggalive.lan',
+//     'http://eriggalive.lan/payment/initialize',
+//     'https://eriggalive.com',
+//     'https://eriggalive.com/payment/initialize'
 
-);
-if(isset($_SERVER['HTTP_ORIGIN']) && $_SERVER['HTTP_ORIGIN'] !== ""){
-    foreach($allowedOrigins as $allowedOrigin){
-        if(preg_match('#' . $allowedOrigin . '#', $_SERVER['HTTP_ORIGIN'])){
-            header('Access-Control-Allow-Origin: ' .$_SERVER['HTTP_ORIGIN']);
-            header('Access-Control-Allow-Credentials: true');
-            header('Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS');
-            header('Access-Control-Max-Age: 1728000');
-            header('Access-Control-Headers: Origin, Content-Type, X-Auth-Token, Authorization, X-Requested-With, Content-Range, Content-Disposition, Content-Description, x-xsrf-token, ip');
-            break;
-        }
-    }
-}
+// );
+// if(isset($_SERVER['HTTP_ORIGIN']) && $_SERVER['HTTP_ORIGIN'] !== ""){
+//     foreach($allowedOrigins as $allowedOrigin){
+//         if(preg_match('#' . $allowedOrigin . '#', $_SERVER['HTTP_ORIGIN'])){
+//             header('Access-Control-Allow-Origin: ' .$_SERVER['HTTP_ORIGIN']);
+//             header('Access-Control-Allow-Credentials: true');
+//             header('Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS');
+//             header('Access-Control-Max-Age: 1728000');
+//             header('Access-Control-Headers: Origin, Content-Type, X-Auth-Token, Authorization, X-Requested-With, Content-Range, Content-Disposition, Content-Description, x-xsrf-token, ip');
+//             break;
+//         }
+//     }
+// }
 
 /*
 |--------------------------------------------------------------------------

@@ -24,7 +24,7 @@
               <div class="card shadow-2-strong" style="border-radius: 1rem;">
                 <div class="card-body p-5 text-center">
 
-                  <h3 class="mb-5">Forgot Password</h3>
+                  {{-- <h3 class="mb-5">Forgot Password</h3> --}}
                 <form action="{{ route('password.email' )}}" method="POST">
                     @csrf
                     @if(session('status'))
@@ -35,8 +35,8 @@
                   <div class="form-outline mb-4">
                     <input type="email" placeholder="Enter Account Email" name="email"  class="form-control form-control-lg" value="{{ old('email') }}" />
                     <label class="form-label" for="typeEmailX-2">Email</label>
-                    <span class="text-danger">@error('email'){{ $message }}@enderror</span>
                   </div>
+                  <span class="text-danger">@error('email'){{ $message }}@enderror</span>
 
 
                   <button class="btn btn-primary btn-lg btn-block" type="submit">Send Password Link</button>

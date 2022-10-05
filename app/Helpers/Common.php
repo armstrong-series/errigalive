@@ -55,6 +55,6 @@ class Common
 
     public static function trimFirstName(string $fullname)
     {
-        return strtok($fullname, " ");
+        return $fullname ? strtok($fullname, " ") : $fullname;
     }
 }

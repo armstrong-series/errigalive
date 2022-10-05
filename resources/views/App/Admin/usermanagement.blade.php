@@ -2,7 +2,13 @@
   @extends('Layout.master')
   @section('title')<title>User Management</title>@endsection
 
-
+  @section('styles')
+  <style>
+  .scrollbar{
+      scrollbar-width: thin;
+  }
+  </style>
+  @endsection
 @section('content')
     <div class="content-body">
         <div class="container-fluid" id="user-management">
@@ -11,19 +17,20 @@
 
                     <li class="breadcrumb-item active"><a href="javascript:void(0)">Usermanagement</a></li>
                 </ol>
+                <header>
+                    <div class="text-right">
+                        <button type="button" data-toggle="modal" data-target="#addUser" class="btn btn-rounded btn-md btn-primary"><span
+                            class="btn-icon-left text-info"><i class="fas fa-user"></i>
+                        </span>Add User</button>
+                    </div>
+                </header>
             </div>
 
-            <header>
-                <div class="text-right">
-                    <button type="button" data-toggle="modal" data-target="#addUser" class="btn btn-rounded btn-primary"><span
-                        class="btn-icon-left text-info"><i class="fas fa-user"></i>
-                    </span>Add User</button>
-                </div>
-            </header>
+
 
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="card">
+                    <div class="card scrollbar" style="max-height:300px; overflow:auto;">
                         <div class="card-header">
                             <h4 class="card-title">Users</h4>
                         </div>
@@ -47,7 +54,7 @@
                                                      <span class="w-space-no">@{{ user.name }}</span>
                                                 </div>
                                             </td>
-                                            <td>@{{ user.email }}</td>
+                                            <td><span class="badge badge-primary light">@{{ user.email }}</span></td>
                                             <td>@{{ user.user_type }}</td>
                                             <td>
                                                 <div class="d-flex">

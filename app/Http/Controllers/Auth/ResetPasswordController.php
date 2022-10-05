@@ -29,7 +29,7 @@ class ResetPasswordController extends Controller
      */
     protected $redirectTo = RouteServiceProvider::HOME;
 
-    protected function authenticatedUser(){
+    protected function redirectTo(){
         $user = Auth::user();
         if($user->user_type === 'admin' || $user->user_type === 'support'){
             return response()->redirectToRoute('admin.dashboard');

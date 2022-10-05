@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 use App\Models\TicketModel;
-use Unicodeveloper\Paystack\Paystack;
 use App\Models\User;
 use App\Mail\PaymentVerificationMail;
 use Illuminate\Support\Facades\Mail;
@@ -29,7 +28,7 @@ class PayementController extends Controller
         try {
 
             $requestParams = [
-                'amount' => ($request->price) * 100,
+                "amount" => ($request->price) * 100,
                 "email" => Auth::user()->email,
                 "currency" => "NGN",
                 "channels" => ["card"],
@@ -44,7 +43,6 @@ class PayementController extends Controller
                 'Cache-Control' => 'no-cache',
                 'Content-Type' => 'application/json'
             ])->post($InitializeURL,  $requestParams);
-
             $transportData = json_decode($response, true);
             return redirect()->away($transportData['data']['authorization_url']);
         } catch (Exception $error) {

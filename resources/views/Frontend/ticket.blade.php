@@ -91,13 +91,19 @@
                                                       </table>
                                                 </div>
 
-                                                <a href="javascript:void(0);" @click="makePayment()" class="btn btn-lg btn-default" style="background: #FF5733; color:aliceblue;" type="button">Make Payment</a>
-                                                {{-- <a href="javascript:void(0);" @click="makePayment()" class="btn btn-lg btn-default" style="background: #FF5733; color:aliceblue;" type="button">Make Payment</a> --}}
+                                                <button type="submit" @click="makeNewPayment()" class="btn btn-lg btn-default" style="background: #FF5733; color:aliceblue;" type="button" form="makePayment">Make Payment</button>
+                                                <form  id="makePayment" action="{{ route('payment.initialize')}}" method="POST">
+                                                    @csrf
+                                                    <input type="hidden" :value="ticket.price" name="price">
+
+                                                </form>
+
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                     <textarea name="" id="paymentTicket" cols="30" rows="10" style="display: none;">{{ route('payment.initialize')}}</textarea>
+                                    <textarea name="" id="callbackURL" cols="30" rows="10" style="display: none;">{{ route('payment.callback')}}</textarea>
                             </div>
 
                         </div>
@@ -126,6 +132,7 @@
 
 
     </div>
+
 
     <script src="{{ asset('libraries/axios.js') }}"></script>
     <script src="{{ asset('libraries/vue.js') }}"></script>
