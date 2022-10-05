@@ -31,13 +31,10 @@ if (window.Vue) {
                 this.isLoading = true;
                 const ticket = {
                    price: this.ticket.price,
+                   qty:this.ticket.qty,
                   _token: $('input[name=_token]').val()
                 }
-                axios.post(this.route.payment, ticket,{
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                }).then((response) => {
+                axios.post(this.route.payment, ticket).then((response) => {
                     this.$toastr.Add({
                         msg: response.data.message,
                         clickClose: false,

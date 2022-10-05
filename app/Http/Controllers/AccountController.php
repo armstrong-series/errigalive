@@ -17,8 +17,10 @@ class AccountController extends Controller
     }
 
     public function secureAccount(){
+        $orders = TicketModel::where('user_id', Auth::id())->get()->count();
         $data = [
             "page" => "account",
+            "orders" => $orders
             ];
         return view('App.account', $data);
 
@@ -39,12 +41,12 @@ class AccountController extends Controller
 
     }
 
-    public function paymentInvoice(Request $request)
+    public function paymentInvoice($orderId)
     {
         try {
-            $orderInvoice = TicketModel::where('id', $request->id)->first();
+            $orderInvoice = TicketModel::where('id', $orderId)->where('user_id', Auth::id())->first();
             if(!$orderInvoice){
-                $message = "Unknown Invoice!";
+                $message = "Unknown Order!";
                 return response()->json(["message" => $message], 400);
             }
             $data = ["orderInvoice" => $orderInvoice];

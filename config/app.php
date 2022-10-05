@@ -139,8 +139,10 @@ return [
         /*
          * Laravel Framework Service Providers...
          */
+
         Unicodeveloper\Paystack\PaystackServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
+        Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
         Illuminate\Auth\AuthServiceProvider::class,
         Illuminate\Broadcasting\BroadcastServiceProvider::class,
         Illuminate\Bus\BusServiceProvider::class,
@@ -193,7 +195,6 @@ return [
     */
 
     'aliases' => [
-
         'Paystack' => Unicodeveloper\Paystack\Facades\Paystack::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'App' => Illuminate\Support\Facades\App::class,
@@ -235,6 +236,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'Common' => App\Helpers\Common::class,
 
     ],
 

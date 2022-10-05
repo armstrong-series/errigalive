@@ -178,7 +178,7 @@
             </section>
             <!-- About meetup end -->
 
-            <textarea name="" id="events" style="display:none" cols="30" rows="10">{{ json_encode($events) }}</textarea>
+            <textarea name="" id="events" style="display:none" cols="30" rows="10">{{ json_encode($events)  }}</textarea>
 
 
             <!-- Slider Meetup start -->

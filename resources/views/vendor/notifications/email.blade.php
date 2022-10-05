@@ -422,8 +422,8 @@
                                                                 <p style="font-size: 14px; line-height: 200%;">&nbsp;
                                                                 </p>
                                                                 <p style="font-size: 14px; line-height: 200%;"><span
-                                                                        style="font-size: 16px; line-height: 32px;">You
-                                                                        registered an account on Eriggalive concert,
+                                                                        style="font-size: 16px; line-height: 32px;">Thank you
+                                                                        for registering an account with Eriggalive concert,
                                                                         before being able to use your account you need
                                                                         to verify that this is your email address by
                                                                         clicking on the button below</span></p>

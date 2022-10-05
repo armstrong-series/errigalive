@@ -24,37 +24,33 @@
               <div class="card shadow-2-strong" style="border-radius: 1rem;">
                 <div class="card-body p-5 text-center">
 
-                  <h3 class="mb-5">Sign in</h3>
-                <form action="{{ route('auth.login.account') }}" method="post">
-                  @include('Includes.messages')
+                  <h3 class="mb-5">Forgot Password</h3>
+                <form action="{{ route('password.update' )}}" method="post">
                     @csrf
+                    <input type="hidden" name="token" value="{{ $token }}">
                   <div class="form-outline mb-4">
-                    <input type="email" name="email" id="typeEmailX-2" class="form-control form-control-lg" />
+                    <input type="email" placeholder="Enter Account Email" name="email"  class="form-control form-control-lg"  value="{{ $email ?? old('email') }}"/>
                     <label class="form-label" for="typeEmailX-2">Email</label>
+                    <span class="text-danger">@error('email'){{ $message }}@enderror</span>
                   </div>
 
                   <div class="form-outline mb-4">
-                    <input type="password" name="password" id="typePasswordX-2" class="form-control form-control-lg" />
-                    <label class="form-label" for="typePasswordX-2">Password</label>
+                    <input type="password" placeholder="Enter new Password" name="email"  class="form-control form-control-lg" />
+                    <label class="form-label" for="typeEmailX-2">New  Password</label>
+                    <span class="text-danger">@error('password'){{ $message }}@enderror</span>
                   </div>
 
-                  <!-- Checkbox -->
-                  <div class="form-check d-flex justify-content-start mb-4">
-                    <input class="form-check-input" type="checkbox" value="" id="form1Example3" />
-                    <label class="form-check-label" for="form1Example3"> Remember password </label>
+                  <div class="form-outline mb-4">
+                    <input type="password" placeholder="Confirm Password" name="email"  class="form-control form-control-lg" />
+                    <label class="form-label" for="typeEmailX-2">Confirm Password</label>
+                    <span class="text-danger">@error('password_confrimation'){{ $message }}@enderror</span>
                   </div>
 
-                  <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
-                    <div class="d-flex justify-content-around align-items-center mb-4">
-                        <a href="{{ route('auth.signup') }}">Create an account ?</a>
-                    </div>
-                  <hr class="my-4">
-                      <a href="{{ route('auth.forgot-password') }}">Forgot password?</a>
-                  <hr class="my-4">
-                  <a href="{{ route('login.google.connect') }}" class="btn btn-lg btn-block btn-primary" style="background-color: #dd4b39;"
-                    ><i class="fab fa-google me-2"></i> Sign in with google</a>
-                  <a href="{{ route('login.facebook.connect')}}" class="btn btn-lg btn-block btn-primary mb-2" style="background-color: #3b5998;"
-                    ><i class="fab fa-facebook-f me-2"></i>Sign in with facebook</a>
+                  <button class="btn btn-primary btn-lg btn-block" type="submit">Reset Password</button>
+
+
+
+
                 </form>
                 </div>
               </div>

@@ -6,12 +6,12 @@
 
 	<div class="content-body">
 		<!-- row -->
-		<div class="container-fluid">
+		<div class="container-fluid" id="orders">
 			<div class="row">
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Event Transactions</h4>
+                            <h4 class="card-title">Ticket Order</h4>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -26,12 +26,12 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
+                                        <tr v-for="(ticketOrder, index) in orders">
 
                                             <td><span class="badge badge-info light">Lost Boy</span></td>
-                                            <td>5000 </td>
-                                            <td>January 22</td>
-                                            <td><span class="badge badge-success light">Completed</span>
+                                            <td v-cloak>₦@{{ ticketOrder.price }}</td>
+                                            <td>@{{ ticketOrder.created_date }}</td>
+                                            <td><a :href="`/ticket/invoice-order/${ticketOrder.id}`"><span class="badge badge-success light">Completed</span></a></td>
                                         </tr>
 
 
@@ -43,5 +43,10 @@
                 </div>
 			</div>
 		</div>
+
+        <textarea name="" id="ticketorders" cols="30" style="display: none;" rows="10">{{ json_encode($transactionOrders)}}</textarea>
 	</div>
+@endsection
+@section('script')
+ <script src="{{ asset('app/orders.js')}}" type="text/javascript"></script>
 @endsection

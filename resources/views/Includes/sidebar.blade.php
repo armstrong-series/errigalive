@@ -19,7 +19,7 @@
                     <li class="{{ $page == 'transactions' ? 'active' : '' }}">
                         <a class="" href="{{ route('ticket.order') }}" aria-expanded="false">
                             <i class="fas fa-credit-card"></i>
-							<span class="nav-text">Transactions</span>
+							<span class="nav-text">Order</span>
 						</a>
                     </li>
 

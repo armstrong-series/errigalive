@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\EventsModel;
 use App\Models\TicketModel;
 use App\Models\User;
-use App\Helpers\Common;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Validator;
@@ -28,14 +27,13 @@ class AdminController extends Controller
         $tickets = TicketModel::all()->count();
         $users = User::all()->count();
         $user = User::where('id', Auth::id())->get();
-        $welcome = Common::dailyHourlyWelcome();
+
         $data = [
             "page" => "dashboard",
             "events" => $events,
             "tickets" => $tickets,
             'users' => $users,
             'user' => $user,
-            'welcome' => $welcome
         ];
         return view('App.Admin.admin', $data);
 

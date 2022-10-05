@@ -65,6 +65,7 @@
                             <div class="tz-blogContainer">
                                 <div class="tz-blogItem">
                                     <div class="tz-blogContent">
+                                        @csrf
                                         <div class="tz-blogBox ">
                                             <div class="tz_blog_box_content">
                                                 <div class="">

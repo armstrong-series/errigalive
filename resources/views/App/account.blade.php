@@ -27,7 +27,7 @@
 								</span>
 								<div class="media-body text-right">
 									<p class="fs-18 text-white mb-2">Order</p>
-									<span class="fs-48 text-white font-w600">86</span>
+									<span class="fs-48 text-white font-w600">{{ $orders }}</span>
 								</div>
 							</div>
 						</div>
@@ -92,4 +92,7 @@
 			</div>
 		</div>
 	</div>
+@endsection
+@section('script')
+ <script src="{{ asset('app/orders.js')}}" defer type="text/javascript"></script>
 @endsection

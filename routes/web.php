@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
 Auth::routes(['verify' => true ]);
 
 Route::get('/login', [Controller\Auth\LoginController::class, 'loginView'])->name('login');
@@ -20,10 +22,11 @@ Route::post('/login', [Controller\Auth\LoginController::class, 'login'])->name('
 Route::get('/logout', [Controller\Auth\LoginController::class, 'logout'])->name('auth.logout');
 Route::get('/secure/account', [Controller\AccountController::class, 'secureAccount'])->name('account.secure');
 
+// Google
 Route::get('/login/google', [Controller\Auth\SocialAuth\GoogleAuthController::class, 'connectGoogle'])->name('login.google.connect');
 Route::get('/login/google/callback', [Controller\Auth\SocialAuth\GoogleAuthController::class, 'callbackURL'])->name('login.google.callback');
 
-// Facbook
+// Facebook
 Route::get('/login/facebook', [Controller\Auth\SocialAuth\FacebookAuthController::class, 'connectFacebook'])->name('login.facebook.connect');
 Route::get('/login/facebook/callback', [Controller\Auth\SocialAuth\FacebookAuthController::class, 'callbackURL'])->name('login.facebook.callback');
 
@@ -46,12 +49,13 @@ Route::get('/shop', [Controller\Shop\ShopController::class, 'items'])->name('eri
 Route::get('/settings/profile', [Controller\Settings\SettingsController::class, 'profileSettings'])->name('settings.profile');
 Route::get('/events/ticket/view/{eventId}', [Controller\HomeController::class, 'eventTicket'])->name('event.ticket');
 Route::get('/events/tickets', [Controller\HomeController::class, 'tickets'])->name('event.tickets');
-Route::get('/ticket/payment', [Controller\HomeController::class, 'ticket'])->name('ticket');
+Route::get('/ticket/payment', [Controller\Payments\PayementController::class, 'ticketPayment'])->name('ticket');
 Route::post('/payment/initialize', [Controller\Payments\PayementController::class, 'initializePaystackPayment'])->name('payment.initialize');
 Route::get('/payment/callback', [Controller\Payments\PayementController::class, 'paystackCallbackURL'])->name('payment.callback');
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'errigaLiveHome'])->name('home');
 Route::get('/ticket/order', [App\Http\Controllers\AccountController::class, 'ticketOrder'])->name('ticket.order');
+Route::get('/ticket/invoice-order/{orderId}', [App\Http\Controllers\AccountController::class, 'paymentInvoice'])->name('order.invoice');
 
 
 

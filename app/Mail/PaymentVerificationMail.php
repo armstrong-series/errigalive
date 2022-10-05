@@ -24,6 +24,8 @@ class PaymentVerificationMail extends Mailable
         $this->ticketModel = $ticket;
     }
 
+
+
     /**
      * Build the message.
      *
@@ -31,6 +33,7 @@ class PaymentVerificationMail extends Mailable
      */
     public function build()
     {
-        return $this->view('Email.payment');
+
+        return $this->view('Email.payment', ["user" =>$this->user, "ticket" =>$this->ticketModel]);
     }
 }
